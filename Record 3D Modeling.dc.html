@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+      <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+        <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat">WORK</a>
+        <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+        <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+      </nav>
+    </div>
+  </sc-if>
+
+  <main style="max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:80px">
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px clamp(32px,6vw,96px);align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-04 · EXPLORATIONS · RECORD 01</div>
+        <h1 style="margin:0;font-weight:400;font-size:clamp(40px,5.6vw,80px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">3D Modeling</h1>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:#e8b671">MODELS &amp; ANIMATION</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEARS</span><span style="color:rgba(233,230,225,.85)">2022 – 2023</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">TOOLS</span><span style="color:rgba(233,230,225,.85)">BLENDER · 3DCOAT</span></div>
+      </div>
+    </section>
+
+    <sc-for list="{{ pieces }}" as="p" hint-placeholder-count="4">
+      <section style="display:flex;flex-direction:column;gap:22px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">{{ p.n }}</div>
+          <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">{{ p.title }}</h2>
+        </div>
+        <div style="border-radius:8px;overflow:hidden;border:1px solid rgba(233,230,225,.14);background:#000;box-shadow:0 50px 100px -40px rgba(0,0,0,.8)">
+          {{ p.video }}
+        </div>
+      </section>
+    </sc-for>
+  </main>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:60px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+      <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+      <span>END OF RECORD</span>
+      <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download="" style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  list = [['disco-zombie', 'Disco Zombie', 'BLENDER · 2023'], ['train-box', 'Train Box', 'BLENDER · 2022'], ['young-hee', 'Young-hee (영희)', '3DCOAT · 2022'], ['cyberpunk', 'Cyberpunk Model', '3DCOAT · 2022']];
+  vids = this.list.map(([k, t]) => React.createElement('video', { key: k, 'data-auto': '', src: 'assets/3d/' + k + '.mp4', muted: true, loop: true, playsInline: true, preload: 'metadata', 'aria-label': t, style: { display: 'block', width: '100%', height: 'auto', maxHeight: '80vh', objectFit: 'contain', margin: '0 auto' } }));
+  componentDidMount() {
+    const root = this.rootRef.current; if (!root) return;
+    this.io = new IntersectionObserver(es => es.forEach(e => { const v = e.target; v.muted = true; if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }), { threshold: 0.25 });
+    root.querySelectorAll('video[data-auto]').forEach(v => this.io.observe(v));
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+  renderVals() {
+    const emb = !!this.props.embedded;
+    return {
+      rootRef: this.rootRef,
+      standalone: !emb, minH: emb ? '0' : '100vh',
+      rootBg: emb ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: emb ? '0' : '48px 22px 80px',
+      pieces: this.list.map(([k, title, meta], i) => ({ n: String(i + 1).padStart(2, '0') + ' · ' + meta, title, video: this.vids[i] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

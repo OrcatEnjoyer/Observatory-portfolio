@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</helmet>
+<div style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+    <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+      <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s">WORK</a>
+      <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+      <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+    </nav>
+  </div>
+  </sc-if>
+
+  <main ref="{{ topRef }}" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:64px">
+
+    <header style="display:flex;flex-direction:column;gap:28px">
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-01 · INTERFACES · RECORD 01</div>
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:780px">
+        <h1 style="margin:0;font-weight:400;font-size:clamp(42px,7vw,96px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">Orisma Technology</h1>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">UX/UI Design Internship</div>
+        <p style="margin:0;max-width:52ch;font-weight:400;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">Four client sites inside one internship, each with its own brand system to work within.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.85)">DESIGN INTERN</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">CLIENTS</span><span style="color:rgba(233,230,225,.85);line-height:1.5">SC ASSET · SILOM COMPLEX · LUCKPIM · SHERA</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">SCOPE</span><span style="color:rgba(233,230,225,.85)">WEB · APP</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">PERIOD</span><span style="color:rgba(233,230,225,.85)">2023</span></div>
+      </div>
+    </header>
+
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+      <img src="assets/orisma/team.webp" alt="The Orisma Technology team" loading="lazy" style="display:block;width:100%;height:auto;border-radius:6px;border:1px solid rgba(233,230,225,.12)">
+      <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">THE ORISMA TEAM</figcaption>
+    </figure>
+
+    <section style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">PROJECT INDEX</div>
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em;color:rgba(233,230,225,.35)">SELECT A PROJECT</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1)">
+        <sc-for list="{{ index }}" as="p" hint-placeholder-count="4">
+          <div onClick="{{ p.open }}" style="cursor:{{ p.cursor }};background:{{ p.bg }};padding:18px 18px 20px;display:flex;flex-direction:column;gap:12px;min-height:118px" style-hover="background:#15161b">
+            <div style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.2em">
+              <span style="color:{{ p.numColor }}">{{ p.n }}</span>
+              <span style="color:rgba(233,230,225,.4)">{{ p.type }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;margin-top:auto">
+              <span style="font-size:19px;letter-spacing:-.01em;color:{{ p.titleColor }}">{{ p.client }}</span>
+              <span style="font-size:13.5px;color:rgba(233,230,225,.5)">{{ p.label }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <sc-if value="{{ hasProject }}" hint-placeholder-val="{{ false }}">
+    <section style="display:flex;flex-direction:column;gap:56px;padding-top:8px;border-top:1px solid rgba(233,230,225,.1)">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-top:40px;max-width:780px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">PROJECT {{ pj.n }} · {{ pj.type }}</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(32px,4.4vw,58px);line-height:1;letter-spacing:-.03em;color:#f3efe9">{{ pj.client }}</h2>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">{{ pj.label }}</div>
+        <p style="margin:0;max-width:56ch;font-weight:400;font-size:clamp(16px,1.5vw,18px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">{{ pj.desc }}</p>
+      </div>
+      <sc-if value="{{ isLuckpim }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="Record Luckpim" embedded="{{ true }}" hint-size="100%,900px"></dc-import>
+      </sc-if>
+      <sc-if value="{{ isStd }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:56px">
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid rgba(233,230,225,.1)">
+          <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="2">
+            <div onClick="{{ pg.open }}" style="cursor:pointer;padding:14px 22px 15px 0;margin-right:26px;display:flex;flex-direction:column;gap:5px;border-bottom:1px solid {{ pg.line }};margin-bottom:-1px">
+              <span style="font-size:18px;color:{{ pg.color }}">{{ pg.name }}</span>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:rgba(233,230,225,.45)">{{ pg.credit }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.5)">FIG {{ figN }} · {{ frameCaption }}</span>
+          <sc-if value="{{ hasVariants }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;border:1px solid rgba(233,230,225,.2);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.14em">
+            <sc-for list="{{ variants }}" as="v" hint-placeholder-count="4">
+              <span onClick="{{ v.open }}" style="cursor:pointer;padding:11px 18px;background:{{ v.bg }};color:{{ v.fg }}">{{ v.label }}</span>
+            </sc-for>
+          </div>
+          </sc-if>
+          <sc-if value="{{ hasMobile }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;border:1px solid rgba(233,230,225,.2);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.14em">
+            <span onClick="{{ showDesktop }}" style="cursor:pointer;padding:11px 18px;background:{{ dBg }};color:{{ dFg }}">DESKTOP</span>
+            <span onClick="{{ showMobile }}" style="cursor:pointer;padding:11px 18px;background:{{ mBg }};color:{{ mFg }}">MOBILE</span>
+          </div>
+          </sc-if>
+        </div>
+        <div style="border:1px solid rgba(233,230,225,.1);border-radius:8px;background:#101116;padding:clamp(16px,3.4vw,44px);display:flex;justify-content:center">
+          <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;max-width:1124px;display:flex;gap:16px">
+            <div style="width:100%;max-width:1100px;flex:1;min-width:0;aspect-ratio:16/10;display:flex;flex-direction:column;border:1px solid rgba(233,230,225,.16);border-radius:10px;overflow:hidden;background:#17181d;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)">
+              <div style="flex:1;min-height:0;position:relative">
+                <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" style="position:absolute;inset:0;overflow-y:auto;background:#fff;scrollbar-width:none">
+                  {{ desktopImg }}
+                </div>
+              </div>
+            </div>
+            <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1);pointer-events:none"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;gap:16px">
+            <div style="width:min(393px,78vw);padding:10px;border:1px solid rgba(233,230,225,.28);border-radius:56px;background:#0c0d11;position:relative">
+              <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" style="aspect-ratio:393/852;border-radius:46px;overflow-y:auto;background:#fff;scrollbar-width:none">
+                {{ mobileImg }}
+              </div>
+            </div>
+            <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1);pointer-events:none"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4);margin-right:8px">BUILT WITH</span>
+        <sc-for list="{{ tags }}" as="t" hint-placeholder-count="4">
+          <span style="padding:7px 12px;border:1px solid rgba(233,230,225,.18);border-radius:999px;font-size:13px;color:rgba(233,230,225,.72)">{{ t }}</span>
+        </sc-for>
+      </div>
+      </div>
+      </sc-if>
+    </section>
+    </sc-if>
+  </main>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+    <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+    <span>END OF RECORD</span>
+    <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ hasZoom }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeZoom }}" style="position:fixed;inset:0;z-index:20;background:rgba(6,7,9,.92);backdrop-filter:blur(4px);display:flex;flex-direction:column;padding:16px 22px 22px;gap:12px;cursor:zoom-out">
+      <div style="display:flex;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.6)">
+        <span>{{ zoomName }}</span>
+        <span style="padding:5px 10px;border:1px solid rgba(233,230,225,.25)">CLOSE ✕</span>
+      </div>
+      <div style="flex:1;min-height:0;overflow:auto;display:flex;justify-content:center">{{ zoomImg }}</div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sel: 'sca', page: 0, variant: 0, view: 'desktop', zoom: null, p: 0 };
+  frameRef = React.createRef();
+  projects = [
+    { id: 'sca', client: 'SC Asset', type: 'WEB', label: 'Homepage & contact page', title: 'SC Asset',
+      desc: 'Homepage and contact page for SC Asset.',
+      pages: [
+        { name: 'Homepage', credit: 'TEAM PROJECT', desktop: 'assets/sca/desktop-full.webp', mobile: 'assets/sca/mobile-full.webp' },
+        { name: 'Contact page', credit: 'DESIGNED SOLO', desktop: 'assets/sca/contact-desktop.webp', mobile: 'assets/sca/contact-mobile.webp' }
+      ],
+      tags: ['Figma', 'Web Design', 'Responsive', 'Real Estate', 'Thai / English'],
+      els: [
+        { name: 'Project hero', src: 'assets/sca/hero.webp' },
+        { name: 'Registration form', src: 'assets/sca/register.webp' },
+        { name: 'Architectural concept', src: 'assets/sca/concept.webp' },
+        { name: 'Project information', src: 'assets/sca/info.webp' },
+        { name: 'Facilities', src: 'assets/sca/facilities.webp' },
+        { name: 'House types and plans', src: 'assets/sca/plans.webp' },
+        { name: 'Location and map', src: 'assets/sca/location.webp' },
+        { name: 'Gallery', src: 'assets/sca/gallery.webp' },
+        { name: 'Mortgage calculator', src: 'assets/sca/calculator.webp' }
+      ] },
+    { id: 'silom', client: 'Silom Complex', type: 'WEB', label: 'Homepage, What’s New & contact page', title: 'Silom Complex',
+      desc: 'Homepage, What’s New and contact page for Silom Complex.',
+      pages: [
+        { name: 'Homepage', credit: 'TEAM PROJECT', desktop: 'assets/silom/home.webp' },
+        { name: 'What’s New', credit: 'TEAM PROJECT', desktop: 'assets/silom/whatsnew.webp' },
+        { name: 'Contact page', credit: 'DESIGNED SOLO · 4 VERSIONS', variants: ['assets/silom/contact-1.webp', 'assets/silom/contact-2.webp', 'assets/silom/contact-3.webp', 'assets/silom/contact-4.webp'] }
+      ],
+      tags: ['Figma', 'Web Design', 'Retail', 'Thai / English'],
+      els: [] },
+    { id: 'luckpim', client: 'Luckpim', type: 'WEB', label: 'Website & interaction states', external: true,
+      desc: 'Website for Luckpim Publishing, designed with every interaction state.', els: [] },
+    { id: 'shera', client: 'SHERA', type: 'WEB', label: 'Homepage', title: 'SHERA',
+      desc: 'Homepage for SHERA.',
+      pages: [
+        { name: 'Homepage', credit: 'TEAM PROJECT', desktop: 'assets/shera/solar-desktop.webp', mobile: 'assets/shera/solar-mobile.webp' }
+      ],
+      tags: ['Figma', 'Web Design', 'Responsive', 'Solar', 'Thai / English'],
+      els: [] }
+  ];
+  pick(id) { this.setState({ sel: id, page: 0, variant: 0, view: 'desktop', p: 0 }); if (this.frameRef.current) this.frameRef.current.scrollTop = 0; }
+  setVariant(i) { this.setState({ variant: i, p: 0 }); if (this.frameRef.current) this.frameRef.current.scrollTop = 0; }
+  setPage(i) { this.setState({ page: i, variant: 0, view: 'desktop', p: 0 }); if (this.frameRef.current) this.frameRef.current.scrollTop = 0; }
+  setView(v) { this.setState({ view: v, p: 0 }); if (this.frameRef.current) this.frameRef.current.scrollTop = 0; }
+  renderVals() {
+    const pj = this.projects.find(p => p.id === this.state.sel && p.els) || null;
+    const pg = pj && pj.pages ? pj.pages[this.state.page] : null;
+    const desk = this.state.view === 'desktop', on = '#e8b671', dim = 'rgba(233,230,225,.6)';
+    const z = this.state.zoom;
+    return {
+      minH: this.props.embedded ? '0' : '100vh', rootBg: this.props.embedded ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: this.props.embedded ? '0' : '48px 22px 60px',
+      standalone: !this.props.embedded,
+      frameRef: this.frameRef,
+      index: this.projects.map((p, i) => {
+        const ready = !!p.els, active = ready && p.id === this.state.sel;
+        return { ...p, n: String(i + 1).padStart(2, '0'),
+          bg: active ? '#17181d' : '#0c0d11', cursor: ready ? 'pointer' : 'default',
+          numColor: active ? '#e8b671' : 'rgba(233,230,225,.4)',
+          titleColor: ready ? '#f3efe9' : 'rgba(233,230,225,.4)',
+          open: ready ? () => this.pick(p.id) : undefined };
+      }),
+      hasProject: !!pj,
+      isLuckpim: !!(pj && pj.external), isStd: !!(pj && !pj.external),
+      pj: pj ? { ...pj, n: String(this.projects.indexOf(pj) + 1).padStart(2, '0') } : {},
+      isDesktop: desk || !pg || !pg.mobile, isMobile: !desk && !!(pg && pg.mobile),
+      hasMobile: !!(pg && pg.mobile),
+      hasVariants: !!(pg && pg.variants),
+      variants: pg && pg.variants ? pg.variants.map((_, i) => { const a = i === this.state.variant; return { label: 'V' + (i + 1), bg: a ? on : 'transparent', fg: a ? '#0b0c0f' : dim, open: () => this.setVariant(i) }; }) : [],
+      pages: pg ? pj.pages.map((g, i) => { const a = i === this.state.page; return { ...g, color: a ? '#f3efe9' : 'rgba(233,230,225,.5)', line: a ? '#e8b671' : 'transparent', open: () => this.setPage(i) }; }) : [],
+      figN: String(this.state.page + 1).padStart(2, '0'),
+      pageTitle: pj ? pj.title : '',
+      progH: Math.round(this.state.p * 100) + '%',
+      onFrameScroll: (ev) => { const t = ev.currentTarget, m = t.scrollHeight - t.clientHeight; this.setState({ p: m > 0 ? t.scrollTop / m : 0 }); },
+      desktopImg: pg ? React.createElement('img', { key: 'd' + this.state.page + '-' + this.state.variant, src: pg.variants ? pg.variants[this.state.variant] : pg.desktop, alt: pj.client + ' desktop page', style: { display: 'block', width: '100%', height: 'auto' } }) : null,
+      mobileImg: pg && pg.mobile ? React.createElement('img', { key: 'm' + this.state.page, src: pg.mobile, alt: pj.client + ' mobile page', style: { display: 'block', width: '100%', height: 'auto' } }) : null,
+      stageBg: desk ? '#fff' : '#101116',
+      frameCaption: pg && pg.variants ? 'DESKTOP · VERSION ' + (this.state.variant + 1) + ' OF ' + pg.variants.length : (desk || !(pg && pg.mobile)) ? 'DESKTOP · FULL PAGE' : 'MOBILE · IPHONE 17 · 393 × 852',
+      dBg: desk ? on : 'transparent', dFg: desk ? '#0b0c0f' : dim,
+      mBg: desk ? 'transparent' : on, mFg: desk ? dim : '#0b0c0f',
+      showDesktop: () => this.setView('desktop'), showMobile: () => this.setView('mobile'),
+      elements: pj ? pj.els.map(e => ({ ...e, open: () => this.setState({ zoom: e }) })) : [],
+      tags: pj && pj.tags ? pj.tags : [],
+      hasZoom: !!z, zoomName: z ? z.name : '',
+      zoomImg: z ? React.createElement('img', { src: z.src, alt: z.name, style: { display: 'block', width: '100%', maxWidth: 1400, height: 'auto', alignSelf: 'flex-start' } }) : null,
+      closeZoom: () => this.setState({ zoom: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

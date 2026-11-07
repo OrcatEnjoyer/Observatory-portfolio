@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-drift-a{0%,100%{transform:translate3d(0,0,0) scale(1)}33%{transform:translate3d(-26%,14%,0) scale(1.3)}66%{transform:translate3d(-12%,32%,0) scale(.86)}}
+@keyframes obs-drift-c{0%,100%{transform:translate3d(0,0,0) scale(.92)}45%{transform:translate3d(-34%,-24%,0) scale(1.28)}75%{transform:translate3d(-16%,18%,0) scale(1)}}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</helmet>
+<div style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;top:-24%;right:-16%;width:min(880px,88vw);aspect-ratio:1;mix-blend-mode:plus-lighter;animation:obs-drift-a 49s ease-in-out infinite;background:radial-gradient(circle,rgba(255,176,88,.03) 0%,rgba(255,158,64,.012) 46%,rgba(255,158,64,0) 78%)"></div>
+    <div style="position:absolute;top:30%;left:-20%;width:min(1040px,96vw);aspect-ratio:1;mix-blend-mode:plus-lighter;animation:obs-drift-c 71s ease-in-out infinite;background:radial-gradient(circle,rgba(128,132,236,.035) 0%,rgba(104,108,214,.013) 50%,rgba(104,108,214,0) 78%)"></div>
+    <div style="position:absolute;inset:0;opacity:.45;background-image:radial-gradient(1px 1px at 6% 14%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 22% 31%,rgba(255,255,255,.45),transparent),radial-gradient(1px 1px at 43% 47%,rgba(255,255,255,.34),transparent),radial-gradient(1.1px 1.1px at 58% 24%,rgba(255,226,190,.45),transparent),radial-gradient(1px 1px at 73% 12%,rgba(255,255,255,.42),transparent),radial-gradient(1px 1px at 88% 82%,rgba(200,220,255,.45),transparent),radial-gradient(1px 1px at 94% 28%,rgba(255,255,255,.42),transparent),radial-gradient(1px 1px at 14% 72%,rgba(255,255,255,.34),transparent)"></div>
+  </div>
+
+
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+    <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+      <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s">WORK</a>
+      <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+      <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+    </nav>
+  </div>
+
+  </sc-if>
+  <main style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:72px">
+
+    <header style="display:flex;flex-direction:column;gap:28px">
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-01 · INTERFACES · RECORD 02</div>
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:780px">
+        <h1 style="margin:0;font-weight:400;font-size:clamp(42px,7vw,96px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">SB Chemical</h1>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">Web-Redesign &amp; Project Pitching</div>
+        <p style="margin:0;max-width:52ch;font-weight:400;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">Homepage redesign and pitching presentation for a B2B corporate dishwasher supplier.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">DURATION</span><span style="color:rgba(233,230,225,.85)">1 MONTH</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">SCOPE</span><span style="color:rgba(233,230,225,.85);line-height:1.5">WEBSITE REDESIGN · PROTOTYPING · DESIGN PITCH</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85)">2025</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671">CONCEPT · FIGMA PROTOTYPE</span></div>
+      </div>
+    </header>
+
+    <section style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.5)">FIG 01 · {{ frameCaption }}</span>
+          <div style="display:flex;border:1px solid rgba(233,230,225,.2);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.14em">
+            <span onClick="{{ showBefore }}" style="cursor:pointer;padding:11px 18px;background:{{ beforeBg }};color:{{ beforeFg }}">BEFORE</span>
+            <span onClick="{{ showAfter }}" style="cursor:pointer;padding:11px 18px;background:{{ afterBg }};color:{{ afterFg }}">AFTER</span>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(233,230,225,.1);border-radius:8px;background:#101116;padding:clamp(16px,3.4vw,44px);display:flex;justify-content:center">
+            <div style="width:100%;max-width:1124px;display:flex;gap:16px">
+            <div style="width:100%;max-width:1100px;flex:1;min-width:0;aspect-ratio:16/10;display:flex;flex-direction:column;border:1px solid rgba(233,230,225,.16);border-radius:10px;overflow:hidden;background:#17181d;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)">
+              <div style="flex:1;min-height:0;position:relative">
+                <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" style="position:absolute;inset:0;overflow-y:auto;background:#fff;scrollbar-width:none">
+                  <sc-if value="{{ isAfter }}" hint-placeholder-val="{{ true }}"><img src="assets/sb/new-full.webp" alt="Redesigned SB Chemical homepage" style="display:block;width:100%;height:auto"></sc-if>
+                  <sc-if value="{{ isBefore }}" hint-placeholder-val="{{ false }}"><img src="assets/sb/old-full.webp" alt="Original SB Chemical homepage" style="display:block;width:100%;height:auto"></sc-if>
+                </div>
+              </div>
+            </div>
+            <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1);pointer-events:none"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column">
+      <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:28px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">CASE STUDY</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">SB Chemical Website Redesign</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px 48px;padding:34px 0;border-top:1px solid rgba(233,230,225,.1)">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:#e8b671;padding-top:6px">01 · PROBLEM</div>
+        <div style="grid-column:span 3;min-width:min(100%,320px);display:flex;flex-direction:column;gap:26px">
+          <p style="margin:0;max-width:60ch;font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:rgba(233,230,225,.78);text-wrap:pretty">The original SB Chemical website was cluttered, difficult to navigate, and lacked the professional tone expected in a B2B platform. An audit revealed issues with weak hierarchy, inconsistent product displays, and poor user flow.</p>
+          <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(233,230,225,.08);max-width:720px">
+            <li style="display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid rgba(233,230,225,.08);align-items:baseline"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em;color:rgba(233,230,225,.4)">01</span><span style="font-size:16px;line-height:1.45;color:rgba(233,230,225,.82)">Website looks outdated and doesn’t match the brand image.</span></li>
+            <li style="display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid rgba(233,230,225,.08);align-items:baseline"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em;color:rgba(233,230,225,.4)">02</span><span style="font-size:16px;line-height:1.45;color:rgba(233,230,225,.82)">Sections of the site lack continuity, which confuses users.</span></li>
+            <li style="display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid rgba(233,230,225,.08);align-items:baseline"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em;color:rgba(233,230,225,.4)">03</span><span style="font-size:16px;line-height:1.45;color:rgba(233,230,225,.82)">Not supported across devices, especially mobile.</span></li>
+            <li style="display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid rgba(233,230,225,.08);align-items:baseline"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em;color:rgba(233,230,225,.4)">04</span><span style="font-size:16px;line-height:1.45;color:rgba(233,230,225,.82)">Cluttered, unsystematic content layout.</span></li>
+            <li style="display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid rgba(233,230,225,.08);align-items:baseline"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em;color:rgba(233,230,225,.4)">05</span><span style="font-size:16px;line-height:1.45;color:rgba(233,230,225,.82)">No clear or compelling CTA, such as “Enquire” or “Order now” buttons.</span></li>
+            <li style="display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid rgba(233,230,225,.08);align-items:baseline"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em;color:rgba(233,230,225,.4)">06</span><span style="font-size:16px;line-height:1.45;color:rgba(233,230,225,.82)">Some pages or sections are unnecessary and confuse users.</span></li>
+          </ol>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px 48px;padding:34px 0;border-top:1px solid rgba(233,230,225,.1)">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:#e8b671;padding-top:6px">02 · APPROACH</div>
+        <div style="grid-column:span 3;min-width:min(100%,320px);display:flex;flex-direction:column;gap:26px">
+          <p style="margin:0;max-width:60ch;font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:rgba(233,230,225,.78);text-wrap:pretty">I created wireframes for a new homepage that emphasized a product-first layout, clear navigation, and a partner showcase. The design process focused on improving structure while keeping the experience simple and accessible.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px 48px;padding:34px 0;border-top:1px solid rgba(233,230,225,.1)">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:#e8b671;padding-top:6px">03 · OUTCOME</div>
+        <div style="grid-column:span 3;min-width:min(100%,320px);display:flex;flex-direction:column;gap:26px">
+          <p style="margin:0;max-width:60ch;font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:rgba(233,230,225,.78);text-wrap:pretty">The finalized prototype delivered a modern, responsive interface with multi-language support and smooth performance. Presented directly to the CEO, the redesign aligned the company’s digital presence with its corporate identity and customer needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4);margin-right:8px">BUILT WITH</span>
+      <sc-for list="{{ tags }}" as="t" hint-placeholder-count="5">
+        <span style="padding:7px 12px;border:1px solid rgba(233,230,225,.18);border-radius:999px;font-size:13px;color:rgba(233,230,225,.72)">{{ t }}</span>
+      </sc-for>
+    </section>
+  </main>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+    <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+    <span>END OF RECORD</span>
+    <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+  </div>
+
+  </sc-if>
+
+  <sc-if value="{{ hasZoom }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeZoom }}" style="position:fixed;inset:0;z-index:20;background:rgba(6,7,9,.92);backdrop-filter:blur(4px);display:flex;flex-direction:column;padding:16px 22px 22px;gap:12px;cursor:zoom-out">
+      <div style="display:flex;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.6)">
+        <span>{{ zoomTag }} · {{ zoomName }}</span>
+        <span style="padding:5px 10px;border:1px solid rgba(233,230,225,.25)">CLOSE ✕</span>
+      </div>
+      <div style="flex:1;min-height:0;overflow:auto;display:flex;justify-content:center">
+        {{ zoomImg }}
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { view: 'after', zoom: null, p: 0 };
+  frameRef = React.createRef();
+  els = [
+    { tag: 'AFTER', name: 'Homepage hero', src: 'assets/sb/new-hero.webp' },
+    { tag: 'AFTER', name: 'Product tabs and cards', src: 'assets/sb/new-products.webp' },
+    { tag: 'AFTER', name: 'Distributor and services', src: 'assets/sb/new-distributor.webp' },
+    { tag: 'AFTER', name: 'Past clients', src: 'assets/sb/new-clients.webp' },
+    { tag: 'AFTER', name: 'Enquiry form', src: 'assets/sb/new-contact.webp' },
+    { tag: 'AFTER', name: 'Footer and contact', src: 'assets/sb/new-footer.webp' }
+  ];
+  setView(v) { this.setState({ view: v, p: 0 }); if (this.frameRef.current) this.frameRef.current.scrollTop = 0; }
+  renderVals() {
+    const after = this.state.view === 'after';
+    const on = '#e8b671', off = 'transparent';
+    const z = this.state.zoom;
+    return {
+      minH: this.props.embedded ? '0' : '100vh', rootBg: this.props.embedded ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: this.props.embedded ? '0' : '48px 22px 60px',
+      standalone: !this.props.embedded,
+      frameRef: this.frameRef,
+      progH: Math.round(this.state.p * 100) + '%',
+      onFrameScroll: (ev) => { const t = ev.currentTarget, m = t.scrollHeight - t.clientHeight; this.setState({ p: m > 0 ? t.scrollTop / m : 0 }); },
+      isAfter: after, isBefore: !after,
+      frameCaption: after ? 'REDESIGNED HOMEPAGE · FULL PAGE' : 'ORIGINAL HOMEPAGE · FULL PAGE',
+      beforeBg: after ? off : on, beforeFg: after ? 'rgba(233,230,225,.6)' : '#0b0c0f',
+      afterBg: after ? on : off, afterFg: after ? '#0b0c0f' : 'rgba(233,230,225,.6)',
+      showBefore: () => this.setView('before'),
+      showAfter: () => this.setView('after'),
+      elements: this.els.map(e => ({ ...e, tagColor: e.tag === 'AFTER' ? '#e8b671' : 'rgba(233,230,225,.4)', open: () => this.setState({ zoom: e }) })),
+      tags: ['Figma', 'Website Redesign', 'Prototyping', 'Design Pitch', 'B2B', 'Thai / English'],
+      hasZoom: !!z, zoomImg: z ? React.createElement('img', { src: z.src, alt: z.name, style: { display: 'block', width: '100%', maxWidth: 1400, height: 'auto', alignSelf: 'flex-start' } }) : null, zoomName: z ? z.name : '', zoomTag: z ? z.tag : '',
+      closeZoom: () => this.setState({ zoom: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

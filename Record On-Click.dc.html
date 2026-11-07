@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes hot-pulse{0%,100%{box-shadow:inset 0 0 0 1.5px rgba(232,182,113,.3),0 0 0 0 rgba(232,182,113,0)}50%{box-shadow:inset 0 0 0 2px rgba(232,182,113,.95),0 0 16px 2px rgba(232,182,113,.5)}}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</helmet>
+<div style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+      <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+        <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat">WORK</a>
+        <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+        <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+      </nav>
+    </div>
+  </sc-if>
+
+  <main style="max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:80px">
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px clamp(32px,6vw,96px);align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-01 · INTERFACES · RECORD 03</div>
+        <h1 style="margin:0;font-weight:400;font-size:clamp(40px,5.6vw,80px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">ON-CLICK</h1>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:#e8b671">APP DESIGN</div>
+        <p style="margin:6px 0 0;max-width:40ch;font-weight:400;font-size:clamp(15px,1.4vw,18px);line-height:1.55;color:rgba(233,230,225,.78);text-wrap:pretty">An app for booking a nearby photographer by expertise level, from Amateur to Cinematographer.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:18px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">MY ROLE</span><span style="color:rgba(233,230,225,.85)">UI / UX DESIGN · SOLO</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85)">2023</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">TOOL</span><span style="color:rgba(233,230,225,.85)">FIGMA</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671">CONCEPT</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px clamp(32px,6vw,96px);align-items:center;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:46ch">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">01 · HOW IT WORKS</div>
+          <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9;text-wrap:balance">Try the prototype</h2>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+            <div style="position:relative;display:grid;grid-template-columns:40px 1fr;gap:10px;padding:16px 0;border-top:1px solid rgba(233,230,225,.1);opacity:{{ st.op }};transition:opacity .4s">
+              <span style="position:absolute;left:0;top:-1px;height:1px;width:{{ st.bar }};background:#e8b671;transition:width .5s cubic-bezier(.3,.7,.2,1)"></span>
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:#e8b671;padding-top:4px">{{ st.n }}</span>
+              <p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty"><span style="color:#f3efe9;font-weight:500">{{ st.w }}</span> {{ st.t }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div ref="{{ stageRef }}" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;padding:clamp(24px,4vw,48px) clamp(16px,3vw,40px) clamp(20px,3vw,32px);border:1px solid rgba(233,230,225,.1);border-radius:10px;background:radial-gradient(60% 45% at 50% 88%,rgba(232,182,113,.16) 0%,rgba(232,182,113,0) 70%),#101116">
+        <div style="position:relative;width:min({{ phoneMax }},360px,calc(80vh * 786 / 1704))">
+        <div style="position:relative;width:100%;aspect-ratio:786/1704;border-radius:44px;overflow:hidden;border:1px solid rgba(233,230,225,.14);box-shadow:0 50px 100px -40px rgba(0,0,0,.8);background:#262626">
+          <div ref="{{ scrollRef }}" onScroll="{{ onScroll }}" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none">
+            <div style="position:relative">
+              <img src="{{ screenSrc }}" alt="{{ screenAlt }}" style="display:block;width:100%;height:auto">
+              <sc-for list="{{ innerLayers }}" as="o" hint-placeholder-count="0">
+                <img src="{{ o.src }}" alt="" style="position:absolute;left:{{ o.l }};top:{{ o.t }};width:{{ o.w }};pointer-events:none">
+              </sc-for>
+              <sc-for list="{{ hots }}" as="h" hint-placeholder-count="0">
+                <div onClick="{{ h.go }}" style="position:absolute;left:{{ h.l }};top:{{ h.t }};width:{{ h.w }};height:{{ h.h }};cursor:pointer;border-radius:{{ h.r }};animation:{{ h.glow }}" style-hover="background:rgba(232,182,113,.12)"></div>
+              </sc-for>
+            </div>
+          </div>
+          <sc-if value="{{ dim }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ closePop }}" style="position:absolute;inset:0;background:rgba(0,0,0,.5)"></div>
+          </sc-if>
+          <sc-for list="{{ layers }}" as="v" hint-placeholder-count="0">
+            <div style="position:absolute;left:{{ v.l }};top:{{ v.t }};bottom:{{ v.b }};width:{{ v.w }};transform:{{ v.tr }}">
+              <img src="{{ v.src }}" alt="" style="display:block;width:100%;height:auto">
+              <sc-for list="{{ v.kids }}" as="k" hint-placeholder-count="0">
+                <img src="{{ k.src }}" alt="" style="position:absolute;left:{{ k.l }};top:{{ k.t }};width:{{ k.w }};pointer-events:none">
+              </sc-for>
+              <sc-for list="{{ v.hots }}" as="h" hint-placeholder-count="0">
+                <div onClick="{{ h.go }}" style="position:absolute;left:{{ h.l }};top:{{ h.t }};width:{{ h.w }};height:{{ h.h }};cursor:pointer;border-radius:{{ h.r }};animation:{{ h.glow }}" style-hover="background:rgba(232,182,113,.12)"></div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+        {{ callouts }}
+        </div>
+        <div style="width:min(100%,360px);display:flex;flex-direction:column;gap:14px">
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px">
+            <sc-for list="{{ stages }}" as="sg" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <span style="height:2px;border-radius:1px;background:{{ sg.bg }};transition:background .4s"></span>
+                <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.16em;color:{{ sg.fg }};transition:color .4s">{{ sg.name }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em">
+            <span style="color:#e9e6e1">{{ hint }}</span>
+            <span onClick="{{ restart }}" style="cursor:pointer;color:rgba(233,230,225,.5)" style-hover="color:#e8b671">RESTART ↺</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:34px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">02 · SCREENS</div>
+          <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Every screen in the flow</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.45)">SELECT TO ENLARGE</span>
+          <div onClick="{{ railPrev }}" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">←</div>
+          <div onClick="{{ railNext }}" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">→</div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div ref="{{ railRef }}" style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:rgba(233,230,225,.2) transparent">
+          <sc-for list="{{ screens }}" as="it" hint-placeholder-count="6">
+            <figure onClick="{{ it.open }}" style="margin:0;flex:0 0 clamp(160px,18vw,220px);scroll-snap-align:start;cursor:zoom-in;display:flex;flex-direction:column;gap:12px">
+              <div style="aspect-ratio:786/1704;border-radius:24px;overflow:hidden;border:1px solid rgba(233,230,225,.12);background:#262626;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)">
+                <img src="{{ it.src }}" alt="{{ it.name }}" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top">
+              </div>
+              <figcaption style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.16em;color:#e8b671">{{ it.n }} · {{ it.group }}</span>
+                <span style="font-weight:500;font-size:15px;color:rgba(233,230,225,.88)">{{ it.name }}</span>
+              </figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <sc-if value="{{ hasZoom }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeZoom }}" style="position:fixed;inset:0;z-index:30;background:rgba(6,7,9,.92);display:flex;flex-direction:column;padding:16px 22px 22px;gap:12px;cursor:zoom-out">
+      <div style="display:flex;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.6)">
+        <span>{{ zoomName }}</span>
+        <span style="padding:6px 12px;border:1px solid rgba(233,230,225,.25)">CLOSE ✕</span>
+      </div>
+      <div style="flex:1;min-height:0;overflow:auto;display:flex;justify-content:center">
+        {{ zoomImg }}
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:60px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+      <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+      <span>END OF RECORD</span>
+      <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download="" style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  groups0 = [
+    ['Start', [['splash', 'Splash'], ['login', 'Sign in']]],
+    ['Choose', [['select', 'Expertise level'], ['map', 'Map'], ['map-thomas', 'Pin selected'], ['profile', 'Photographer profile']]],
+    ['Book', [['summary', 'Summary'], ['ontheway', 'On the way'], ['session', 'In session']]],
+    ['Pay', [['payment', 'Payment'], ['paid', 'Payment complete']]],
+    ['More', [['chat', 'Conversation'], ['settings', 'Settings']]]
+  ];
+  init = { scr: 'splash', card: null, pin: null, sheet: null, pop: null, remember: false, stars: false, time: false, prev: 'select' };
+  state = { ...this.init, zoom: null, sy: 0 };
+  scrollRef = React.createRef();
+  railRef = React.createRef();
+  stageRef = React.createRef();
+  componentDidMount() { const el = this.stageRef.current; if (!el) return; this.ro = new ResizeObserver(([en]) => { const w = en.contentRect.width; const narrow = w < 400; if (narrow !== this.state.narrow || w !== this.state.stageW) this.setState({ narrow, stageW: w }); }); this.ro.observe(el); if (this.scrollRef.current) { this.ro2 = new ResizeObserver(([en]) => { const pw = Math.round(en.contentRect.width); if (pw !== this.state.pw) this.setState({ pw }); }); this.ro2.observe(this.scrollRef.current); } }
+  rail(d) { const r = this.railRef.current; if (r) r.scrollBy({ left: d * r.clientWidth * 0.8, behavior: 'smooth' }); }
+  H = { splash: 1704, login: 1704, select: 2446, map: 1704, profile: 1932, chat: 1704, summary: 1940, ontheway: 1704, session: 1704, payment: 1704, paid: 1704, settings: 1720 };
+  check = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 46"><rect x="1" y="1" width="54" height="44" rx="10" fill="#FFB800"/><path d="M17 23l8 8 14-15" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  componentDidUpdate(_, ps) {
+    if (ps.scr !== this.state.scr && this.scrollRef.current) { this.scrollRef.current.scrollTop = 0; if (this.state.sy) this.setState({ sy: 0 }); }
+    if (ps.scr !== 'ontheway' && this.state.scr === 'ontheway') { clearTimeout(this.t); this.t = setTimeout(() => { if (this.state.scr === 'ontheway' && !this.state.pop) this.setState({ scr: 'session' }); }, 4500); }
+  }
+  componentWillUnmount() { clearTimeout(this.t); if (this.ro) this.ro.disconnect(); if (this.ro2) this.ro2.disconnect(); }
+  go(a) {
+    const s = this.state;
+    const set = o => this.setState(o);
+    if (a.startsWith('card:')) return set({ card: a.slice(5) });
+    if (a.startsWith('pin:')) { const p = a.slice(4); return s.pin === p ? set({ sheet: p }) : set({ pin: p, sheet: null }); }
+    switch (a) {
+      case 'login': case 'select': case 'chat': case 'summary': return set({ scr: a, prev: s.scr, sheet: null, pop: null, time: false });
+      case 'next': return s.card && set({ scr: 'map' });
+      case 'toSummary': return s.pin && set({ scr: 'summary', sheet: null });
+      case 'profile': return set({ scr: 'profile' });
+      case 'mapback': return set({ scr: 'map', sheet: 'thomas' });
+      case 'map': return set({ scr: 'map', pin: null, sheet: null, pop: null });
+      case 'ontheway': return set({ scr: 'ontheway' });
+      case 'session': return set({ scr: 'session' });
+      case 'remember': return set({ remember: !s.remember });
+      case 'time': return set({ time: true });
+      case 'settings': return set({ prev: s.scr, scr: 'settings', time: false });
+      case 'back': return set({ scr: s.prev });
+      case 'popCancel': return set({ pop: 'cancel' });
+      case 'popDone': return set({ pop: 'done' });
+      case 'rating': return set({ pop: null, sheet: 'rating', stars: false });
+      case 'stars': return set({ stars: true });
+      case 'payment': return s.stars && set({ scr: 'payment', sheet: null });
+      case 'popQr': return set({ pop: 'qr' });
+      case 'paid': return set({ scr: 'paid', pop: null });
+      case 'close': return set({ pop: null, time: false });
+      case 'restart': return set({ ...this.init, zoom: null });
+    }
+  }
+  h(x, y, w, hh, W, HH, a, r = 8) { const big = (w * hh) / (W * HH) > .4; const k = (this.state.pw || 360) / 786; return { l: x / W * 100 + '%', t: y / HH * 100 + '%', w: w / W * 100 + '%', h: hh / HH * 100 + '%', r: r === 'c' ? '50%' : Math.round(r * k) + 'px', glow: big ? 'none' : 'hot-pulse 1.8s ease-in-out infinite', go: () => this.go(a) }; }
+  renderVals() {
+    const s = this.state, emb = !!this.props.embedded, W = 786;
+    const img = s.scr === 'map' ? (s.pin ? 'map-' + s.pin : 'map') : s.scr;
+    const HH = this.H[s.scr];
+    const hs = (list) => list.map(([x, y, w, hh, a, r]) => this.h(x, y, w, hh, W, HH, a, r));
+    const C = 'c';
+    const bar = [[674, 248, 70, 50, 'settings', 6], [460, 244, 164, 62, 'time', 999]];
+    const HOT = {
+      splash: [[0, 0, 786, 1704, 'login', 0]],
+      login: [[258, 1404, 272, 68, 'select', 6]],
+      select: [[50, 1192, 688, 376, 'card:amateur', 22], [50, 1606, 688, 376, 'card:pro', 22], [50, 2024, 688, 376, 'card:cine', 22], [670, 128, 76, 76, 'next', C], ...bar],
+      map: [[42, 128, 76, 76, 'select', C], [670, 128, 76, 76, 'toSummary', C], [562, 570, 172, 172, 'pin:thomas', C], [437, 1192, 172, 172, 'pin:matthew', C], ...bar],
+      profile: [[330, 26, 126, 44, 'mapback', 999], [52, 1036, 564, 68, 'chat', 6]],
+      chat: [[40, 128, 76, 76, 'back', C], [680, 150, 70, 45, 'settings', 6]],
+      summary: [[42, 128, 76, 76, 'map', C], [40, 1092, 56, 46, 'remember', 10], [40, 1818, 706, 80, 'ontheway', 4], ...bar],
+      ontheway: [[42, 134, 162, 62, 'popCancel', 6], [52, 1438, 564, 68, 'chat', 6], [0, 344, 786, 1056, 'session', 0], ...bar],
+      session: [[40, 138, 162, 62, 'popDone', 6], [52, 1438, 564, 68, 'chat', 6], [680, 150, 70, 45, 'settings', 6]],
+      payment: [[0, 388, 786, 140, 'popQr', 0]],
+      paid: [[40, 128, 76, 76, 'restart', C]],
+      settings: [[40, 128, 76, 76, 'back', C]]
+    };
+    const inner = [];
+    if (s.scr === 'select' && s.card) { const y = { amateur: 1192, pro: 1606, cine: 2024 }[s.card]; inner.push({ src: 'assets/onclick/card-' + s.card + '.webp', l: 50 / W * 100 + '%', t: y / HH * 100 + '%', w: 688 / W * 100 + '%' }); }
+    if (s.scr === 'summary' && s.remember) inner.push({ src: this.check, l: 40 / W * 100 + '%', t: 1092 / HH * 100 + '%', w: 56 / W * 100 + '%' });
+    const VH = 1704, layers = [];
+    const center = (src, iw, ih, hots) => ({ src, l: '50%', t: '50%', b: 'auto', w: iw / W * 100 + '%', tr: 'translate(-50%,-50%)', kids: [], hots: hots.map(([x, y, w, hh, a]) => this.h(x, y, w, hh, iw, ih, a)) });
+    const sheet = (src, iw, ih, hots, kids = []) => ({ src, l: '50%', t: 'auto', b: '0', w: iw / W * 100 + '%', tr: 'translateX(-50%)', kids, hots: hots.map(([x, y, w, hh, a]) => this.h(x, y, w, hh, iw, ih, a)) });
+    if (s.scr === 'map' && s.sheet) layers.push(sheet('assets/onclick/sheet-' + s.sheet + '.webp', 800, 644, s.sheet === 'thomas' ? [[0, 0, 800, 644, 'profile']] : []));
+    if (s.scr === 'session' && s.sheet === 'rating') layers.push(sheet('assets/onclick/rating.webp', 786, 934, [[80, 630, 630, 100, 'stars'], [40, 795, 706, 85, 'payment']], s.stars ? [{ src: 'assets/onclick/rating-filled.webp', l: 40 / 786 * 100 + '%', t: 640 / 934 * 100 + '%', w: 706 / 786 * 100 + '%' }] : []));
+    if (s.pop === 'cancel') layers.push(center('assets/onclick/pop-cancel.webp', 798, 302, [[495, 135, 110, 80, 'close'], [620, 135, 120, 80, 'map']]));
+    if (s.pop === 'done') layers.push(center('assets/onclick/pop-done.webp', 718, 222, [[455, 110, 110, 90, 'close'], [575, 110, 120, 90, 'rating']]));
+    if (s.pop === 'qr') layers.push(center('assets/onclick/f38.webp', 678, 1062, [[0, 0, 678, 1062, 'paid']]));
+    if (s.time) layers.push({ src: 'assets/onclick/time-picker.webp', l: 460 / W * 100 + '%', t: 310 / VH * 100 + '%', b: 'auto', w: 164 / W * 100 + '%', tr: 'none', kids: [], hots: [this.h(0, 0, 164, 250, 164, 250, 'close')] });
+    const base = (s.scr === 'chat' || s.scr === 'settings') ? s.prev : s.scr;
+    const stepIdx = { select: 0, map: 1, profile: 1, chat: 1, summary: 2, ontheway: 2, session: 2, payment: 2, paid: 2 }[base] ?? -1;
+    const stage = { splash: 0, login: 0, select: 1, map: 1, profile: 1, chat: 1, summary: 2, ontheway: 2, session: 2, payment: 3, paid: 3 }[base] ?? 0;
+    const hint = { splash: 'TAP TO START', login: 'TAP SIGN IN', select: s.card ? 'TAP → TO CONTINUE' : 'PICK AN EXPERTISE LEVEL', map: s.sheet ? (s.sheet === 'thomas' ? 'TAP THE CARD OR →' : 'TAP → TO CONTINUE') : s.pin ? 'TAP THE PIN AGAIN' : 'TAP A PHOTOGRAPHER PIN', summary: 'TAP CONFIRM', ontheway: 'PHOTOGRAPHER ON THE WAY…', session: s.sheet ? (s.stars ? 'TAP SUBMIT' : 'RATE THE SESSION') : 'TAP END', payment: 'TAP LINE PAY', paid: 'PAYMENT COMPLETE', profile: 'TAP THE MESSAGE BAR', chat: 'TAP ← TO GO BACK', settings: 'TAP ← TO GO BACK' }[s.scr];
+    return {
+      screens: this.groups0.flatMap(([group, items]) => items.map(([k, label]) => ({ k, label, group: group.toUpperCase() }))).map((x, i) => ({ src: 'assets/onclick/' + x.k + '.png', name: x.label, group: x.group, n: String(i + 1).padStart(2, '0'), open: () => this.setState({ zoom: [x.k, x.label] }) })),
+      railRef: this.railRef, railPrev: () => this.rail(-1), railNext: () => this.rail(1),
+      hasZoom: !!s.zoom, zoomName: s.zoom ? s.zoom[1].toUpperCase() : '',
+      zoomImg: s.zoom ? React.createElement('img', { src: 'assets/onclick/' + s.zoom[0] + '.png', alt: s.zoom[1], style: { display: 'block', width: 'min(100%,420px)', height: 'auto', alignSelf: 'flex-start', borderRadius: 24 } }) : null,
+      closeZoom: () => this.setState({ zoom: null }),
+      standalone: !emb, minH: emb ? '0' : '100vh',
+      rootBg: emb ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: emb ? '0' : '48px 22px 80px',
+      scrollRef: this.scrollRef,
+      screenSrc: 'assets/onclick/' + img + '.png', screenAlt: 'ON-CLICK ' + s.scr + ' screen',
+      hots: (s.pop || s.time || (s.scr === 'session' && s.sheet)) ? [] : hs(HOT[s.scr] || []),
+      innerLayers: inner, layers, dim: !!(s.pop || s.time),
+      closePop: () => s.pop !== 'qr' && this.go('close'),
+      hint, restart: () => this.go('restart'),
+      callouts: null,
+      stageRef: this.stageRef,
+      phoneMax: '100%',
+      onScroll: e => { const t = e.currentTarget; const sy = Math.round(t.scrollTop * 786 / t.clientWidth); if (Math.abs(sy - this.state.sy) > 4) this.setState({ sy }); },
+      steps: [['Select', 'the expertise level of your ideal photographer, ranging from passionate amateurs to seasoned professionals.'], ['Explore', 'a dynamic map filled with skilled photographers ready to bring your moments to life.'], ['Click', 'to choose the photographer who resonates with your vision, and watch as your expert turns your imagination into a beautifully captured reality.']].map(([w, t], i) => ({ n: String(i + 1).padStart(2, '0'), w, t, op: stepIdx < 0 || i === stepIdx ? 1 : .4, bar: i < stepIdx ? '100%' : i === stepIdx ? '100%' : '0%' })),
+      stages: ['START', 'CHOOSE', 'BOOK', 'PAY'].map((name, i) => ({ name, bg: i <= stage ? '#e8b671' : 'rgba(233,230,225,.14)', fg: i === stage ? '#e8b671' : i < stage ? 'rgba(233,230,225,.6)' : 'rgba(233,230,225,.3)' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

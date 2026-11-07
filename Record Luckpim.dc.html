@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes obs-ping{0%{box-shadow:0 0 0 0 rgba(232,182,113,.7)}70%{box-shadow:0 0 0 12px rgba(232,182,113,0)}100%{box-shadow:0 0 0 0 rgba(232,182,113,0)}}
+@keyframes obs-fade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+<div style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+    <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+      <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s">WORK</a>
+      <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+      <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+    </nav>
+  </div>
+  </sc-if>
+
+  <main style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:64px">
+
+    <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <header style="display:flex;flex-direction:column;gap:18px;max-width:780px">
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-01 · INTERFACES</div>
+      <h1 style="margin:0;font-weight:400;font-size:clamp(42px,7vw,96px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">Luckpim</h1>
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">Website &amp; Interaction States</div>
+      <p style="margin:0;max-width:52ch;font-weight:400;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">Website for Luckpim Publishing, designed with every interaction state.</p>
+    </header>
+    </sc-if>
+
+    <section style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;flex-wrap:wrap;border-bottom:1px solid rgba(233,230,225,.1)">
+        <sc-for list="{{ flows }}" as="f" hint-placeholder-count="1">
+          <div onClick="{{ f.open }}" style="cursor:pointer;padding:14px 22px 15px 0;margin-right:26px;margin-bottom:-1px;display:flex;flex-direction:column;gap:5px;border-bottom:1px solid {{ f.line }}">
+            <span style="font-size:18px;color:{{ f.color }}">{{ f.name }}</span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:rgba(233,230,225,.45)">{{ f.meta }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <span style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.5)">STATE {{ stateN }} OF {{ stateTotal }} · <span style="color:#e8b671">{{ stateName }}</span></span>
+        <div style="display:flex;gap:10px;align-items:center">
+          <sc-if value="{{ hasMobile }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;border:1px solid rgba(233,230,225,.2);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.14em">
+            <span onClick="{{ showDesktop }}" style="cursor:pointer;padding:11px 18px;background:{{ dBg }};color:{{ dFg }}">DESKTOP</span>
+            <span onClick="{{ showMobile }}" style="cursor:pointer;padding:11px 18px;background:{{ mBg }};color:{{ mFg }}">MOBILE</span>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(233,230,225,.1);border-radius:8px;background:#101116;padding:clamp(16px,3.4vw,44px);display:flex;justify-content:center;align-items:center;gap:clamp(10px,2vw,28px)">
+        <sc-if value="{{ isClick }}" hint-placeholder-val="{{ false }}"><div onClick="{{ prev }}" style="flex:none;align-self:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">←</div></sc-if>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%;max-width:1124px;display:flex;gap:16px">
+            <div style="flex:1;min-width:0;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);position:relative">
+              <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" onMouseEnter="{{ enter }}" onMouseLeave="{{ leave }}" onClick="{{ clickScreen }}" style="position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none">{{ screen }}</div>
+            </div>
+            <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1)"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;gap:16px">
+            <div style="width:min(393px,78vw);padding:10px;border:1px solid rgba(233,230,225,.28);border-radius:56px;background:#0c0d11">
+              <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" onMouseEnter="{{ enter }}" onMouseLeave="{{ leave }}" onClick="{{ clickScreen }}" style="aspect-ratio:393/852;border-radius:46px;overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none">{{ screen }}</div>
+            </div>
+            <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1)"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isClick }}" hint-placeholder-val="{{ false }}"><div onClick="{{ next }}" style="flex:none;align-self:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">→</div></sc-if>
+      </div>
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.45)">{{ hint }}</div>
+    </section>
+  </main>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+    <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+    <span>END OF RECORD</span>
+    <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+  </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { flow: 0, step: 0, view: 'desktop', p: 0 };
+  frameRef = React.createRef();
+  flows = [
+    { name: 'Login', meta: 'SUBMIT → ERROR',
+      steps: [
+        { name: 'SUBMITTING', label: 'Submitting',
+          d: { src: 'assets/luckpim/login-d-loading.webp' },
+          m: { src: 'assets/luckpim/login-m-loading.webp' } },
+        { name: 'ERROR · LINK EXPIRED', label: 'Error message',
+          d: { src: 'assets/luckpim/login-d-error.webp', hot: { x: 44.8, y: 60.3, w: 10.5, h: 3.6 }, to: 0 },
+          m: { src: 'assets/luckpim/login-m-error.webp', hot: { x: 32.2, y: 60.8, w: 35.8, h: 3.9 }, to: 0 } }
+      ] },
+    { name: 'My Favorite', meta: 'EMPTY STATE',
+      steps: [
+        { name: 'EMPTY STATE · NO FAVORITES YET', label: 'Empty state',
+          d: { src: 'assets/luckpim/fav-d-empty.webp' },
+          m: { src: 'assets/luckpim/fav-m-empty.webp' } }
+      ] },
+    { name: 'Purchase', meta: 'CHECKOUT FLOW', mode: 'click',
+      steps: [
+        ['BOOK LIST', 'buy-1-list', null], ['BOOK DETAIL', 'buy-2-detail', 'buy-m-07_detail_book'], ['ADDED TO BASKET', null, 'buy-m-09_add_to_cart'],
+        ['BASKET', 'buy-3-basket', 'buy-m-10_basket'], ['BASKET · OUT OF STOCK', 'buy-4-basket-error', 'buy-m-10_basket-1'],
+        ['ORDER INFORMATION', 'buy-5-order', 'buy-m-11_order_information'], ['QR PAYMENT', 'buy-6-payment', 'buy-m-14_successful_payments']
+      ].map(([name, d, m]) => ({ name, d: d && { src: 'assets/luckpim/' + d + '.webp' }, m: m && { src: 'assets/luckpim/' + m + '.webp' } })) }
+  ];
+  armed = true;
+  componentDidMount() {}
+  componentWillUnmount() { clearTimeout(this.t); }
+  schedule() {
+    clearTimeout(this.t);
+    const st = this.flows[this.state.flow].steps[this.state.step];
+    if (st && st.auto) this.t = setTimeout(() => this.go(this.state.step + 1, true), st.auto);
+  }
+  go(i, keepScroll) {
+    this.setState({ step: i }, () => this.schedule());
+    if (!keepScroll && this.frameRef.current) { this.frameRef.current.scrollTop = 0; this.setState({ p: 0 }); }
+  }
+  setView(v) { this.setState({ view: v, step: 0, p: 0 }, () => this.schedule()); if (this.frameRef.current) this.frameRef.current.scrollTop = 0; }
+  img(src, extra) { return React.createElement('img', { src, alt: '', draggable: false, style: Object.assign({ display: 'block', width: '100%', height: 'auto' }, extra || {}) }); }
+  renderVals() {
+    const fl0 = this.flows[this.state.flow], desk = this.state.view === 'desktop' || !fl0.steps.some(s => s.m);
+    const fl = { ...fl0, steps: fl0.steps.filter(s => desk ? s.d : s.m) };
+    const st = fl.steps[Math.min(this.state.step, fl.steps.length - 1)], v = desk ? st.d : st.m;
+    const on = '#e8b671', dim = 'rgba(233,230,225,.6)';
+    const hot = null;
+    const screen = React.createElement('div', { key: this.state.view, style: { position: 'relative', overflow: 'hidden', background: '#fff', cursor: fl.mode === 'click' ? 'pointer' : 'default' } }, fl.steps.map((s, i) => { const a = i === this.state.step; return this.img((desk ? s.d : s.m).src, { position: a ? 'relative' : 'absolute', top: 0, left: 0, opacity: a ? 1 : 0, transition: 'opacity .35s ease' }); }));
+    return {
+      standalone: !this.props.embedded,
+      minH: this.props.embedded ? '0' : '100vh', rootBg: this.props.embedded ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: this.props.embedded ? '0' : '48px 22px 60px',
+      frameRef: this.frameRef,
+      flows: this.flows.map((f, i) => { const a = i === this.state.flow; return { ...f, color: a ? '#f3efe9' : 'rgba(233,230,225,.5)', line: a ? on : 'transparent', open: () => this.setState({ flow: i, step: 0 }, () => this.schedule()) }; }),
+      stateN: String(this.state.step + 1).padStart(2, '0'), stateTotal: String(fl.steps.length).padStart(2, '0'), stateName: st.name,
+      hint: fl.mode === 'click' ? 'CLICK THE SCREEN TO GO TO THE NEXT STEP' : fl.steps.length > 1 ? 'HOVER THE SCREEN TO SEE THE NEXT STATE' : 'SCROLL INSIDE THE SCREEN',
+      screen, isDesktop: desk, isMobile: !desk,
+      progH: Math.round(this.state.p * 100) + '%',
+      onFrameScroll: (ev) => { const t = ev.currentTarget, m = t.scrollHeight - t.clientHeight; this.setState({ p: m > 0 ? t.scrollTop / m : 0 }); },
+      enter: () => { if (fl.mode !== 'click') this.setState({ step: Math.min(1, fl.steps.length - 1) }); },
+      leave: () => { if (fl.mode !== 'click') this.setState({ step: 0 }); },
+      clickScreen: () => { if (fl.mode === 'click') this.go((this.state.step + 1) % fl.steps.length); },
+      isClick: fl.mode === 'click',
+      prev: () => this.go((this.state.step - 1 + fl.steps.length) % fl.steps.length),
+      next: () => this.go((this.state.step + 1) % fl.steps.length),
+      hasMobile: fl0.steps.some(s => s.m),
+      dBg: desk ? on : 'transparent', dFg: desk ? '#0b0c0f' : dim,
+      mBg: desk ? 'transparent' : on, mFg: desk ? dim : '#0b0c0f',
+      showDesktop: () => this.setView('desktop'), showMobile: () => this.setView('mobile'),
+    };
+  }
+}
+</script>
+</body>
+</html>

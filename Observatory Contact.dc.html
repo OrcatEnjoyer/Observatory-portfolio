@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-drift-a{0%,100%{transform:translate3d(0,0,0) scale(1)}33%{transform:translate3d(-26%,14%,0) scale(1.3)}66%{transform:translate3d(-12%,32%,0) scale(.86)}}
+@keyframes obs-drift-b{0%,100%{transform:translate3d(0,0,0) scale(1.05)}40%{transform:translate3d(30%,-18%,0) scale(.78)}70%{transform:translate3d(10%,22%,0) scale(1.22)}}
+@keyframes obs-drift-c{0%,100%{transform:translate3d(0,0,0) scale(.92)}45%{transform:translate3d(-34%,-24%,0) scale(1.28)}75%{transform:translate3d(-16%,18%,0) scale(1)}}
+@keyframes obs-drift-d{0%,100%{transform:translate3d(0,0,0) scale(1)}30%{transform:translate3d(-38%,26%,0) scale(1.34)}62%{transform:translate3d(18%,10%,0) scale(.8)}}
+@keyframes obs-drift-e{0%,100%{transform:translate3d(0,0,0) scale(1.1)}38%{transform:translate3d(26%,-30%,0) scale(.82)}74%{transform:translate3d(-22%,-8%,0) scale(1.26)}}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes obs-twinkle{0%,100%{opacity:.4}50%{opacity:.85}}
+@keyframes obs-ping{0%{transform:scale(1);opacity:.5}100%{transform:scale(4);opacity:0}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%);color:#e9e6e1;position:relative;display:flex;flex-direction:column">
+
+  <div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(100deg,transparent 0%,transparent 42%,rgba(0,0,0,.55) 66%,#000 88%);mask-image:linear-gradient(100deg,transparent 0%,transparent 42%,rgba(0,0,0,.55) 66%,#000 88%)">
+    <div style="position:absolute;top:-24%;right:-16%;width:min(880px,88vw);aspect-ratio:1;mix-blend-mode:plus-lighter;will-change:transform;transform:translateZ(0);animation:obs-drift-a 31s ease-in-out infinite;background:radial-gradient(circle,rgba(255,176,88,.024) 0%,rgba(255,158,64,.012) 46%,rgba(255,158,64,0) 78%)"><div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(255,196,128,.1) 0%,rgba(255,170,88,0) 26%)"></div></div>
+    <div style="position:absolute;top:-10%;right:2%;width:min(780px,76vw);aspect-ratio:1;mix-blend-mode:plus-lighter;will-change:transform;transform:translateZ(0);animation:obs-drift-b 22s ease-in-out infinite;background:radial-gradient(circle,rgba(124,206,226,.046) 0%,rgba(96,172,204,.019) 46%,rgba(96,172,204,0) 75%)"><div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(152,224,242,.12) 0%,rgba(110,188,216,0) 22%)"></div></div>
+    <div style="position:absolute;top:4%;right:-2%;width:min(540px,58vw);aspect-ratio:1;mix-blend-mode:plus-lighter;will-change:transform;transform:translateZ(0);animation:obs-drift-d 26s ease-in-out infinite;background:radial-gradient(circle,rgba(240,132,146,.026) 0%,rgba(214,104,124,.012) 44%,rgba(214,104,124,0) 74%)"><div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(250,158,168,.092) 0%,rgba(220,110,130,0) 20%)"></div></div>
+    <div style="position:absolute;top:34%;right:22%;width:min(760px,74vw);aspect-ratio:1;mix-blend-mode:plus-lighter;will-change:transform;transform:translateZ(0);animation:obs-drift-e 37s ease-in-out infinite;background:radial-gradient(circle,rgba(108,214,186,.024) 0%,rgba(84,182,158,.011) 46%,rgba(84,182,158,0) 76%)"><div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(150,232,208,.08) 0%,rgba(100,190,166,0) 24%)"></div></div>
+    <div style="position:absolute;top:26%;right:-6%;width:min(1040px,96vw);aspect-ratio:1;mix-blend-mode:plus-lighter;will-change:transform;transform:translateZ(0);animation:obs-drift-c 43s ease-in-out infinite;background:radial-gradient(circle,rgba(128,132,236,.03) 0%,rgba(104,108,214,.013) 50%,rgba(104,108,214,0) 78%)"><div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(158,162,250,.085) 0%,rgba(120,124,224,0) 24%)"></div></div>
+  </div>
+  <div style="position:fixed;inset:0;z-index:0;opacity:.5;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;inset:0;contain:strict;background-image:radial-gradient(1px 1px at 6% 14%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 14% 62%,rgba(255,255,255,.4),transparent),radial-gradient(1px 1px at 22% 31%,rgba(255,255,255,.45),transparent),radial-gradient(1.2px 1.2px at 29% 78%,rgba(200,220,255,.5),transparent),radial-gradient(1px 1px at 36% 9%,rgba(255,255,255,.42),transparent),radial-gradient(1px 1px at 43% 47%,rgba(255,255,255,.34),transparent),radial-gradient(1px 1px at 51% 88%,rgba(255,255,255,.42),transparent),radial-gradient(1.1px 1.1px at 58% 24%,rgba(255,226,190,.45),transparent),radial-gradient(1px 1px at 66% 66%,rgba(255,255,255,.38),transparent),radial-gradient(1px 1px at 73% 12%,rgba(255,255,255,.42),transparent),radial-gradient(1px 1px at 81% 52%,rgba(255,255,255,.34),transparent),radial-gradient(1.2px 1.2px at 88% 82%,rgba(200,220,255,.45),transparent),radial-gradient(1px 1px at 94% 28%,rgba(255,255,255,.42),transparent),radial-gradient(1px 1px at 3% 88%,rgba(255,255,255,.34),transparent),radial-gradient(1px 1px at 47% 18%,rgba(255,255,255,.3),transparent),radial-gradient(1px 1px at 63% 94%,rgba(255,255,255,.34),transparent),radial-gradient(1px 1px at 18% 96%,rgba(255,255,255,.3),transparent),radial-gradient(1px 1px at 97% 62%,rgba(255,255,255,.3),transparent)"></div>
+    <div style="position:absolute;inset:0;will-change:opacity;transform:translateZ(0);animation:obs-twinkle 8s ease-in-out infinite;background-image:radial-gradient(1.3px 1.3px at 11% 41%,rgba(200,220,255,.6),transparent),radial-gradient(1px 1px at 39% 57%,rgba(255,255,255,.42),transparent),radial-gradient(1.3px 1.3px at 69% 40%,rgba(255,226,190,.5),transparent),radial-gradient(1px 1px at 86% 16%,rgba(200,220,255,.45),transparent),radial-gradient(1px 1px at 27% 21%,rgba(255,255,255,.38),transparent),radial-gradient(1px 1px at 55% 72%,rgba(255,255,255,.34),transparent)"></div>
+  </div>
+
+
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+    <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+      <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">WORK</a>
+      <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+      <a href="#uplink" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s">CONTACT</a>
+    </nav>
+  </div>
+
+  <div id="uplink" style="position:relative;z-index:1;flex:1;display:flex;align-items:center;padding:60px 22px 80px">
+    <div style="width:100%;max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:30px">
+      <p style="margin:0;font-weight:400;font-size:clamp(18px,2vw,24px);line-height:1.4;color:rgba(233,230,225,.7)">Have something in mind? Let’s talk.</p>
+      <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap">
+      <a href="mailto:vipatr02@gmail.com" onClick="{{ copy }}" title="Click to copy" style="display:block;cursor:copy;font-weight:400;font-size:clamp(30px,6.4vw,78px);line-height:1.02;letter-spacing:-.025em;color:#f3efe9;word-break:break-word" style-hover="color:#e8b671">vipatr02@gmail.com</a>
+      <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.2em;color:#e8b671;opacity:{{ copiedOpacity }};transition:opacity .3s">COPIED</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:22px 34px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.45)">
+        <a href="tel:+66809485652" style="color:rgba(233,230,225,.6)">+66 80 948 5652</a>
+        <a href="https://www.linkedin.com/in/vipatr-kuptasanti-0b1769380" target="_blank" rel="noopener" style="color:rgba(233,230,225,.6)" style-hover="color:#e8b671">LINKEDIN ↗</a>
+        <span>BANGKOK · {{ localTime }} · GMT+7</span>
+        <span>TH / EN / ZH</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+    <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+    <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { copied: false, now: Date.now() };
+  componentDidMount() { this.tick = setInterval(() => this.setState({ now: Date.now() }), 15000); }
+  componentWillUnmount() { clearTimeout(this.ct); clearInterval(this.tick); }
+  renderVals() {
+    const localTime = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Bangkok', hour: '2-digit', minute: '2-digit', hour12: false }).format(this.state.now);
+    return {
+      localTime,
+      copiedOpacity: this.state.copied ? 1 : 0,
+      copy: e => {
+        e.preventDefault();
+        if (navigator.clipboard) navigator.clipboard.writeText('vipatr02@gmail.com').catch(() => {});
+        this.setState({ copied: true });
+        clearTimeout(this.ct);
+        this.ct = setTimeout(() => this.setState({ copied: false }), 1600);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</helmet>
+<div style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+      <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+        <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat">WORK</a>
+        <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+        <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+      </nav>
+    </div>
+  </sc-if>
+
+  <main style="max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:80px">
+
+    <section style="display:flex;flex-direction:column;gap:40px">
+      <img onClick="{{ open_poster }}" src="assets/fff/poster.webp" alt="Fuzzy Farm Frolic poster" style="display:block;width:100%;height:auto;border-radius:6px;cursor:zoom-in">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px clamp(32px,6vw,96px);align-items:end">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-02 · IMMERSIVE · RECORD 04</div>
+          <h1 style="margin:0;font-weight:400;font-size:clamp(40px,5.6vw,80px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">Fuzzy Farm Frolic</h1>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;line-height:1.6;color:#e8b671">EXPLORING VIRTUAL PETS AS EXERCISE COMPANIONS IN MULTI-SCREEN INTERACTIONS</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">MY ROLE</span><span style="color:rgba(233,230,225,.85);line-height:1.5">LANDSCAPE DESIGN</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85)">2024</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">BUILT WITH</span><span style="color:rgba(233,230,225,.85)">UNITY · MMWAVE RADAR</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">COURSE</span><span style="color:rgba(233,230,225,.85);line-height:1.5">VRAD · NTUT INTERACTION DESIGN</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));grid-template-rows:auto auto 1fr;gap:16px 64px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">01 · THE GOAL</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9;text-wrap:balance">A pet that gets kids moving</h2>
+        <p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">Our goal is to combine simple gameplay to let children enjoy the warmth of having a pet as a companion and encourage physical activity.</p>
+      </div>
+      <div style="display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">02 · THE IDEA</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9;text-wrap:balance">Hens on every screen</h2>
+        <p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">The idea is that when children return home from school, upon entering the house, they'll find hens and eggs appearing on different screens according to the children's positions. Subsequently, the children will take on the role of a farmer, taking away eggs when the hens aren't paying attention.</p>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px clamp(32px,6vw,96px);align-items:start;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">03 · HOW IT PLAYS</div>
+          <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Scenario</h2>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:40px 1fr;gap:10px;padding:14px 0;border-top:1px solid rgba(233,230,225,.1)">
+              <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:#e8b671;padding-top:4px">{{ st.n }}</span>
+              <p style="margin:0;font-weight:400;font-size:17px;line-height:1.5;color:rgba(233,230,225,.85)">{{ st.t }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <img onClick="{{ open_sketch }}" src="assets/fff/sketch.webp" alt="Sketch of a child chasing hens across screens" loading="lazy" style="display:block;width:100%;height:auto;border-radius:6px;cursor:zoom-in">
+        <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">CONCEPT SKETCH</figcaption>
+      </figure>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:22px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">04 · MY PART</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">The landscape</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px">
+        <img onClick="{{ open_farm_house }}" src="assets/fff/farm-house.webp" alt="Farmhouse, windmill and the hen pen" loading="lazy" style="display:block;width:100%;aspect-ratio:1392/775;height:auto;border-radius:14px;border:1px solid rgba(233,230,225,.12);cursor:zoom-in;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)">
+        <img onClick="{{ open_farm_field }}" src="assets/fff/farm-field.webp" alt="Crop fields leading to the farmhouse" loading="lazy" style="display:block;width:100%;aspect-ratio:1398/771;height:auto;border-radius:14px;border:1px solid rgba(233,230,225,.12);cursor:zoom-in;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)">
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px 64px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">05 · THE SYSTEM</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Radar and screens</h2>
+      </div>
+      <p style="margin:0;padding-top:26px;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">We'll set up multiple screens and buttons (keyboards, etc.), along with millimeter-wave radar to detect the player's position, allowing the hens to turn towards the screen where the player is located. Meanwhile, Players will need to compete with the hens in reaction time, using the latency of the hens as a benchmark for their own reaction speed.</p>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">TEAM</div>
+      <p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8)">Yu-Chih Chou, Pei-Cih Zeng, Yu-Hsuan Lee, Jih-Hsuan Peng, Kuan-Ning Chang, Jin-Cai Xu</p>
+    </section>
+  </main>
+
+  <sc-if value="{{ hasZoom }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeZoom }}" style="position:fixed;inset:0;z-index:30;background:rgba(6,7,9,.92);display:flex;flex-direction:column;padding:16px 22px 22px;gap:12px;cursor:zoom-out">
+      <div style="display:flex;justify-content:flex-end;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.6)"><span style="padding:6px 12px;border:1px solid rgba(233,230,225,.25)">CLOSE ✕</span></div>
+      <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center">{{ zoomImg }}</div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:60px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+      <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+      <span>END OF RECORD</span>
+      <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download="" style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { zoom: null };
+  renderVals() {
+    const emb = !!this.props.embedded, z = this.state.zoom;
+    const open = k => () => this.setState({ zoom: k });
+    return {
+      standalone: !emb, minH: emb ? '0' : '100vh',
+      rootBg: emb ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: emb ? '0' : '48px 22px 80px',
+      steps: ['After school, children walk past the screen.', 'The egg notices the child passing by.', "The chick follows the child's movement", "Pay attention to the chick's movement", 'Run to catch the chick', 'Press the keyboard to catch the chick'].map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })),
+      open_poster: open('poster'), open_sketch: open('sketch'), open_farm_house: open('farm-house'), open_farm_field: open('farm-field'),
+      hasZoom: !!z, closeZoom: () => this.setState({ zoom: null }),
+      zoomImg: z ? React.createElement('img', { src: 'assets/fff/' + z + '.webp', alt: '', style: { display: 'block', maxWidth: '100%', maxHeight: '100%', borderRadius: 6 } }) : null
+    };
+  }
+}
+</script>
+</body>
+</html>

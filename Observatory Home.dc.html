@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes obs-anti{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+@keyframes obs-pulse{0%,100%{opacity:.62;transform:translate(-50%,-50%) scale(1)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.045)}}
+@keyframes obs-twinkle{0%,100%{opacity:.35}50%{opacity:.85}}
+@keyframes obs-swell{0%{background-position:0 0}100%{background-position:60px 0}}
+@keyframes obs-drift{0%,100%{transform:translate(0,0)}50%{transform:translate(4px,-5px)}}
+@keyframes obs-morph{0%,100%{border-radius:50% 46% 52% 48%/48% 54% 46% 52%;transform:scale(1)}33%{border-radius:44% 56% 48% 52%/54% 46% 54% 46%;transform:scale(1.04)}66%{border-radius:54% 44% 56% 46%/46% 52% 48% 54%;transform:scale(.97)}}
+@keyframes obs-breathe{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(.86)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.22)}}
+@keyframes obs-redbreathe{0%,100%{box-shadow:0 0 0 .5px rgba(235,235,240,.25),0 0 3px rgba(235,235,240,.12)}50%{box-shadow:0 0 0 .5px rgba(235,235,240,.5),0 0 7px rgba(235,235,240,.32)}}
+@keyframes obs-wobble{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes obs-draw{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+@keyframes obs-undraw{from{stroke-dashoffset:0}to{stroke-dashoffset:400}}
+@keyframes obs-slide{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
+@keyframes obs-slide-out{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(26px)}}
+@keyframes obs-reveal{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes obs-sweep{from{transform:scaleX(0);opacity:1}to{transform:scaleX(1);opacity:.8}}
+@keyframes obs-streak{0%{transform:scaleY(1);opacity:.25}100%{transform:scaleY(26);opacity:0}}
+@keyframes obs-scan{0%{transform:translateY(-100%)}100%{transform:translateY(900%)}}
+</style>
+</helmet>
+<div ref="{{ root }}" style="min-height:100vh;background:linear-gradient(180deg,#121319 0%,#0d0e12 44%,#0a0b0e 100%);color:#e9e6e1;display:flex;flex-direction:column;position:relative;overflow:hidden">
+
+  <div data-sky-outer style="position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;overflow:hidden">
+  <div  style="position:absolute;inset:0;pointer-events:none;overflow:visible">
+        <div style="position:absolute;inset:0;contain:strict;background-image:radial-gradient(0.7px 0.7px at 59.71% 29.93%,rgba(200,220,255,0.42),transparent),radial-gradient(0.7px 0.7px at 67.22% 52.92%,rgba(200,220,255,0.51),transparent),radial-gradient(0.7px 0.7px at 7.46% 99.74%,rgba(255,226,190,0.33),transparent),radial-gradient(0.7px 0.7px at 5.90% 38.41%,rgba(255,255,255,0.28),transparent),radial-gradient(0.7px 0.7px at 92.40% 80.96%,rgba(255,255,255,0.48),transparent),radial-gradient(0.7px 0.7px at 49.60% 20.39%,rgba(255,255,255,0.52),transparent),radial-gradient(0.7px 0.7px at 14.63% 2.72%,rgba(255,255,255,0.47),transparent),radial-gradient(0.7px 0.7px at 81.76% 83.59%,rgba(255,255,255,0.48),transparent),radial-gradient(0.7px 0.7px at 15.03% 65.89%,rgba(255,255,255,0.38),transparent),radial-gradient(0.7px 0.7px at 31.29% 87.44%,rgba(255,255,255,0.43),transparent),radial-gradient(0.7px 0.7px at 57.41% 41.51%,rgba(255,255,255,0.36),transparent),radial-gradient(0.7px 0.7px at 35.33% 71.74%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 23.74% 8.62%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 29.50% 45.19%,rgba(255,255,255,0.30),transparent),radial-gradient(0.7px 0.7px at 12.07% 85.02%,rgba(255,226,190,0.44),transparent),radial-gradient(0.7px 0.7px at 24.87% 48.04%,rgba(255,255,255,0.38),transparent),radial-gradient(0.7px 0.7px at 23.16% 19.20%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 77.69% 76.63%,rgba(255,255,255,0.39),transparent),radial-gradient(0.7px 0.7px at 25.39% 29.24%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 5.89% 87.57%,rgba(255,255,255,0.46),transparent),radial-gradient(0.7px 0.7px at 82.75% 28.82%,rgba(255,255,255,0.34),transparent),radial-gradient(0.7px 0.7px at 36.40% 0.10%,rgba(255,226,190,0.39),transparent),radial-gradient(0.7px 0.7px at 27.77% 57.60%,rgba(200,220,255,0.44),transparent),radial-gradient(0.7px 0.7px at 72.11% 97.44%,rgba(255,255,255,0.35),transparent),radial-gradient(0.7px 0.7px at 39.43% 78.62%,rgba(200,220,255,0.41),transparent),radial-gradient(0.7px 0.7px at 77.88% 50.40%,rgba(255,255,255,0.53),transparent),radial-gradient(0.7px 0.7px at 88.86% 46.23%,rgba(255,255,255,0.37),transparent),radial-gradient(0.7px 0.7px at 87.42% 18.04%,rgba(255,255,255,0.34),transparent),radial-gradient(0.7px 0.7px at 13.62% 66.16%,rgba(255,255,255,0.50),transparent),radial-gradient(0.7px 0.7px at 28.54% 18.56%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 91.18% 24.51%,rgba(255,255,255,0.46),transparent),radial-gradient(0.7px 0.7px at 33.44% 31.19%,rgba(255,255,255,0.47),transparent),radial-gradient(0.7px 0.7px at 35.52% 27.57%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 93.20% 44.95%,rgba(255,255,255,0.55),transparent),radial-gradient(0.7px 0.7px at 65.03% 16.27%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 5.14% 89.55%,rgba(255,255,255,0.41),transparent),radial-gradient(0.7px 0.7px at 75.58% 15.74%,rgba(255,255,255,0.52),transparent),radial-gradient(0.7px 0.7px at 21.90% 6.39%,rgba(255,255,255,0.48),transparent),radial-gradient(0.7px 0.7px at 1.27% 40.68%,rgba(255,255,255,0.50),transparent),radial-gradient(0.7px 0.7px at 22.03% 16.03%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 65.80% 12.35%,rgba(255,226,190,0.51),transparent),radial-gradient(0.7px 0.7px at 13.99% 25.84%,rgba(255,255,255,0.30),transparent),radial-gradient(0.7px 0.7px at 67.86% 3.16%,rgba(255,255,255,0.29),transparent),radial-gradient(0.7px 0.7px at 49.29% 6.16%,rgba(255,255,255,0.55),transparent),radial-gradient(0.7px 0.7px at 21.26% 32.34%,rgba(255,226,190,0.40),transparent),radial-gradient(0.7px 0.7px at 71.00% 59.70%,rgba(255,255,255,0.32),transparent),radial-gradient(0.7px 0.7px at 75.09% 49.79%,rgba(255,255,255,0.30),transparent),radial-gradient(0.7px 0.7px at 5.94% 11.30%,rgba(255,255,255,0.36),transparent),radial-gradient(0.7px 0.7px at 63.73% 55.68%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 50.75% 13.09%,rgba(255,255,255,0.45),transparent),radial-gradient(0.7px 0.7px at 77.52% 98.68%,rgba(255,255,255,0.45),transparent),radial-gradient(0.7px 0.7px at 32.72% 91.73%,rgba(200,220,255,0.41),transparent),radial-gradient(0.7px 0.7px at 95.87% 93.50%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 70.46% 8.30%,rgba(255,226,190,0.44),transparent),radial-gradient(0.7px 0.7px at 1.22% 84.93%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 10.51% 51.63%,rgba(255,255,255,0.29),transparent),radial-gradient(0.7px 0.7px at 42.32% 78.28%,rgba(200,220,255,0.49),transparent),radial-gradient(0.7px 0.7px at 36.26% 82.07%,rgba(255,255,255,0.42),transparent)"></div>
+        <div style="position:absolute;inset:0;contain:strict;background-image:radial-gradient(1px 1px at 57.39% 52.68%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 16.90% 31.68%,rgba(255,226,190,0.39),transparent),radial-gradient(1px 1px at 53.06% 58.00%,rgba(200,220,255,0.57),transparent),radial-gradient(1px 1px at 93.24% 56.00%,rgba(255,255,255,0.52),transparent),radial-gradient(1px 1px at 47.29% 93.14%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 75.11% 78.48%,rgba(255,255,255,0.52),transparent),radial-gradient(1px 1px at 4.08% 21.79%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 61.73% 23.16%,rgba(255,255,255,0.39),transparent),radial-gradient(1px 1px at 93.87% 9.85%,rgba(255,255,255,0.42),transparent),radial-gradient(1px 1px at 88.20% 11.39%,rgba(255,255,255,0.36),transparent),radial-gradient(1px 1px at 31.69% 50.91%,rgba(255,255,255,0.59),transparent),radial-gradient(1px 1px at 98.56% 96.50%,rgba(255,255,255,0.49),transparent),radial-gradient(1px 1px at 83.56% 64.09%,rgba(255,255,255,0.46),transparent),radial-gradient(1px 1px at 10.67% 28.12%,rgba(200,220,255,0.60),transparent),radial-gradient(1px 1px at 99.74% 65.70%,rgba(255,255,255,0.34),transparent),radial-gradient(1px 1px at 99.43% 63.46%,rgba(200,220,255,0.36),transparent),radial-gradient(1px 1px at 51.75% 17.50%,rgba(255,255,255,0.53),transparent),radial-gradient(1px 1px at 35.97% 68.82%,rgba(255,255,255,0.54),transparent),radial-gradient(1px 1px at 60.58% 54.85%,rgba(255,255,255,0.35),transparent),radial-gradient(1px 1px at 15.44% 66.43%,rgba(255,255,255,0.39),transparent),radial-gradient(1px 1px at 84.34% 51.10%,rgba(200,220,255,0.55),transparent),radial-gradient(1px 1px at 94.32% 19.39%,rgba(255,255,255,0.59),transparent),radial-gradient(1px 1px at 30.17% 59.35%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 16.91% 95.61%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 60.08% 45.91%,rgba(255,255,255,0.36),transparent),radial-gradient(1px 1px at 6.52% 60.63%,rgba(255,255,255,0.56),transparent),radial-gradient(1px 1px at 13.03% 22.63%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 3.24% 56.65%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 90.62% 15.34%,rgba(255,226,190,0.40),transparent),radial-gradient(1px 1px at 75.51% 0.97%,rgba(255,255,255,0.43),transparent),radial-gradient(1px 1px at 19.98% 92.55%,rgba(255,255,255,0.59),transparent),radial-gradient(1px 1px at 60.78% 83.16%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 79.21% 14.72%,rgba(200,220,255,0.41),transparent),radial-gradient(1px 1px at 93.04% 28.86%,rgba(255,255,255,0.35),transparent)"></div>
+        <div style="position:absolute;inset:0;will-change:opacity;transform:translateZ(0);animation:obs-twinkle 8s ease-in-out infinite;background-image:radial-gradient(1.3px 1.3px at 69.81% 38.29%,rgba(200,220,255,0.54),transparent),radial-gradient(1.3px 1.3px at 60.56% 87.52%,rgba(255,255,255,0.54),transparent),radial-gradient(1.3px 1.3px at 90.48% 40.23%,rgba(255,255,255,0.43),transparent),radial-gradient(1.3px 1.3px at 75.73% 90.27%,rgba(255,255,255,0.52),transparent),radial-gradient(1.3px 1.3px at 26.18% 88.55%,rgba(255,255,255,0.50),transparent),radial-gradient(1.3px 1.3px at 24.73% 50.84%,rgba(255,226,190,0.44),transparent),radial-gradient(1.3px 1.3px at 30.20% 2.00%,rgba(255,255,255,0.45),transparent),radial-gradient(1.3px 1.3px at 6.02% 14.77%,rgba(255,255,255,0.56),transparent),radial-gradient(1.3px 1.3px at 59.97% 16.53%,rgba(200,220,255,0.53),transparent),radial-gradient(1.3px 1.3px at 91.72% 73.33%,rgba(255,255,255,0.44),transparent),radial-gradient(1.3px 1.3px at 66.05% 68.90%,rgba(255,255,255,0.56),transparent),radial-gradient(1.3px 1.3px at 2.74% 38.71%,rgba(200,220,255,0.41),transparent),radial-gradient(1.3px 1.3px at 28.72% 91.64%,rgba(255,255,255,0.62),transparent),radial-gradient(1.3px 1.3px at 19.00% 32.39%,rgba(255,255,255,0.62),transparent),radial-gradient(1.3px 1.3px at 62.40% 51.86%,rgba(255,255,255,0.45),transparent),radial-gradient(1.3px 1.3px at 99.41% 4.13%,rgba(255,255,255,0.46),transparent)"></div>
+        <div data-sgr-box style="position:absolute;left:58%;top:40%;width:224px;height:204px">
+          
+          <svg viewBox="0 0 165 150" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+            <g fill="rgba(255,255,255,.34)">
+              <circle cx="43.8" cy="1" r=".36"></circle>
+              <circle cx="49.5" cy="6.9" r=".36"></circle>
+              <circle cx="65.7" cy="20.5" r=".36"></circle>
+              <circle cx="74" cy="16.9" r=".45"></circle>
+              <circle cx="77.6" cy="44" r=".55"></circle>
+              <circle cx="64.8" cy="51.9" r=".45"></circle>
+              <circle cx="69.5" cy="62.6" r=".55"></circle>
+              <circle cx="29.3" cy="38.8" r=".45"></circle>
+              <circle cx="0.6" cy="58.3" r=".45"></circle>
+              <circle cx="9.8" cy="97.4" r=".45"></circle>
+              <circle cx="19.8" cy="131" r=".36"></circle>
+              <circle cx="50.2" cy="120.5" r=".36"></circle>
+              <circle cx="53.1" cy="142.4" r=".36"></circle>
+              <circle cx="88.8" cy="47.1" r=".55"></circle>
+              <circle cx="110.2" cy="39.8" r=".55"></circle>
+              <circle cx="128.6" cy="17.1" r=".36"></circle>
+              <circle cx="117.1" cy="63.6" r=".55"></circle>
+              <circle cx="134" cy="67.6" r=".45"></circle>
+              <circle cx="157.1" cy="56.4" r=".36"></circle>
+              <circle cx="112.9" cy="87.1" r=".55"></circle>
+              <circle cx="118.1" cy="100.2" r=".45"></circle>
+            </g>
+          </svg>
+        </div>
+      </div>
+  </div>
+
+
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</div><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+    <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+      <a href="#work" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s">WORK</a>
+      <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+      <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+    </nav>
+  </div>
+
+  <div style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding:8px 22px 0">
+    <div style="max-width:560px;padding:0 0 18px">
+      <h1 style="margin:0;font-weight:400;font-size:clamp(26px,3.4vw,40px);line-height:1.12;letter-spacing:-.015em;color:rgba(233,230,225,.62)">A collection of work and ideas by <span style="color:#f3efe9;font-weight:500;white-space:nowrap">Vipatr Kuptasanti</span>.</h1>
+    </div>
+
+    <div ref="{{ stage }}" style="position:relative;width:100%;max-width:1180px;height:min(56vw,calc(100vh - 250px));min-height:320px;margin:0 auto;border:1px solid rgba(233,230,225,.1);border-radius:3px;overflow:hidden;background:radial-gradient(120% 120% at 50% 55%,rgba(8,9,13,.78) 0%,rgba(5,6,9,.88) 58%,rgba(4,4,7,.94) 100%);cursor:crosshair">
+
+      <div style="position:absolute;inset:0;z-index:0;pointer-events:none">
+      <div data-sky-inner data-fade-soft style="position:absolute;inset:0;pointer-events:none;overflow:visible">
+        <div style="position:absolute;inset:0;contain:strict;background-image:radial-gradient(0.7px 0.7px at 59.71% 29.93%,rgba(200,220,255,0.42),transparent),radial-gradient(0.7px 0.7px at 67.22% 52.92%,rgba(200,220,255,0.51),transparent),radial-gradient(0.7px 0.7px at 7.46% 99.74%,rgba(255,226,190,0.33),transparent),radial-gradient(0.7px 0.7px at 5.90% 38.41%,rgba(255,255,255,0.28),transparent),radial-gradient(0.7px 0.7px at 92.40% 80.96%,rgba(255,255,255,0.48),transparent),radial-gradient(0.7px 0.7px at 49.60% 20.39%,rgba(255,255,255,0.52),transparent),radial-gradient(0.7px 0.7px at 14.63% 2.72%,rgba(255,255,255,0.47),transparent),radial-gradient(0.7px 0.7px at 81.76% 83.59%,rgba(255,255,255,0.48),transparent),radial-gradient(0.7px 0.7px at 15.03% 65.89%,rgba(255,255,255,0.38),transparent),radial-gradient(0.7px 0.7px at 31.29% 87.44%,rgba(255,255,255,0.43),transparent),radial-gradient(0.7px 0.7px at 57.41% 41.51%,rgba(255,255,255,0.36),transparent),radial-gradient(0.7px 0.7px at 35.33% 71.74%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 23.74% 8.62%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 29.50% 45.19%,rgba(255,255,255,0.30),transparent),radial-gradient(0.7px 0.7px at 12.07% 85.02%,rgba(255,226,190,0.44),transparent),radial-gradient(0.7px 0.7px at 24.87% 48.04%,rgba(255,255,255,0.38),transparent),radial-gradient(0.7px 0.7px at 23.16% 19.20%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 77.69% 76.63%,rgba(255,255,255,0.39),transparent),radial-gradient(0.7px 0.7px at 25.39% 29.24%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 5.89% 87.57%,rgba(255,255,255,0.46),transparent),radial-gradient(0.7px 0.7px at 82.75% 28.82%,rgba(255,255,255,0.34),transparent),radial-gradient(0.7px 0.7px at 36.40% 0.10%,rgba(255,226,190,0.39),transparent),radial-gradient(0.7px 0.7px at 27.77% 57.60%,rgba(200,220,255,0.44),transparent),radial-gradient(0.7px 0.7px at 72.11% 97.44%,rgba(255,255,255,0.35),transparent),radial-gradient(0.7px 0.7px at 39.43% 78.62%,rgba(200,220,255,0.41),transparent),radial-gradient(0.7px 0.7px at 77.88% 50.40%,rgba(255,255,255,0.53),transparent),radial-gradient(0.7px 0.7px at 88.86% 46.23%,rgba(255,255,255,0.37),transparent),radial-gradient(0.7px 0.7px at 87.42% 18.04%,rgba(255,255,255,0.34),transparent),radial-gradient(0.7px 0.7px at 13.62% 66.16%,rgba(255,255,255,0.50),transparent),radial-gradient(0.7px 0.7px at 28.54% 18.56%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 91.18% 24.51%,rgba(255,255,255,0.46),transparent),radial-gradient(0.7px 0.7px at 33.44% 31.19%,rgba(255,255,255,0.47),transparent),radial-gradient(0.7px 0.7px at 35.52% 27.57%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 93.20% 44.95%,rgba(255,255,255,0.55),transparent),radial-gradient(0.7px 0.7px at 65.03% 16.27%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 5.14% 89.55%,rgba(255,255,255,0.41),transparent),radial-gradient(0.7px 0.7px at 75.58% 15.74%,rgba(255,255,255,0.52),transparent),radial-gradient(0.7px 0.7px at 21.90% 6.39%,rgba(255,255,255,0.48),transparent),radial-gradient(0.7px 0.7px at 1.27% 40.68%,rgba(255,255,255,0.50),transparent),radial-gradient(0.7px 0.7px at 22.03% 16.03%,rgba(255,255,255,0.44),transparent),radial-gradient(0.7px 0.7px at 65.80% 12.35%,rgba(255,226,190,0.51),transparent),radial-gradient(0.7px 0.7px at 13.99% 25.84%,rgba(255,255,255,0.30),transparent),radial-gradient(0.7px 0.7px at 67.86% 3.16%,rgba(255,255,255,0.29),transparent),radial-gradient(0.7px 0.7px at 49.29% 6.16%,rgba(255,255,255,0.55),transparent),radial-gradient(0.7px 0.7px at 21.26% 32.34%,rgba(255,226,190,0.40),transparent),radial-gradient(0.7px 0.7px at 71.00% 59.70%,rgba(255,255,255,0.32),transparent),radial-gradient(0.7px 0.7px at 75.09% 49.79%,rgba(255,255,255,0.30),transparent),radial-gradient(0.7px 0.7px at 5.94% 11.30%,rgba(255,255,255,0.36),transparent),radial-gradient(0.7px 0.7px at 63.73% 55.68%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 50.75% 13.09%,rgba(255,255,255,0.45),transparent),radial-gradient(0.7px 0.7px at 77.52% 98.68%,rgba(255,255,255,0.45),transparent),radial-gradient(0.7px 0.7px at 32.72% 91.73%,rgba(200,220,255,0.41),transparent),radial-gradient(0.7px 0.7px at 95.87% 93.50%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 70.46% 8.30%,rgba(255,226,190,0.44),transparent),radial-gradient(0.7px 0.7px at 1.22% 84.93%,rgba(255,255,255,0.51),transparent),radial-gradient(0.7px 0.7px at 10.51% 51.63%,rgba(255,255,255,0.29),transparent),radial-gradient(0.7px 0.7px at 42.32% 78.28%,rgba(200,220,255,0.49),transparent),radial-gradient(0.7px 0.7px at 36.26% 82.07%,rgba(255,255,255,0.42),transparent)"></div>
+        <div style="position:absolute;inset:0;contain:strict;background-image:radial-gradient(1px 1px at 57.39% 52.68%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 16.90% 31.68%,rgba(255,226,190,0.39),transparent),radial-gradient(1px 1px at 53.06% 58.00%,rgba(200,220,255,0.57),transparent),radial-gradient(1px 1px at 93.24% 56.00%,rgba(255,255,255,0.52),transparent),radial-gradient(1px 1px at 47.29% 93.14%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 75.11% 78.48%,rgba(255,255,255,0.52),transparent),radial-gradient(1px 1px at 4.08% 21.79%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 61.73% 23.16%,rgba(255,255,255,0.39),transparent),radial-gradient(1px 1px at 93.87% 9.85%,rgba(255,255,255,0.42),transparent),radial-gradient(1px 1px at 88.20% 11.39%,rgba(255,255,255,0.36),transparent),radial-gradient(1px 1px at 31.69% 50.91%,rgba(255,255,255,0.59),transparent),radial-gradient(1px 1px at 98.56% 96.50%,rgba(255,255,255,0.49),transparent),radial-gradient(1px 1px at 83.56% 64.09%,rgba(255,255,255,0.46),transparent),radial-gradient(1px 1px at 10.67% 28.12%,rgba(200,220,255,0.60),transparent),radial-gradient(1px 1px at 99.74% 65.70%,rgba(255,255,255,0.34),transparent),radial-gradient(1px 1px at 99.43% 63.46%,rgba(200,220,255,0.36),transparent),radial-gradient(1px 1px at 51.75% 17.50%,rgba(255,255,255,0.53),transparent),radial-gradient(1px 1px at 35.97% 68.82%,rgba(255,255,255,0.54),transparent),radial-gradient(1px 1px at 60.58% 54.85%,rgba(255,255,255,0.35),transparent),radial-gradient(1px 1px at 15.44% 66.43%,rgba(255,255,255,0.39),transparent),radial-gradient(1px 1px at 84.34% 51.10%,rgba(200,220,255,0.55),transparent),radial-gradient(1px 1px at 94.32% 19.39%,rgba(255,255,255,0.59),transparent),radial-gradient(1px 1px at 30.17% 59.35%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 16.91% 95.61%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 60.08% 45.91%,rgba(255,255,255,0.36),transparent),radial-gradient(1px 1px at 6.52% 60.63%,rgba(255,255,255,0.56),transparent),radial-gradient(1px 1px at 13.03% 22.63%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 3.24% 56.65%,rgba(255,255,255,0.33),transparent),radial-gradient(1px 1px at 90.62% 15.34%,rgba(255,226,190,0.40),transparent),radial-gradient(1px 1px at 75.51% 0.97%,rgba(255,255,255,0.43),transparent),radial-gradient(1px 1px at 19.98% 92.55%,rgba(255,255,255,0.59),transparent),radial-gradient(1px 1px at 60.78% 83.16%,rgba(255,255,255,0.50),transparent),radial-gradient(1px 1px at 79.21% 14.72%,rgba(200,220,255,0.41),transparent),radial-gradient(1px 1px at 93.04% 28.86%,rgba(255,255,255,0.35),transparent)"></div>
+        <div style="position:absolute;inset:0;will-change:opacity;transform:translateZ(0);animation:obs-twinkle 8s ease-in-out infinite;background-image:radial-gradient(1.3px 1.3px at 69.81% 38.29%,rgba(200,220,255,0.54),transparent),radial-gradient(1.3px 1.3px at 60.56% 87.52%,rgba(255,255,255,0.54),transparent),radial-gradient(1.3px 1.3px at 90.48% 40.23%,rgba(255,255,255,0.43),transparent),radial-gradient(1.3px 1.3px at 75.73% 90.27%,rgba(255,255,255,0.52),transparent),radial-gradient(1.3px 1.3px at 26.18% 88.55%,rgba(255,255,255,0.50),transparent),radial-gradient(1.3px 1.3px at 24.73% 50.84%,rgba(255,226,190,0.44),transparent),radial-gradient(1.3px 1.3px at 30.20% 2.00%,rgba(255,255,255,0.45),transparent),radial-gradient(1.3px 1.3px at 6.02% 14.77%,rgba(255,255,255,0.56),transparent),radial-gradient(1.3px 1.3px at 59.97% 16.53%,rgba(200,220,255,0.53),transparent),radial-gradient(1.3px 1.3px at 91.72% 73.33%,rgba(255,255,255,0.44),transparent),radial-gradient(1.3px 1.3px at 66.05% 68.90%,rgba(255,255,255,0.56),transparent),radial-gradient(1.3px 1.3px at 2.74% 38.71%,rgba(200,220,255,0.41),transparent),radial-gradient(1.3px 1.3px at 28.72% 91.64%,rgba(255,255,255,0.62),transparent),radial-gradient(1.3px 1.3px at 19.00% 32.39%,rgba(255,255,255,0.62),transparent),radial-gradient(1.3px 1.3px at 62.40% 51.86%,rgba(255,255,255,0.45),transparent),radial-gradient(1.3px 1.3px at 99.41% 4.13%,rgba(255,255,255,0.46),transparent)"></div>
+        <div data-sgr-box style="position:absolute;left:58%;top:40%;width:224px;height:204px">
+          <div data-sgr onMouseEnter="{{ sgrOn }}" onMouseLeave="{{ sgrOff }}" style="position:absolute;inset:-14px;pointer-events:auto;cursor:crosshair"></div>
+          <sc-if value="{{ sgrLabel }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;left:52%;top:calc(100% - 56px);white-space:nowrap;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.2em;color:rgba(233,230,225,.7)">SAGITTARIUS</div>
+          </sc-if>
+          <svg viewBox="0 0 165 150" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+            <g fill="rgba(255,255,255,.34)">
+              <circle cx="43.8" cy="1" r=".36"></circle>
+              <circle cx="49.5" cy="6.9" r=".36"></circle>
+              <circle cx="65.7" cy="20.5" r=".36"></circle>
+              <circle cx="74" cy="16.9" r=".45"></circle>
+              <circle cx="77.6" cy="44" r=".55"></circle>
+              <circle cx="64.8" cy="51.9" r=".45"></circle>
+              <circle cx="69.5" cy="62.6" r=".55"></circle>
+              <circle cx="29.3" cy="38.8" r=".45"></circle>
+              <circle cx="0.6" cy="58.3" r=".45"></circle>
+              <circle cx="9.8" cy="97.4" r=".45"></circle>
+              <circle cx="19.8" cy="131" r=".36"></circle>
+              <circle cx="50.2" cy="120.5" r=".36"></circle>
+              <circle cx="53.1" cy="142.4" r=".36"></circle>
+              <circle cx="88.8" cy="47.1" r=".55"></circle>
+              <circle cx="110.2" cy="39.8" r=".55"></circle>
+              <circle cx="128.6" cy="17.1" r=".36"></circle>
+              <circle cx="117.1" cy="63.6" r=".55"></circle>
+              <circle cx="134" cy="67.6" r=".45"></circle>
+              <circle cx="157.1" cy="56.4" r=".36"></circle>
+              <circle cx="112.9" cy="87.1" r=".55"></circle>
+              <circle cx="118.1" cy="100.2" r=".45"></circle>
+            </g>
+          </svg>
+          <sc-if value="{{ sgrIn }}" hint-placeholder-val="{{ false }}">
+            <svg viewBox="0 0 165 150" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+              <g fill="none" stroke="rgba(190,214,255,.32)" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="400">
+                <path d="M77.6,44 L64.8,51.9 L69.5,62.6 L112.9,87.1 L117.1,63.6 L88.8,47.1 Z" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 0ms forwards;stroke-dashoffset:400"></path>
+                <path d="M88.8,47.1 L110.2,39.8 L117.1,63.6" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 300ms forwards;stroke-dashoffset:400"></path>
+                <path d="M110.2,39.8 L128.6,17.1" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 600ms forwards;stroke-dashoffset:400"></path>
+                <path d="M77.6,44 L74,16.9 L65.7,20.5 L49.5,6.9 L43.8,1" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 900ms forwards;stroke-dashoffset:400"></path>
+                <path d="M64.8,51.9 L29.3,38.8 L0.6,58.3" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 1200ms forwards;stroke-dashoffset:400"></path>
+                <path d="M0.6,58.3 L9.8,97.4 L19.8,131" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 1500ms forwards;stroke-dashoffset:400"></path>
+                <path d="M19.8,131 L50.2,120.5 M19.8,131 L53.1,142.4" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 1800ms forwards;stroke-dashoffset:400"></path>
+                <path d="M117.1,63.6 L134,67.6 L157.1,56.4" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 2100ms forwards;stroke-dashoffset:400"></path>
+                <path d="M112.9,87.1 L118.1,100.2 M112.9,87.1 L134,67.6" style="animation:obs-draw 1700ms cubic-bezier(.4,0,.3,1) 2400ms forwards;stroke-dashoffset:400"></path>
+              </g>
+            </svg>
+          </sc-if>
+          <sc-if value="{{ sgrOut }}" hint-placeholder-val="{{ false }}">
+            <svg viewBox="0 0 165 150" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+              <g fill="none" stroke="rgba(190,214,255,.32)" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="400">
+                <path d="M77.6,44 L64.8,51.9 L69.5,62.6 L112.9,87.1 L117.1,63.6 L88.8,47.1 Z" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 2400ms forwards;stroke-dashoffset:0"></path>
+                <path d="M88.8,47.1 L110.2,39.8 L117.1,63.6" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 2100ms forwards;stroke-dashoffset:0"></path>
+                <path d="M110.2,39.8 L128.6,17.1" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 1800ms forwards;stroke-dashoffset:0"></path>
+                <path d="M77.6,44 L74,16.9 L65.7,20.5 L49.5,6.9 L43.8,1" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 1500ms forwards;stroke-dashoffset:0"></path>
+                <path d="M64.8,51.9 L29.3,38.8 L0.6,58.3" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 1200ms forwards;stroke-dashoffset:0"></path>
+                <path d="M0.6,58.3 L9.8,97.4 L19.8,131" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 900ms forwards;stroke-dashoffset:0"></path>
+                <path d="M19.8,131 L50.2,120.5 M19.8,131 L53.1,142.4" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 600ms forwards;stroke-dashoffset:0"></path>
+                <path d="M117.1,63.6 L134,67.6 L157.1,56.4" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 300ms forwards;stroke-dashoffset:0"></path>
+                <path d="M112.9,87.1 L118.1,100.2 M112.9,87.1 L134,67.6" style="animation:obs-undraw 1700ms cubic-bezier(.4,0,.3,1) 0ms forwards;stroke-dashoffset:0"></path>
+              </g>
+            </svg>
+          </sc-if>
+        </div>
+      </div>
+      </div>
+
+      <div data-camera style="position:absolute;inset:0;z-index:3;pointer-events:none;transform-origin:50% 50%">
+      <div data-fade style="position:absolute;left:50%;top:50%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,186,94,.20) 0%,rgba(255,160,60,.08) 38%,rgba(255,160,60,0) 70%);animation:obs-pulse 9s ease-in-out infinite"></div>
+      <div data-fade style="position:absolute;left:50%;top:50%;width:6.4%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;background:radial-gradient(circle at 42% 38%,#fffaf0 0%,#ffd28a 34%,#e0902f 72%,#b96a1c 100%);box-shadow:0 0 28px rgba(255,178,90,.55),0 0 90px rgba(255,150,50,.28)"></div>
+
+      <div data-orbit style="position:absolute;left:50%;top:50%;height:30%;aspect-ratio:1;margin:0;transform:translate(-50%,-50%);animation:obs-spin 34s linear infinite">
+        <sc-if value="{{ showOrbitPaths }}" hint-placeholder-val="{{ true }}"><div data-fade style="position:absolute;inset:0;border:1px solid rgba(233,230,225,.08);border-radius:50%;pointer-events:none"></div></sc-if>
+        <div data-orbit style="position:absolute;left:50%;top:0;transform:translate(-50%,-50%);animation:obs-anti 34s linear infinite">
+          <div data-world="a" onMouseEnter="{{ enterA }}" onMouseLeave="{{ leave }}" onClick="{{ selectA }}" style="position:relative;padding:14px;cursor:crosshair">
+            <div data-body style="position:relative;width:30px;height:30px;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 34% 30%,#7d97b8 0%,#45607f 46%,#18243a 100%);box-shadow:inset -6px -5px 10px rgba(0,0,0,.6),0 0 18px rgba(120,170,230,.28)">
+              <div style="position:absolute;inset:0;border-radius:50%;background-image:repeating-linear-gradient(0deg,rgba(8,14,24,.72) 0 .7px,transparent .7px 5px),repeating-linear-gradient(90deg,rgba(8,14,24,.72) 0 .7px,transparent .7px 5px);-webkit-mask-image:radial-gradient(circle at 42% 40%,#000 45%,transparent 72%);mask-image:radial-gradient(circle at 42% 40%,#000 45%,transparent 72%)"></div>
+              <div style="position:absolute;left:10px;top:5px;width:4.3px;height:4.3px;background:rgba(190,220,255,.24)"></div>
+              <div style="position:absolute;left:15px;top:15px;width:4.3px;height:4.3px;background:rgba(190,220,255,.16)"></div>
+              <div style="position:absolute;left:5px;top:15px;width:4.3px;height:4.3px;background:rgba(190,220,255,.12)"></div>
+              <div style="position:absolute;left:14px;top:6.5px;width:2.5px;height:2.5px;border-radius:50%;background:#cfe6ff;box-shadow:0 0 5px #9cc8ff;animation:obs-twinkle 2.6s ease-in-out infinite"></div>
+              <div style="position:absolute;left:6.5px;top:21.5px;width:2px;height:2px;border-radius:50%;background:#cfe6ff;box-shadow:0 0 4px #9cc8ff;animation:obs-twinkle 3.4s ease-in-out infinite .8s"></div>
+              <div style="position:absolute;left:21.5px;top:14px;width:2px;height:2px;border-radius:50%;background:#cfe6ff;box-shadow:0 0 4px #9cc8ff;animation:obs-twinkle 3s ease-in-out infinite 1.6s"></div>
+            </div>
+            <sc-if value="{{ hoverA }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:50%;top:50%;width:58px;height:58px;transform:translate(-50%,-50%);pointer-events:none">
+                <div style="position:absolute;left:0;top:0;width:11px;height:11px;border-left:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;top:0;width:11px;height:11px;border-right:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;left:0;bottom:0;width:11px;height:11px;border-left:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;bottom:0;width:11px;height:11px;border-right:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;left:50%;top:-16px;width:1px;height:12px;background:rgba(232,182,113,.6)"></div>
+              </div>
+              <div style="position:absolute;left:100%;top:50%;width:18px;height:1px;background:#e8b671;pointer-events:none"></div><div style="position:absolute;left:calc(100% + 24px);top:50%;transform:translateY(-50%);white-space:nowrap;pointer-events:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671">TARGET: INTERFACES</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+
+      <div data-orbit style="position:absolute;left:50%;top:50%;height:52%;aspect-ratio:1;transform:translate(-50%,-50%);animation:obs-spin 58s linear infinite;animation-delay:-14s">
+        <sc-if value="{{ showOrbitPaths }}" hint-placeholder-val="{{ true }}"><div data-fade style="position:absolute;inset:0;border:1px solid rgba(233,230,225,.07);border-radius:50%;pointer-events:none"></div></sc-if>
+        <div data-orbit style="position:absolute;left:100%;top:50%;transform:translate(-50%,-50%);animation:obs-anti 58s linear infinite;animation-delay:-14s">
+          <div data-world="b" onMouseEnter="{{ enterB }}" onMouseLeave="{{ leave }}" onClick="{{ selectB }}" style="position:relative;padding:14px;cursor:crosshair">
+            <div style="position:absolute;left:50%;top:50%;width:72px;height:72px;border-radius:50%;background:radial-gradient(circle,rgba(110,205,225,0) 46%,rgba(110,205,225,.12) 54%,rgba(110,205,225,0) 72%);animation:obs-breathe 6s ease-in-out infinite;pointer-events:none"></div>
+            <div style="position:absolute;left:50%;top:50%;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle,rgba(130,215,235,0) 58%,rgba(130,215,235,.2) 66%,rgba(130,215,235,0) 76%);animation:obs-breathe 6s ease-in-out infinite -3s;pointer-events:none"></div>
+            <div data-body style="width:38px;height:38px;border-radius:50%;position:relative;overflow:hidden;background:radial-gradient(circle at 36% 30%,#5a93a8 0%,#22506b 52%,#0b1e2c 100%);box-shadow:inset -6px -5px 12px rgba(0,0,0,.6),0 0 0 1px rgba(150,220,240,.18),0 0 22px rgba(90,190,220,.32)">
+              <div style="position:absolute;inset:0;border-radius:50%;background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2730%27%20height%3D%278%27%20viewBox%3D%270%200%2030%208%27%3E%3Cpath%20d%3D%27M0%204%20Q7.5%201%2015%204%20T30%204%27%20fill%3D%27none%27%20stroke%3D%27rgba(175%2C230%2C245%2C0.42)%27%20stroke-width%3D%271.1%27%2F%3E%3C%2Fsvg%3E');background-size:30px 8px;transform:rotate(-8deg) scale(1.2);animation:obs-swell 12s linear infinite"></div>
+              <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,transparent 62%,rgba(150,225,245,.28) 92%)"></div>
+            </div>
+            <sc-if value="{{ hoverB }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:50%;top:50%;width:66px;height:66px;transform:translate(-50%,-50%);pointer-events:none">
+                <div style="position:absolute;left:0;top:0;width:12px;height:12px;border-left:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;top:0;width:12px;height:12px;border-right:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;left:0;bottom:0;width:12px;height:12px;border-left:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-right:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;left:50%;top:-16px;width:1px;height:12px;background:rgba(232,182,113,.6)"></div>
+              </div>
+              <div style="position:absolute;right:100%;top:50%;width:18px;height:1px;background:#e8b671;pointer-events:none"></div><div style="position:absolute;right:calc(100% + 24px);top:50%;transform:translateY(-50%);white-space:nowrap;pointer-events:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671">TARGET: IMMERSIVE</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+
+      <div data-orbit style="position:absolute;left:50%;top:50%;height:74%;aspect-ratio:1;transform:translate(-50%,-50%);animation:obs-spin 88s linear infinite;animation-delay:-52s">
+        <sc-if value="{{ showOrbitPaths }}" hint-placeholder-val="{{ true }}"><div data-fade style="position:absolute;inset:0;border:1px solid rgba(233,230,225,.06);border-radius:50%;pointer-events:none"></div></sc-if>
+        <div data-orbit style="position:absolute;left:50%;top:100%;transform:translate(-50%,-50%);animation:obs-anti 88s linear infinite;animation-delay:-52s">
+          <div data-world="d" onMouseEnter="{{ enterD }}" onMouseLeave="{{ leave }}" onClick="{{ selectD }}" style="position:relative;padding:16px;cursor:crosshair">
+            <div style="position:absolute;left:50%;top:50%;width:66px;height:66px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(170,140,220,.14),rgba(170,140,220,0) 70%);pointer-events:none"></div>
+            <div style="position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(-22deg);pointer-events:none"><div style="position:absolute;left:-31px;top:-9px;width:62px;height:18px;border-radius:50%;border:1px solid transparent;border-top-color:rgba(206,188,236,.55);border-left-color:rgba(206,188,236,.3);animation:obs-wobble 16s linear infinite"></div></div>
+            <div style="position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(38deg);pointer-events:none"><div style="position:absolute;left:-26px;top:-7px;width:52px;height:14px;border-radius:50%;border:1px dashed transparent;border-bottom-color:rgba(206,188,236,.4);border-right-color:rgba(206,188,236,.25);animation:obs-wobble 22s linear infinite reverse"></div></div>
+            <div data-body style="position:relative;width:34px;height:34px;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;overflow:hidden;background:radial-gradient(circle at 38% 32%,#c2a6dc 0%,#6d5590 48%,#241c36 100%);box-shadow:inset -5px -4px 12px rgba(0,0,0,.6),0 0 24px rgba(170,140,220,.3)">
+              <div style="position:absolute;left:-4px;top:13px;width:26px;height:14px;border-radius:50%;background:rgba(230,210,250,.16);transform:rotate(-14deg)"></div>
+              <div style="position:absolute;right:-3px;top:4px;width:14px;height:11px;border-radius:40% 60% 50% 50%;background:rgba(40,28,64,.55)"></div>
+              <div style="position:absolute;left:12px;bottom:3px;width:12px;height:6px;border-radius:50%;border-top:1px solid rgba(230,210,250,.45)"></div>
+            </div>
+            <div style="position:absolute;left:4px;top:8px;width:7px;height:7px;border:1px solid rgba(206,188,236,.7);transform:rotate(18deg);animation:obs-drift 6s ease-in-out infinite;pointer-events:none"></div>
+            <div style="position:absolute;right:5px;bottom:9px;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:7px solid rgba(206,188,236,.5);animation:obs-drift 8s ease-in-out infinite;pointer-events:none"></div>
+            <div style="position:absolute;right:12px;top:2px;width:4px;height:4px;background:rgba(206,188,236,.45);animation:obs-drift 7s ease-in-out infinite;pointer-events:none"></div>
+            <div style="position:absolute;left:9px;bottom:4px;width:5px;height:5px;border-radius:50%;border:1px solid rgba(206,188,236,.5);animation:obs-drift 9s ease-in-out infinite reverse;pointer-events:none"></div>
+            <sc-if value="{{ hoverD }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:50%;top:50%;width:70px;height:70px;transform:translate(-50%,-50%);pointer-events:none">
+                <div style="position:absolute;left:0;top:0;width:12px;height:12px;border-left:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;top:0;width:12px;height:12px;border-right:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;left:0;bottom:0;width:12px;height:12px;border-left:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-right:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;left:50%;bottom:-16px;width:1px;height:12px;background:rgba(232,182,113,.6)"></div>
+              </div>
+              <div style="position:absolute;left:100%;top:50%;width:18px;height:1px;background:#e8b671;pointer-events:none"></div><div style="position:absolute;left:calc(100% + 24px);top:50%;transform:translateY(-50%);white-space:nowrap;pointer-events:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671">TARGET: EXPLORATIONS</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+
+      <div data-orbit style="position:absolute;left:50%;top:50%;height:96%;aspect-ratio:1;transform:translate(-50%,-50%);animation:obs-spin 132s linear infinite;animation-delay:-30s">
+        <sc-if value="{{ showOrbitPaths }}" hint-placeholder-val="{{ true }}"><div data-fade style="position:absolute;inset:0;border:1px dashed rgba(233,230,225,.07);border-radius:50%;pointer-events:none"></div></sc-if>
+        <div data-orbit style="position:absolute;left:14.64%;top:14.64%;transform:translate(-50%,-50%);animation:obs-anti 132s linear infinite;animation-delay:-30s">
+          <div data-world="c" onMouseEnter="{{ enterC }}" onMouseLeave="{{ leave }}" onClick="{{ selectC }}" style="position:relative;padding:16px;cursor:crosshair">
+            <div style="position:absolute;left:50%;top:50%;width:22px;height:22px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.95) 0%,rgba(255,255,255,.55) 32%,rgba(240,240,250,.15) 58%,rgba(240,240,250,0) 72%);pointer-events:none"></div>
+            <div data-body style="position:relative;width:12px;height:12px;border-radius:50%;background:#000;box-shadow:0 0 0 1px rgba(240,240,245,.55),0 0 8px 2px rgba(240,240,245,.35),0 0 18px 4px rgba(240,240,245,.12)"></div>
+            <sc-if value="{{ hoverC }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:50%;top:50%;width:40px;height:40px;transform:translate(-50%,-50%);pointer-events:none">
+                <div style="position:absolute;left:0;top:0;width:11px;height:11px;border-left:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;top:0;width:11px;height:11px;border-right:1px solid #e8b671;border-top:1px solid #e8b671"></div>
+                <div style="position:absolute;left:0;bottom:0;width:11px;height:11px;border-left:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;right:0;bottom:0;width:11px;height:11px;border-right:1px solid #e8b671;border-bottom:1px solid #e8b671"></div>
+                <div style="position:absolute;left:50%;bottom:-16px;width:1px;height:12px;background:rgba(232,182,113,.6)"></div>
+              </div>
+              <div style="position:absolute;left:100%;top:50%;width:18px;height:1px;background:#e8b671;pointer-events:none"></div><div style="position:absolute;left:calc(100% + 24px);top:50%;transform:translateY(-50%);white-space:nowrap;pointer-events:none;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671">TARGET: UNDISCOVERED</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <div style="position:absolute;top:14px;left:14px;width:16px;height:16px;border-left:1px solid rgba(233,230,225,.3);border-top:1px solid rgba(233,230,225,.3);pointer-events:none"></div>
+      <div style="position:absolute;top:14px;right:14px;width:16px;height:16px;border-right:1px solid rgba(233,230,225,.3);border-top:1px solid rgba(233,230,225,.3);pointer-events:none"></div>
+      <div style="position:absolute;bottom:14px;left:14px;width:16px;height:16px;border-left:1px solid rgba(233,230,225,.3);border-bottom:1px solid rgba(233,230,225,.3);pointer-events:none"></div>
+      <div style="position:absolute;bottom:14px;right:14px;width:16px;height:16px;border-right:1px solid rgba(233,230,225,.3);border-bottom:1px solid rgba(233,230,225,.3);pointer-events:none"></div>
+      <div style="position:absolute;left:50%;top:14px;width:1px;height:10px;background:rgba(233,230,225,.25);pointer-events:none"></div>
+      <div style="position:absolute;left:50%;bottom:14px;width:1px;height:10px;background:rgba(233,230,225,.25);pointer-events:none"></div>
+
+      <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:4;background:radial-gradient(90% 90% at 30% 50%,rgba(5,6,9,.10),rgba(5,6,9,.38));pointer-events:none"></div>
+        <div style="position:absolute;z-index:5;right:22px;top:22px;max-height:calc(100% - 44px);width:min(380px,56%);box-sizing:border-box;padding:18px 22px 18px;border:1px solid rgba(233,230,225,.14);background:rgba(8,10,13,.9);backdrop-filter:blur(3px);display:flex;flex-direction:column;overflow:auto;scrollbar-width:thin;animation:{{ panelAnim }}" ref="{{ panelRef }}">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.4)">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:4px;height:4px;border-radius:50%;background:#e8b671;box-shadow:0 0 7px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>TARGET LOCKED</span>
+            <span onClick="{{ clear }}" style="cursor:crosshair;color:rgba(233,230,225,.55);border:1px solid rgba(233,230,225,.18);padding:4px 8px">CLOSE ✕</span>
+          </div>
+          <h2 data-replay="obs-reveal 420ms ease-out backwards" style="flex-shrink:0;margin:22px 0 0;animation:obs-reveal 420ms ease-out backwards;font-weight:400;font-size:clamp(21px,2vw,27px);line-height:1.06;letter-spacing:-.01em;color:#f3efe9">{{ selName }}</h2>
+          <p data-replay="obs-reveal 420ms 80ms ease-out backwards" style="flex-shrink:0;animation:obs-reveal 420ms 80ms ease-out backwards;margin:8px 0 0;max-width:34ch;font-weight:400;font-size:13.5px;line-height:1.5;color:rgba(233,230,225,.6);text-wrap:pretty">{{ selShort }}</p>
+          <div data-replay="obs-sweep 1100ms 260ms cubic-bezier(.3,.6,.2,1) both" style="margin-top:18px;height:1px;flex-shrink:0;background:#e8b671;transform-origin:left;animation:obs-sweep 1100ms 260ms cubic-bezier(.3,.6,.2,1) both"></div>
+          <div data-replay="obs-reveal 520ms 180ms ease-out backwards" style="margin-top:14px;display:flex;flex-direction:column;flex-shrink:0;animation:obs-reveal 520ms 180ms ease-out backwards">
+            <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em;color:rgba(233,230,225,.3);padding-bottom:5px">
+              <span>CATALOGUED OBJECTS</span><span>{{ selCount }}</span>
+            </div>
+            <sc-for list="{{ selEntries }}" as="entry" hint-placeholder-count="3">
+              <div style="padding:6px 2px;border-top:1px solid rgba(233,230,225,.08)">
+                <span style="display:flex;align-items:baseline;gap:10px">
+                  <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.16em;color:rgba(233,230,225,.35)">{{ entry.id }}</span>
+                  <span style="flex:1;font-weight:400;font-size:13.5px;letter-spacing:-.005em;color:#e9e6e1">{{ entry.title }}</span>
+                  <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8.5px;letter-spacing:.16em;color:rgba(233,230,225,.4)">{{ entry.meta }}</span>
+                </span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="position:sticky;bottom:-18px;display:flex;margin:18px -22px -18px;padding:24px 22px 18px;background:linear-gradient(180deg,rgba(8,10,13,0) 0,rgba(8,10,13,1) 22px);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em">
+            <span onClick="{{ enterOrbit }}" style="flex:1;cursor:crosshair;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;background:#0d0f13;border:1px solid rgba(232,182,113,.45);color:#e8b671;letter-spacing:.2em" style-hover="background:rgba(232,182,113,.1)"><span style="width:4px;height:4px;border-radius:50%;background:#e8b671;box-shadow:0 0 7px #e8b671"></span>ENTER ORBIT →</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <div data-hud style="position:absolute;left:22px;top:22px;z-index:4;display:flex;flex-direction:column;gap:1px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em">
+        <div style="color:rgba(233,230,225,.3);padding-bottom:7px">WORK</div>
+        <div onMouseEnter="{{ enterA }}" onMouseLeave="{{ leave }}" onClick="{{ selectA }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">INTERFACES</span><span style="color:rgba(233,230,225,.35)">03</span></div>
+        <div onMouseEnter="{{ enterB }}" onMouseLeave="{{ leave }}" onClick="{{ selectB }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">IMMERSIVE</span><span style="color:rgba(233,230,225,.35)">04</span></div>
+        <div onMouseEnter="{{ enterD }}" onMouseLeave="{{ leave }}" onClick="{{ selectD }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">EXPLORATIONS</span><span style="color:rgba(233,230,225,.35)">03</span></div>
+        <div onMouseEnter="{{ enterC }}" onMouseLeave="{{ leave }}" onClick="{{ selectC }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">UNDISCOVERED</span><span style="color:rgba(233,230,225,.35)">COMING SOON</span></div>
+      </div>
+
+      <div data-hud style="position:absolute;left:22px;bottom:22px;z-index:4;width:230px;max-width:46%;padding:14px 15px 13px;border:1px solid rgba(233,230,225,.12);background:rgba(8,10,13,.88);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;color:rgba(233,230,225,.6);pointer-events:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px;color:rgba(233,230,225,.35)"><span>SYSTEM STATUS</span><span style="width:4px;height:4px;border-radius:50%;background:#e8b671;box-shadow:0 0 7px #e8b671"></span></div>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <div style="display:flex;justify-content:space-between;"><span style="color:rgba(233,230,225,.45)">OBJECTS</span><span style="color:rgba(233,230,225,.8)">04</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="color:rgba(233,230,225,.45)">TARGET</span><span style="color:#e8b671">{{ targetLine }}</span></div>
+        </div>
+      </div>
+
+      <sc-if value="{{ noSelection }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;z-index:8;right:22px;bottom:22px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.45);pointer-events:none">OBJECTS 04 · RECORDS {{ recordCount }} · SIGNAL STRONG</div></sc-if>
+
+      <sc-if value="{{ inApproach }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:4;overflow:hidden;pointer-events:none">
+
+          <div style="position:absolute;left:0;right:0;top:0;height:56px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 20px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.5);pointer-events:none">
+            <span style="display:flex;align-items:center;gap:9px"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 640ms ease-in-out infinite"></span>APPROACHING</span>
+          </div>
+
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ inOrbit }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:5;overflow:hidden">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(5,6,9,.86) 0%,rgba(5,6,9,.5) 24%,rgba(5,6,9,0) 52%),linear-gradient(180deg,rgba(5,6,9,.7) 0%,rgba(5,6,9,.2) 14%,rgba(5,6,9,0) 26%)"></div>
+          <div style="position:absolute;left:0;right:0;top:0;z-index:3;height:56px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 20px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.8)">
+            <span style="display:flex;align-items:center;gap:9px"><span style="width:5px;height:5px;border-radius:50%;background:#7fb4e8;box-shadow:0 0 8px #7fb4e8;animation:obs-blink 2.8s ease-in-out infinite"></span>IN ORBIT</span>
+            <span onClick="{{ leaveOrbit }}" style="cursor:crosshair;padding:5px 10px;border:1px solid rgba(233,230,225,.2);color:rgba(233,230,225,.6)" style-hover="background:rgba(233,230,225,.07)">← SYSTEM VIEW</span>
+          </div>
+
+
+          <div style="position:absolute;right:0;top:0;bottom:0;width:min(400px,56%);padding:52px 22px 18px;display:flex;flex-direction:column;background:rgba(8,10,13,.9);backdrop-filter:blur(3px);border-left:1px solid rgba(233,230,225,.12)">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:#e8b671">SURFACE CATALOGUE</div>
+            <h2 style="margin:7px 0 0;font-weight:400;font-size:clamp(22px,2.2vw,30px);line-height:1.08;color:#f3efe9">{{ selName }}</h2>
+            <div style="margin-top:14px;padding-top:10px;border-top:1px solid rgba(233,230,225,.12);flex:1;min-height:0;overflow:auto;padding-right:10px;scrollbar-width:thin;display:flex;flex-direction:column">
+              <sc-for list="{{ selEntries }}" as="entry" hint-placeholder-count="3">
+                <div onClick="{{ entry.open }}" style="display:block;padding:8px 2px;border-bottom:1px solid rgba(233,230,225,.08);color:#e9e6e1;cursor:crosshair" style-hover="background:rgba(232,182,113,.06)">
+                  <span style="display:flex;align-items:baseline;gap:10px">
+                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.16em;color:rgba(233,230,225,.75)">{{ entry.id }}</span>
+                    <span style="flex:1;font-weight:400;font-size:14px">{{ entry.title }}</span>
+                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.16em;color:rgba(233,230,225,.6)">{{ entry.meta }}</span>
+                  </span>
+                  <span style="display:block;margin-top:3px;padding-left:19px;font-weight:400;font-size:11.5px;line-height:1.4;color:rgba(233,230,225,.78)">{{ entry.note }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+    <sc-if value="{{ hasCase }}" hint-placeholder-val="{{ false }}">
+      {{ recBackdrop }}
+      <div style="position:absolute;left:22px;right:22px;top:0;bottom:0;z-index:6;width:auto;max-width:1320px;margin:0 auto;border:1px solid rgba(233,230,225,.1);border-radius:3px;background:#07080a;overflow:auto;scrollbar-width:thin">
+        <div style="position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 22px;border-bottom:1px solid rgba(233,230,225,.1);background:rgba(8,10,13,.94);backdrop-filter:blur(3px);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.5)">
+          <span style="display:flex;align-items:center;gap:9px"><span style="width:4px;height:4px;border-radius:50%;background:#e8b671;box-shadow:0 0 7px #e8b671"></span>{{ recIndex }}</span>
+          <span onClick="{{ closeRecord }}" style="cursor:crosshair;padding:5px 10px;border:1px solid rgba(233,230,225,.22);color:rgba(233,230,225,.72)" style-hover="background:rgba(233,230,225,.08)">← BACK</span>
+        </div>
+
+        <div style="padding:clamp(28px,4vw,56px) clamp(22px,5vw,72px) clamp(48px,6vw,88px)">
+        <sc-if value="{{ isSB }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record SB Chemical" embedded="{{ true }}" hint-size="100%,1400px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isEmo }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record Emosphere" embedded="{{ true }}" hint-size="100%,1200px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isSunken }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record Sunken Feeling" embedded="{{ true }}" hint-size="100%,1200px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isFff }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record Fuzzy Farm Frolic" embedded="{{ true }}" hint-size="100%,1600px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ is3d }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record 3D Modeling" embedded="{{ true }}" hint-size="100%,1600px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isVis }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record Visualizers" embedded="{{ true }}" hint-size="100%,1200px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isThought }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record Thought Deconstruct" embedded="{{ true }}" hint-size="100%,1200px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isSanwin }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record On-Click" embedded="{{ true }}" hint-size="100%,900px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isYingge }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record Yingge" embedded="{{ true }}" hint-size="100%,1400px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isOrisma }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record Orisma" embedded="{{ true }}" hint-size="100%,1400px"></dc-import>
+        </sc-if>
+        </div>
+        <sc-if value="{{ noPage }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:36px 40px 44px;display:flex;flex-direction:column;gap:34px">
+          <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.4)">{{ recWorld }} · {{ recMeta }}</div>
+            <h2 style="margin:0;font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.04;letter-spacing:-.02em;color:#f3efe9">{{ recTitle }}</h2>
+            <p style="margin:0;max-width:56ch;font-weight:400;font-size:clamp(15px,1.5vw,18px);line-height:1.5;color:rgba(233,230,225,.72);text-wrap:pretty">{{ recLede }}</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em">
+            <div style="background:#0a0c10;padding:13px 14px;display:flex;flex-direction:column;gap:6px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.8)">{{ recRole }}</span></div>
+            <div style="background:#0a0c10;padding:13px 14px;display:flex;flex-direction:column;gap:6px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.8)">{{ recYear }}</span></div>
+            <div style="background:#0a0c10;padding:13px 14px;display:flex;flex-direction:column;gap:6px"><span style="color:rgba(233,230,225,.35)">TEAM</span><span style="color:rgba(233,230,225,.8)">{{ recTeam }}</span></div>
+            <div style="background:#0a0c10;padding:13px 14px;display:flex;flex-direction:column;gap:6px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671">{{ recStatus }}</span></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <div style="width:100%;aspect-ratio:16/7;border:1px solid rgba(233,230,225,.12);background-image:repeating-linear-gradient(135deg,rgba(233,230,225,.045) 0 1px,transparent 1px 9px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.22em;color:rgba(233,230,225,.4)">{{ recStillA }}</span></div>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em;color:rgba(233,230,225,.3)">FIG 01 · IMAGE PLACEHOLDER</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;max-width:980px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:#e8b671">METHOD</div>
+              <p style="margin:0;font-weight:400;font-size:14.5px;line-height:1.6;color:rgba(233,230,225,.68);text-wrap:pretty">{{ recMethod }}</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:#e8b671">OUTCOME</div>
+              <p style="margin:0;font-weight:400;font-size:14.5px;line-height:1.6;color:rgba(233,230,225,.68);text-wrap:pretty">{{ recOutcome }}</p>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:40px;padding:20px 0;border-top:1px solid rgba(233,230,225,.12);border-bottom:1px solid rgba(233,230,225,.12)">
+            <sc-for list="{{ recMetrics }}" as="m" hint-placeholder-count="2">
+              <div style="display:flex;flex-direction:column;gap:7px">
+                <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.2em;color:rgba(233,230,225,.35)">{{ m.k }}</span>
+                <span style="font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:1;color:#e8b671">{{ m.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <div style="width:100%;aspect-ratio:16/7;border:1px solid rgba(233,230,225,.12);background-image:repeating-linear-gradient(135deg,rgba(233,230,225,.045) 0 1px,transparent 1px 9px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.22em;color:rgba(233,230,225,.4)">{{ recStillB }}</span></div>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em;color:rgba(233,230,225,.3)">FIG 02 · IMAGE PLACEHOLDER</span>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.35)">
+            <span>END OF RECORD</span>
+            <span onClick="{{ closeRecord }}" style="cursor:crosshair;padding:8px 12px;border:1px solid rgba(232,182,113,.45);color:#e8b671" style-hover="background:rgba(232,182,113,.1)">← BACK</span>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;gap:20px;padding:16px 22px 18px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+    <span>HOVER TO IDENTIFY · SELECT TO EXAMINE</span>
+    <span style="display:flex;gap:22px;align-items:center"><a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a></span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showOrbitPaths&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;statusReadout&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;3 OBJECTS CHARTED · 1 UNSURVEYED&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { hover: null, selected: null, mode: 'system', record: null, peek: null, sgrPhase: null, sgrHover: false };
+  worlds = {
+    a: { id: 'OBJ-01', name: 'Interfaces', desc: 'Grid-lined world. Surface mapped with wireframes, systems and screen fragments.',
+      alt: '412 KM', vel: '7.14 KM/S', period: '92 MIN',
+      entries: [
+        { id: '01', title: 'Orisma Technology', meta: 'WEB · CLIENT', note: 'Designed websites for SC Asset, Silom Complex, Luckpim and SHERA.',
+          role: 'DESIGN INTERN', status: 'DELIVERED', year: '2023', page: 'Record Orisma.dc.html',
+          lede: 'Four client sites inside one internship, each with its own brand system to work within.',
+          metrics: [{ k: 'CLIENTS', v: '04' }, { k: 'SCOPE', v: 'WEB' }],
+          stills: ['SC ASSET — HOMEPAGE', 'SILOM COMPLEX — CONTACT'] },
+        { id: '02', title: 'SB Chemical', meta: 'UI · FREELANCE', note: 'Improved UI flow and streamlined B2B navigation.',
+          role: 'FREELANCE DESIGNER', status: 'CONCEPT', year: '2025', page: 'Record SB Chemical.dc.html',
+          lede: 'A B2B catalogue that buyers had to hunt through. The rebuild put the flow and the navigation back in order.',
+          metrics: [{ k: 'FOCUS', v: 'B2B' }, { k: 'SCOPE', v: 'UI FLOW' }],
+          stills: ['NAVIGATION — BEFORE / AFTER', 'PRODUCT FLOW'] },
+        { id: '03', title: 'ON-CLICK', meta: 'APP · CONCEPT', note: 'App for booking a nearby photographer by expertise level.',
+          role: 'UI / UX DESIGN', status: 'CONCEPT', year: '2023', page: 'Record On-Click.dc.html',
+          lede: 'An app for booking a photographer by expertise level, from Amateur to Cinematographer.',
+          metrics: [{ k: 'FOCUS', v: 'CONNECTION' }, { k: 'STATE', v: 'CONCEPT' }],
+          stills: ['CONCEPT SCREENS', 'FLOW STUDY'] }] },
+    b: { id: 'OBJ-02', name: 'Immersive', desc: 'Ocean world. Slow swell, low visibility. VR, AR and installations made to be moved through.',
+      alt: '308 KM', vel: '6.82 KM/S', period: '104 MIN',
+      entries: [
+        { id: '01', title: 'SUNKEN FEELING', meta: 'VR · EXHIBITED', note: 'VR simulation exhibited at National Taipei University of Technology, built in Unity + Meta Quest 3.',
+          role: 'VR DESIGNER', status: 'EXHIBITED', year: '2024', page: 'Record Sunken Feeling.dc.html',
+          lede: 'A VR simulation shown at National Taipei University of Technology.',
+          metrics: [{ k: 'STACK', v: 'UNITY · QUEST 3' }, { k: 'VENUE', v: 'NTUT' }],
+          stills: ['HEADSET CAPTURE', 'EXHIBITION VIEW'] },
+        { id: '02', title: 'Yingge Ceramic Museum', meta: 'AR · CONCEPT', note: 'AR guide app for Taiwan’s first ceramics museum.',
+          role: 'AR PROTOTYPE · UI DESIGN', status: 'CONCEPT', year: '2024', page: 'Record Yingge.dc.html',
+          lede: 'An AR guide for Taiwan’s first ceramics museum.',
+          metrics: [{ k: 'STACK', v: 'UNITY · VUFORIA' }, { k: 'MEDIUM', v: 'AR' }],
+          stills: ['AR PROTOTYPE', 'APP SCREENS'] },
+        { id: '03', title: 'Emosphere', meta: 'INSTALLATION · EXHIBITED', note: 'Interactive installation exhibited at YODEX (Taipei) and VGW (Kaohsiung), built with Arduino + Unity.',
+          role: 'INSTALLATION DESIGNER', status: 'EXHIBITED', year: '2025', page: 'Record Emosphere.dc.html',
+          lede: 'An interactive installation shown at YODEX in Taipei and VGW in Kaohsiung.',
+          metrics: [{ k: 'STACK', v: 'ARDUINO · UNITY' }, { k: 'VENUES', v: '02' }],
+          stills: ['YODEX — INSTALL', 'VGW — VISITOR VIEW'] },
+        { id: '04', title: 'Fuzzy Farm Frolic', meta: 'MULTI-SCREEN · TEAM', note: 'Virtual pets as exercise companions across multiple screens.',
+          role: 'LANDSCAPE DESIGN', status: 'COMPLETE', year: '2024', page: 'Record Fuzzy Farm Frolic.dc.html',
+          lede: 'Exploring virtual pets as exercise companions in multi-screen interactions.',
+          metrics: [{ k: 'TEAM', v: '06' }, { k: 'ENGINE', v: 'UNITY' }],
+          stills: ['FARMHOUSE', 'CROP FIELD'] }] },
+    c: { id: 'OBJ-03', name: 'Undiscovered', desc: 'Small, dim world on the outer orbit. Not yet surveyed, no records filed.',
+      alt: '640 KM', vel: '7.48 KM/S', period: '78 MIN',
+      entries: [] },
+    d: { id: 'OBJ-04', name: 'Explorations', desc: 'Hazy violet world with loose fragments drifting around it. Side work in 3D, motion and code.',
+      alt: '1 204 KM', vel: '5.96 KM/S', period: '147 MIN',
+      entries: [
+        { id: '01', title: '3D Modeling', meta: '3D · EXPLORATION', note: 'Disco Zombie, Train Box, Young-hee and a cyberpunk model.',
+          role: 'MODELLER', status: 'EXPLORATION', year: '2022 – 2023', page: 'Record 3D Modeling.dc.html',
+          lede: 'Modelling work ranging from playful toy trains to concept art sculptures.',
+          metrics: [{ k: 'RANGE', v: 'TOY → SCULPTURE' }, { k: 'MEDIUM', v: '3D' }],
+          stills: ['TOY TRAIN — RENDER', 'SCULPTURE STUDY'] },
+        { id: '02', title: 'Visualizers', meta: 'MOTION · EXPLORATION', note: 'Turning music into motion.',
+          role: 'MOTION DESIGNER', status: 'EXPLORATION', year: '2021 – 2022', page: 'Record Visualizers.dc.html',
+          lede: 'Audio-reactive pieces that turn music into motion.',
+          metrics: [{ k: 'MEDIUM', v: 'MOTION' }, { k: 'SOURCE', v: 'AUDIO' }],
+          stills: ['VISUALIZER STILL', 'FREQUENCY STUDY'] },
+        { id: '03', title: 'The Thought Deconstruct', meta: 'WEB APP · CONCEPT', note: 'A two-minute exercise for stepping back from a heavy thought.',
+          role: 'DESIGN & DEVELOPMENT', status: 'CONCEPT', year: '2026', page: 'Record Thought Deconstruct.dc.html',
+          lede: 'A short guided exercise that helps you step back from a heavy thought, built as a working web app.',
+          metrics: [{ k: 'LENGTH', v: '2 MIN' }, { k: 'STATE', v: 'CONCEPT' }],
+          stills: ['ENTRY', 'THE BIGGER PICTURE'] }] }
+  };
+  componentDidMount() {
+    this.onResize = () => { this.shot = null; this.forceSync = true; this.sync(); };
+    requestAnimationFrame(() => requestAnimationFrame(this.onResize));
+    if (window.ResizeObserver && this.rootEl) {
+      this.ro = new ResizeObserver(() => this.onResize());
+      this.ro.observe(this.rootEl);
+    }
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { clearTimeout(this.burn); clearTimeout(this.sgrTimer); window.removeEventListener('resize', this.onResize); if (this.ro) this.ro.disconnect(); }
+  sgrDraw() {
+    if (this.sgrBusy) return;
+    this.sgrBusy = true;
+    this.sgrHeld = false;
+    this.setState({ sgrPhase: 'in' });
+    this.sgrTimer = setTimeout(() => {
+      this.sgrHeld = true;
+      if (!this.state.sgrHover) this.sgrRetract();
+    }, 4300);
+  }
+  sgrRetract() {
+    this.sgrHeld = false;
+    this.setState({ sgrPhase: 'out' });
+    this.sgrTimer = setTimeout(() => {
+      this.sgrBusy = false;
+      this.setState({ sgrPhase: null });
+      if (this.state.sgrHover) this.sgrDraw();
+    }, 4300);
+  }
+  snap() {
+    const el = this.stageEl, k = this.state.selected;
+    if (!el || !k) return;
+    const target = el.querySelector('[data-world="' + k + '"] [data-body]');
+    if (!target) return;
+    const sr = el.getBoundingClientRect(), tr = target.getBoundingClientRect();
+    if (!tr.width) return;
+    this.shot = { k: k, w: sr.width, h: sr.height,
+      px: tr.left + tr.width / 2 - sr.left, py: tr.top + tr.height / 2 - sr.top,
+      scale: (2.35 * sr.height) / tr.width };
+  }
+  componentDidUpdate() { this.sync(); }
+  sync() {
+    const el = this.stageEl;
+    if (!el) return;
+    const key = [this.state.selected, this.state.mode, this.props.motion].join('|');
+    if (key === this.syncKey && !this.forceSync) return;
+    this.syncKey = key;
+    this.forceSync = false;
+    const zoomedNow = !!this.state.selected && this.state.mode !== 'system';
+    clearTimeout(this.resumeT);
+    if (zoomedNow) this.frozen = true;
+    else if (this.frozen) this.resumeT = setTimeout(() => { this.frozen = false; this.forceSync = true; this.sync(); }, 1850);
+    const zoomed = zoomedNow;
+    const still = zoomedNow || !!this.frozen;
+    const play = (this.props.motion ?? true) && !still ? 'running' : 'paused';
+    el.querySelectorAll('[data-orbit]').forEach(n => { n.style.animationPlayState = play; });
+
+    const inner = el.querySelector('[data-sky-inner]');
+    if (inner && this.rootEl) {
+      const rr = this.rootEl.getBoundingClientRect(), sr2 = el.getBoundingClientRect();
+      inner.style.left = (rr.left - sr2.left - el.clientLeft) + 'px';
+      inner.style.top = (rr.top - sr2.top - el.clientTop) + 'px';
+      inner.style.right = 'auto';
+      inner.style.bottom = 'auto';
+      inner.style.width = rr.width + 'px';
+      inner.style.height = rr.height + 'px';
+    }
+    if (this.rootEl) {
+      const rr2 = this.rootEl.getBoundingClientRect(), st = el.getBoundingClientRect();
+      const bw = 224, bh = 204, pad = 18;
+      const x0 = st.left - rr2.left, y0 = st.top - rr2.top;
+      const bx = Math.min(Math.max(x0 + st.width * 0.82, x0 + pad), x0 + st.width - bw - pad);
+      const by = Math.min(Math.max(y0 + st.height * 0.03, y0 + pad), y0 + st.height - bh - pad);
+      this.rootEl.querySelectorAll('[data-sgr-box]').forEach(n => { n.style.left = bx + 'px'; n.style.top = by + 'px'; });
+    }
+    const outer = this.rootEl && this.rootEl.querySelector('[data-sky-outer]');
+    if (outer) {
+      outer.style.transition = 'opacity 700ms ease';
+      outer.style.opacity = zoomed ? '0' : '.5';
+    }
+
+    const cam = el.querySelector('[data-camera]');
+    if (!cam) return;
+    cam.querySelectorAll('*').forEach(n => { if (!n.hasAttribute('data-orbit')) n.style.animationPlayState = still ? 'paused' : ''; });
+    if (this.rootEl) this.rootEl.querySelectorAll('[data-sky-outer] *, [data-sky-inner] *, [data-nebula], [data-nebula] *').forEach(n => { n.style.animationPlayState = still ? 'paused' : ''; });
+    cam.style.transition = 'transform 1800ms cubic-bezier(.45,.02,.5,1)';
+    this.syncSharp(el, zoomed);
+    el.querySelectorAll('[data-fade],[data-fade-soft]').forEach(n => {
+      n.style.transition = 'opacity 900ms ease';
+      n.style.animationPlayState = still ? 'paused' : 'running';
+      n.style.opacity = zoomed ? '0' : '';
+      if (zoomed) { n.style.setProperty('opacity', '0', 'important'); }
+      else { n.style.removeProperty('opacity'); }
+    });
+    el.querySelectorAll('[data-hud]').forEach(n => {
+      n.style.transition = 'opacity 500ms ease';
+      n.style.opacity = zoomed ? '0' : '';
+      n.style.pointerEvents = zoomed ? 'none' : '';
+    });
+    el.querySelectorAll('[data-world]').forEach(n => {
+      const mine = n.getAttribute('data-world') === this.state.selected;
+      n.style.transition = 'opacity 700ms ease';
+      n.style.opacity = zoomed && !mine ? '0' : '';
+      n.style.pointerEvents = zoomed ? 'none' : 'auto';
+      const body = n.querySelector('[data-body]');
+      if (body) {
+        body.style.boxShadow = '';
+      }
+    });
+
+    if (!zoomed) { cam.style.transform = 'none'; this.shot = null; return; }
+    if (!this.shot || this.shot.k !== this.state.selected) {
+      const target = el.querySelector('[data-world="' + this.state.selected + '"] [data-body]');
+      if (!target) return;
+      const sr = el.getBoundingClientRect(), tr = target.getBoundingClientRect();
+      if (!tr.width || tr.width > sr.height / 3) return;
+      this.shot = {
+        k: this.state.selected, w: sr.width, h: sr.height,
+        px: tr.left + tr.width / 2 - sr.left,
+        py: tr.top + tr.height / 2 - sr.top,
+        scale: (2.35 * sr.height) / tr.width
+      };
+    }
+    const c = this.shot;
+    cam.style.transformOrigin = c.px + 'px ' + c.py + 'px';
+    cam.style.transform = 'translate(' + (c.w / 2 - c.px) + 'px,' + (c.h * 1.46 - c.py) + 'px) scale(' + c.scale + ')';
+  }
+  syncSharp(el, zoomed) {
+    clearTimeout(this.sharpT);
+    const drop = () => { if (this.sharpEl) { this.sharpEl.remove(); this.sharpEl = null; } if (this.sharpSrc) { this.sharpSrc.style.visibility = ''; this.sharpSrc = null; } };
+    if (!zoomed) { drop(); return; }
+    const k = this.state.selected;
+    if (this.sharpEl && this.sharpK === k) return;
+    drop();
+    this.sharpT = setTimeout(() => {
+      const w = el.querySelector('[data-world="' + k + '"]');
+      if (!w || this.state.selected !== k) return;
+      const r = w.getBoundingClientRect(), sr = el.getBoundingClientRect();
+      const s = r.width / w.offsetWidth;
+      if (!(s > 1.2)) return;
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'position:absolute;left:' + (r.left - sr.left) + 'px;top:' + (r.top - sr.top) + 'px;width:0;height:0;z-index:3;pointer-events:none';
+      const c = w.cloneNode(true);
+      c.removeAttribute('data-world');
+      c.querySelectorAll('[data-body]').forEach(n => n.removeAttribute('data-body'));
+      c.style.zoom = s; c.style.position = 'absolute'; c.style.left = '0'; c.style.top = '0'; c.style.opacity = '1'; c.style.transition = 'none'; c.style.pointerEvents = 'none';
+      wrap.appendChild(c);
+      const cam = el.querySelector('[data-camera]');
+      cam.parentNode.insertBefore(wrap, cam.nextSibling);
+      w.style.visibility = 'hidden';
+      this.sharpEl = wrap; this.sharpSrc = w; this.sharpK = k;
+    }, 1900);
+  }
+  defaults = {
+    a: { role: 'PRODUCT DESIGNER', team: '4 PEOPLE', status: 'SHIPPED',
+      method: 'Observation first, then one prototype held to the shortest path through the task.',
+      outcome: 'Fewer screens, fewer support calls, and a pattern the team reuses.',
+      metrics: [{ k: 'SCREENS', v: '−40%' }, { k: 'TASK TIME', v: '−25%' }],
+      stills: ['PRIMARY VIEW', 'DETAIL STATE'] },
+    b: { role: 'EXPERIENCE DESIGNER', team: '3 PEOPLE', status: 'EXHIBITED',
+      method: 'Built in the space it was made for. Tuned by watching where people stopped moving.',
+      outcome: 'Visitors stayed roughly three times longer than the brief assumed.',
+      metrics: [{ k: 'DWELL', v: '11 MIN' }, { k: 'SHOWINGS', v: '4' }],
+      stills: ['INSTALL VIEW', 'VISITOR PATH'] },
+    c: { role: 'INSTALLATION DESIGNER', team: '5 PEOPLE', status: 'EXHIBITED',
+      method: 'Sensors read the room, the piece answers. Calibrated across a week of opening hours.',
+      outcome: 'Ran unattended for the full run. No two sessions were the same.',
+      metrics: [{ k: 'RUN', v: '6 WEEKS' }, { k: 'STATES', v: '12' }],
+      stills: ['GALLERY VIEW', 'SENSOR RIG'] },
+    d: { role: 'DESIGNER · MAKER', team: 'SOLO', status: 'PROTOTYPE',
+      method: 'Made quickly to find out whether the idea held. No production intent.',
+      outcome: 'Kept in the catalogue for what it ruled out.',
+      metrics: [{ k: 'BUILDS', v: '7' }, { k: 'SHIPPED', v: 'NO' }],
+      stills: ['PROTOTYPE STILL', 'WORKING NOTES'] }
+  };
+  renderVals() {
+    const h = this.state.hover;
+    const names = { a: 'INTERFACES', b: 'IMMERSIVE', c: 'UNDISCOVERED', d: 'EXPLORATIONS' };
+    const counts = { a: '03', b: '04', c: '00', d: '03' };
+    const set = k => () => this.setState({ hover: k });
+    const pick = k => () => {
+      clearTimeout(this.closeT);
+      const switching = !!this.state.selected && this.state.selected !== k;
+      this.setState({ selected: k, mode: 'system', record: null, peek: null, closing: false });
+      if (switching) requestAnimationFrame(() => {
+        const p = this.panelEl; if (!p) return;
+        p.querySelectorAll('[data-replay]').forEach(n => { n.style.animation = 'none'; void n.offsetWidth; n.style.animation = n.getAttribute('data-replay'); });
+      });
+    };
+    const sel = this.state.selected ? this.worlds[this.state.selected] : null;
+    const orbit = !!sel && this.state.mode === 'orbit';
+    const busy = !!sel && this.state.mode !== 'system';
+    const base = sel ? this.defaults[this.state.selected] : null;
+    const raw = sel && this.state.record != null ? sel.entries[this.state.record] : null;
+    const rec = raw ? Object.assign({}, base, raw) : null;
+    return {
+      hasSelection: !!sel && this.state.mode === 'system',
+      panelRef: el => { this.panelEl = el; },
+      panelAnim: this.state.closing ? 'obs-slide-out 320ms cubic-bezier(.4,0,.6,1) forwards' : 'obs-slide 420ms cubic-bezier(.22,.7,.2,1) forwards',
+      noSelection: !sel,
+      inOrbit: orbit,
+      orbitA: orbit && this.state.selected === 'a',
+      orbitB: orbit && this.state.selected === 'b',
+      orbitC: orbit && this.state.selected === 'c',
+      orbitD: orbit && this.state.selected === 'd',
+      selAlt: sel ? sel.alt : '',
+      selVel: sel ? sel.vel : '',
+      selPeriod: sel ? sel.period : '',
+      inApproach: !!sel && this.state.mode === 'approach',
+      appA: this.state.mode === 'approach' && this.state.selected === 'a',
+      appB: this.state.mode === 'approach' && this.state.selected === 'b',
+      appC: this.state.mode === 'approach' && this.state.selected === 'c',
+      appD: this.state.mode === 'approach' && this.state.selected === 'd',
+      selCount: sel ? String(sel.entries.length).padStart(2, '0') : '00',
+      enterOrbit: () => {
+        clearTimeout(this.burn);
+        this.snap();
+        this.setState({ mode: 'approach' });
+        this.burn = setTimeout(() => this.setState({ mode: 'orbit' }), 1800);
+      },
+      leaveOrbit: () => { clearTimeout(this.burn); this.setState({ mode: 'system', record: null }); },
+      selIndex: sel ? sel.id + ' · CLASS ' + sel.name.slice(0, 3).toUpperCase() : '',
+      selName: sel ? sel.name : '',
+      selDesc: sel ? sel.desc : '',
+      selShort: sel ? sel.desc.split('. ')[0] + '.' : '',
+      selEntries: sel ? sel.entries.map((e, i) => Object.assign({}, base, e, {
+        open: () => this.setState({ record: i }),
+        peek: () => this.setState({ peek: this.state.peek === i ? null : i }),
+        expanded: this.state.peek === i,
+        mark: this.state.peek === i ? '—' : e.id,
+        tint: this.state.peek === i ? '#e8b671' : 'rgba(233,230,225,.35)',
+        roleLine: (e.role || base.role),
+        statusLine: (e.status || base.status)
+      })) : [],
+      hasCase: !!rec,
+      recBackdrop: rec ? React.createElement('div', { style: { position: 'absolute', inset: 0, zIndex: 6, background: 'rgba(4,5,7,.82)', cursor: 'pointer' }, onClick: () => this.setState({ record: null }) }) : null,
+      recIndex: rec ? sel.id + ' · RECORD ' + rec.id : '',
+      recTitle: rec ? rec.title : '',
+      recMeta: rec ? rec.meta : '',
+      recRole: rec ? rec.role : '',
+      recTeam: rec ? rec.team : '',
+      recYear: rec ? rec.year || '—' : '',
+      recStatus: rec ? rec.status : '',
+      hasPage: !!(rec && rec.page),
+      noPage: !(rec && rec.page),
+      isSB: !!(rec && rec.page === 'Record SB Chemical.dc.html'),
+      isOrisma: !!(rec && rec.page === 'Record Orisma.dc.html'),
+      isSunken: !!(rec && rec.page === 'Record Sunken Feeling.dc.html'),
+      isEmo: !!(rec && rec.page === 'Record Emosphere.dc.html'),
+      isYingge: !!(rec && rec.page === 'Record Yingge.dc.html'),
+      isSanwin: !!(rec && rec.page === 'Record On-Click.dc.html'),
+      isThought: !!(rec && rec.page === 'Record Thought Deconstruct.dc.html'),
+      isVis: !!(rec && rec.page === 'Record Visualizers.dc.html'),
+      is3d: !!(rec && rec.page === 'Record 3D Modeling.dc.html'),
+      isFff: !!(rec && rec.page === 'Record Fuzzy Farm Frolic.dc.html'),
+      recordCount: String(Object.values(this.worlds).reduce((n, w) => n + w.entries.length, 0)).padStart(2, '0'),
+      recPage: rec && rec.page ? rec.page : '',
+      recLede: rec ? rec.lede || rec.note : '',
+      recMethod: rec ? rec.method : '',
+      recOutcome: rec ? rec.outcome : '',
+      recMetrics: rec ? rec.metrics : [],
+      recStillA: rec ? rec.stills[0] : '',
+      recStillB: rec ? rec.stills[1] : '',
+      recWorld: sel ? sel.name : '',
+      closeRecord: () => this.setState({ record: null }),
+      selectA: pick('a'), selectB: pick('b'), selectC: pick('c'), selectD: pick('d'),
+      clear: () => {
+        clearTimeout(this.burn); clearTimeout(this.closeT);
+        this.setState({ closing: true });
+        this.closeT = setTimeout(() => this.setState({ selected: null, mode: 'system', record: null, peek: null, closing: false }), 320);
+      },
+      root: el => { if (el) { this.rootEl = el; this.sync(); } },
+      stage: el => { if (el) { this.stageEl = el; this.sync(); } },
+      statusReadout: this.props.statusReadout ?? '3 OBJECTS CHARTED · 1 UNSURVEYED',
+      showOrbitPaths: this.props.showOrbitPaths ?? true,
+      targetLine: this.state.sgrHover ? 'SGR · 2002.12.07' : this.state.selected ? names[this.state.selected] + (this.state.mode === 'orbit' ? ' · ORBIT' : this.state.mode === 'approach' ? ' · APPROACH' : ' · LOCKED') : (h ? names[h] : 'NONE'),
+      catalogueLine: this.state.sgrHover ? 'ASTERISM · NOT CATALOGUED' : h ? counts[h] + ' RECORDS · SEALED' : 'CATALOGUE 2019—2026',
+      sgrIn: this.state.sgrPhase === 'in',
+      sgrOut: this.state.sgrPhase === 'out',
+      sgrLabel: this.state.sgrHover,
+      sgrOn: () => { this.setState({ sgrHover: true }); this.sgrDraw(); },
+      sgrOff: () => {
+        this.setState({ sgrHover: false });
+        if (this.sgrHeld) this.sgrRetract();
+      },
+      ...(() => { const t = this.state.hover || (this.state.mode === 'system' && !this.state.closing ? this.state.selected : null); return { hoverA: t === 'a', hoverB: t === 'b', hoverC: t === 'c', hoverD: t === 'd' }; })(),
+      enterA: set('a'), enterB: set('b'), enterC: set('c'), enterD: set('d'),
+      leave: () => this.setState({ hover: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

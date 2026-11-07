@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes emo-spin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+      <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+        <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s">WORK</a>
+        <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+        <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+      </nav>
+    </div>
+  </sc-if>
+
+  <main style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:80px">
+
+    <section style="display:flex;flex-direction:column;gap:40px">
+      <div style="position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#1a0f12;box-shadow:0 60px 140px -50px rgba(255,120,70,.45),0 30px 120px -60px rgba(130,100,255,.5)">
+        {{ loopVideo }}
+        <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 50%,transparent 62%,rgba(8,9,11,.45) 100%)"></div>
+        <div style="position:absolute;inset:clamp(12px,2.2vw,26px);pointer-events:none">
+          <div style="position:absolute;top:0;left:0;width:28px;height:28px;border-color:rgba(243,239,233,.75);border-style:solid;border-width:1px 0 0 1px;pointer-events:none"></div>
+          <div style="position:absolute;top:0;right:0;width:28px;height:28px;border-color:rgba(243,239,233,.75);border-style:solid;border-width:1px 1px 0 0;pointer-events:none"></div>
+          <div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-color:rgba(243,239,233,.75);border-style:solid;border-width:0 0 1px 1px;pointer-events:none"></div>
+          <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-color:rgba(243,239,233,.75);border-style:solid;border-width:0 1px 1px 0;pointer-events:none"></div>
+          <div style="position:absolute;top:8px;left:40px;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.85);text-shadow:0 1px 8px rgba(0,0,0,.4)"><span style="width:6px;height:6px;border-radius:50%;background:#ff5a4a;box-shadow:0 0 8px #ff5a4a;animation:obs-blink 1.6s ease-in-out infinite"></span>LIVE FEED</div>
+          <div style="position:absolute;top:8px;right:40px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.75);text-shadow:0 1px 8px rgba(0,0,0,.4)">OBJ-02 · RECORD 03</div>
+          <div style="position:absolute;bottom:8px;left:40px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.75);text-shadow:0 1px 8px rgba(0,0,0,.4)">EMOTIONS OF THE UNFAMILIAR</div>
+          <div style="position:absolute;bottom:8px;right:40px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.75);text-shadow:0 1px 8px rgba(0,0,0,.4)">YODEX · VGW</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:28px 60px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-02 · IMMERSIVE · RECORD 03</div>
+          <h1 style="margin:0;font-weight:400;font-size:clamp(42px,6vw,80px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">Emosphere</h1>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:#e8b671">INTERACTIVE INSTALLATION</div>
+        </div>
+        <p style="margin:0;max-width:44ch;font-weight:400;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">An interactive installation shown at YODEX in Taipei and VGW in Kaohsiung.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.85)">PROGRAMMING · HARDWARE</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">BUILT WITH</span><span style="color:rgba(233,230,225,.85)">ARDUINO · UNITY</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671">EXHIBITED · YODEX · VGW</span></div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px 64px;padding-top:8px;border-top:1px solid rgba(233,230,225,.1)">
+      <div style="display:flex;flex-direction:column;gap:8px;padding-top:22px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">01 · INTRODUCTION</div>
+      </div>
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:26px;padding-top:22px;max-width:68ch">
+        <div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">Stepping into a new country is more than a physical journey — it’s an emotional one. As international students living in Taiwan, we’ve experienced a whirlwind of feelings.</p></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">EMOSPHERE is an immersive design project that transforms these real emotional experiences into a sensory storytelling installation. Through glowing orbs and ambient sounds, we invite visitors to step into the emotional worlds of those navigating life far from home.</p></div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));grid-template-rows:auto auto 1fr;gap:16px 64px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">02 · CONCEPT</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">How does it feel to live far from home?</h2>
+        <div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">This project began with the question: how does it feel to live far from home? Drawing from real cross-cultural encounters, we created five core emotional themes. Each emotion represents a meaningful moment experienced by a lone traveler, such as facing language barriers or receiving an unexpected act of kindness.</p></div>
+      </div>
+      <div style="display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">03 · DESIGN SOLUTION</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Emotions you can hold</h2>
+        <div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">These moments are represented by physical memory balls, making abstract emotions tangible. The goal is to foster empathy and invite users to reflect on the emotional challenges of adapting to life in a new culture.</p></div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px 64px;border-top:1px solid rgba(233,230,225,.1)">
+      <div style="padding-top:22px"><div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">04 · PURPOSE</div></div>
+      <ol style="grid-column:span 2;margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+        <li style="display:grid;grid-template-columns:48px 1fr;gap:10px;padding:22px 0;border-bottom:1px solid rgba(233,230,225,.08)"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:#e8b671;padding-top:5px">01</span><div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">To express the emotional journey of international students through animation and sound.</p></div></li>
+        <li style="display:grid;grid-template-columns:48px 1fr;gap:10px;padding:22px 0;border-bottom:1px solid rgba(233,230,225,.08)"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:#e8b671;padding-top:5px">02</span><div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">To spark empathy across cultures by showing that emotions transcend language</p></div></li>
+        <li style="display:grid;grid-template-columns:48px 1fr;gap:10px;padding:22px 0;border-bottom:1px solid rgba(233,230,225,.08)"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:#e8b671;padding-top:5px">03</span><div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">To highlight the beauty and struggle of adapting to new environments</p></div></li>
+        <li style="display:grid;grid-template-columns:48px 1fr;gap:10px;padding:22px 0;border-bottom:1px solid rgba(233,230,225,.08)"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:#e8b671;padding-top:5px">04</span><div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">To invite visitors to reflect on their own emotions when facing the unknown</p></div></li>
+      </ol>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px 64px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">05 · TECHNOLOGY &amp; INTERACTION</div>
+        <div style="display:flex;flex-direction:column">
+          <p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty;padding:14px 0;border-top:1px solid rgba(233,230,225,.08)">Arduino based emotion sensor system</p>
+          <p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty;padding:14px 0;border-top:1px solid rgba(233,230,225,.08)">Sound design animation synced to emotion balls</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">06 · ART DIRECTION</div>
+        <div style="display:flex;flex-direction:column">
+          <p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty;padding:14px 0;border-top:1px solid rgba(233,230,225,.08)">A dreamy, surreal visual style combining soft lighting, glowing orbs, and whimsical installations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px 64px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">07 · MY ROLE</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Connecting the orbs to the story</h2>
+        <div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">I developed the communication system between the Arduino RFID scanner and Unity, allowing each scanned memory ball to trigger its corresponding animation. I also managed wiring and hardware setup, including the servo-based ball drop mechanism.</p></div>
+      </div>
+      <figure onClick="{{ open_teamcard }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:10px;justify-self:center;width:100%;max-width:360px">
+        <div style="border-radius:6px;overflow:hidden;border:1px solid rgba(233,230,225,.12);aspect-ratio:4/5"><img src="assets/emosphere/team-card.webp" alt="Emosphere team members card" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%"></div>
+        <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">TEAM CARD · YODEX 2025</figcaption>
+      </figure>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">08 · FIVE EMOTIONS</div>
+          <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Which memory would you like to explore?</h2>
+          
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">Each glass orb in our installation represents one of five emotions commonly experienced by foreigners living abroad:</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,2vw,28px);padding:clamp(24px,4vw,48px) clamp(8px,2vw,24px);border:1px solid rgba(233,230,225,.08);border-radius:8px;background:radial-gradient(80% 120% at 50% 100%,rgba(255,255,255,.03),transparent 70%)">
+        <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:18px">
+          <img src="assets/emosphere/orb-joy.webp" alt="Joy orb" style="display:block;width:100%;max-width:170px;aspect-ratio:1;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s ease;filter:drop-shadow(0 0 0 rgba(255,176,46,0))" style-hover="transform:translateY(-8px) scale(1.06);filter:drop-shadow(0 0 34px rgba(255,176,46,.65))">
+          <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:rgba(233,230,225,.7)">JOY</figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:18px">
+          <img src="assets/emosphere/orb-sadness.webp" alt="Sadness orb" style="display:block;width:100%;max-width:170px;aspect-ratio:1;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s ease;filter:drop-shadow(0 0 0 rgba(42,168,255,0))" style-hover="transform:translateY(-8px) scale(1.06);filter:drop-shadow(0 0 34px rgba(42,168,255,.65))">
+          <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:rgba(233,230,225,.7)">SADNESS</figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:18px">
+          <img src="assets/emosphere/orb-anger.webp" alt="Anger orb" style="display:block;width:100%;max-width:170px;aspect-ratio:1;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s ease;filter:drop-shadow(0 0 0 rgba(255,70,40,0))" style-hover="transform:translateY(-8px) scale(1.06);filter:drop-shadow(0 0 34px rgba(255,70,40,.65))">
+          <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:rgba(233,230,225,.7)">ANGER</figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:18px">
+          <img src="assets/emosphere/orb-fear.webp" alt="Fear orb" style="display:block;width:100%;max-width:170px;aspect-ratio:1;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s ease;filter:drop-shadow(0 0 0 rgba(212,60,255,0))" style-hover="transform:translateY(-8px) scale(1.06);filter:drop-shadow(0 0 34px rgba(212,60,255,.65))">
+          <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:rgba(233,230,225,.7)">FEAR</figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:18px">
+          <img src="assets/emosphere/orb-disgust.webp" alt="Disgust orb" style="display:block;width:100%;max-width:170px;aspect-ratio:1;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s ease;filter:drop-shadow(0 0 0 rgba(60,210,60,0))" style-hover="transform:translateY(-8px) scale(1.06);filter:drop-shadow(0 0 34px rgba(60,210,60,.65))">
+          <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:rgba(233,230,225,.7)">DISGUST</figcaption>
+        </figure>
+      </div>
+      <div style="max-width:68ch"><div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">These “memory orbs” activate interactive stories, giving visitors a glimpse into the inner lives of those learning to belong in a new world.</p></div></div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:36px;border-top:1px solid rgba(233,230,225,.1);padding-top:22px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:48px 64px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">09 · EXHIBITIONS</div>
+          <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Exhibited at YODEX Taipei &amp; Vision Get Wild Kaohsiung</h2>
+          <div style="display:flex;flex-direction:column;gap:6px"><p style="margin:0;font-weight:400;font-size:17px;line-height:1.6;color:rgba(233,230,225,.8);text-wrap:pretty">The installation has been shown at our on-campus exhibition, and was featured at YODEX in Taipei and at Vision Get Wild in Kaohsiung.</p></div>
+        </div>
+        <figure style="margin:0;justify-self:center;width:min(100%,280px);display:flex;flex-direction:column;gap:14px">
+          <img src="assets/emosphere/yodex-pass.webp" alt="YODEX 44th exhibitor pass" style="display:block;width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))">
+          <figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">EXHIBITOR PASS · YODEX 44TH</figcaption>
+        </figure>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;aspect-ratio:1200/630;background:#fff"><img src="assets/emosphere/yodex-banner.webp" alt="YODEX young designers’ exhibition" style="display:block;width:100%;height:100%;object-fit:cover"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">YODEX · YOUNG DESIGNERS’ EXHIBITION · TAIPEI</figcaption></figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;aspect-ratio:1200/630;background:#000;border:1px solid rgba(233,230,225,.12);display:flex;align-items:center"><img src="assets/emosphere/vgw-banner.webp" alt="Vision Get Wild 2025" style="display:block;width:100%;height:auto"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">VISION GET WILD 2025 · KAOHSIUNG</figcaption></figure>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:16px;align-items:start">
+        <figure onClick="{{ open_booth }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;border:1px solid rgba(233,230,225,.12);aspect-ratio:3/4;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)"><img src="assets/emosphere/yodex-booth.webp" alt="Emosphere booth at YODEX" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">THE BOOTH · YODEX</figcaption></figure>
+        <figure onClick="{{ open_yteam }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;border:1px solid rgba(233,230,225,.12);aspect-ratio:3/4;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)"><img src="assets/emosphere/yodex-team.webp" alt="The team at the YODEX booth" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">THE TEAM · YODEX</figcaption></figure>
+        <figure onClick="{{ open_campus }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;border:1px solid rgba(233,230,225,.12);aspect-ratio:3/4;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)"><img src="assets/emosphere/campus-team.webp" alt="The team at the on-campus exhibition" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">ON-CAMPUS EXHIBITION</figcaption></figure>
+        <figure onClick="{{ open_no18 }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;border:1px solid rgba(233,230,225,.12);aspect-ratio:3/4;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)"><img src="assets/emosphere/no18-card.webp" alt="Emosphere exhibit card, No. 18" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">EXHIBIT CARD · NO. 18</figcaption></figure>
+        <figure onClick="{{ open_badge }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;border:1px solid rgba(233,230,225,.12);aspect-ratio:3/4;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)"><img src="assets/emosphere/staff-badge.webp" alt="Sensing Trigger staff badge" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">STAFF BADGE · NTUT IXD</figcaption></figure>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:36px 64px;align-items:center">
+      <figure onClick="{{ open_visitors }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:10px"><div style="border-radius:6px;overflow:hidden;border:1px solid rgba(233,230,225,.12);aspect-ratio:3/2;transition:border-color .3s" style-hover="border-color:rgba(232,182,113,.6)"><img src="assets/emosphere/visitors.webp" alt="Visitors watching the Sadness animation" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div><figcaption style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)">VISITORS · SADNESS SEQUENCE</figcaption></figure>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">10 · VISITOR RESPONSE</div>
+        <p style="margin:0;font-weight:400;font-size:clamp(19px,1.9vw,24px);line-height:1.45;letter-spacing:-.01em;color:#f3efe9;text-wrap:pretty">Visitors responded positively to the tactile experience and the emotional impact of the animations. Many shared that the first-person perspective made the scenarios feel relatable and real. The physical act of receiving and scanning a ball helped create a deeper emotional connection, and feedback confirmed the project’s effectiveness in encouraging empathy and cultural understanding.</p>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">TRANSMISSION</div>
+          <h2 style="margin:0;font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:#f3efe9">Trailer</h2>
+        </div>
+        <a href="https://youtu.be/Dhg6BCcLVzA" target="_blank" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.5)">OPEN ON YOUTUBE ↗</a>
+      </div>
+      <div style="position:relative;aspect-ratio:16/9;border:1px solid rgba(233,230,225,.12);border-radius:8px;overflow:hidden;background:#08090b">
+        <sc-if value="{{ playing }}" hint-placeholder-val="{{ false }}">
+          {{ trailerFrame }}
+        </sc-if>
+        <sc-if value="{{ notPlaying }}" hint-placeholder-val="{{ true }}">
+          <div onClick="{{ play }}" style="position:absolute;inset:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:radial-gradient(60% 80% at 50% 50%,rgba(255,120,80,.16),rgba(120,90,255,.08) 55%,transparent 80%)">
+            <img src="assets/emosphere/logo-crop.png" alt="Emosphere" style="position:absolute;inset:0;margin:auto;width:min(56%,640px);height:auto;opacity:.5;pointer-events:none">
+            <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)"><div style="position:relative;width:84px;height:84px;border-radius:50%;border:1px solid rgba(233,230,225,.55);background:rgba(11,12,15,.55);display:flex;align-items:center;justify-content:center;padding-left:4px;box-sizing:border-box;font-size:24px;color:#f3efe9" style-hover="background:rgba(233,230,225,.14)">▶</div></div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+  </main>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:60px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+      <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+      <span>END OF RECORD</span>
+      <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+    </div>
+  </sc-if>
+  <sc-if value="{{ zoom }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeBrochure }}" style="position:fixed;inset:0;z-index:30;background:rgba(6,7,9,.94);backdrop-filter:blur(4px);overflow:auto;cursor:zoom-out;padding:24px 22px">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.2em;color:rgba(233,230,225,.6)"><span>{{ zoomCap }}</span><span style="padding:5px 10px;border:1px solid rgba(233,230,225,.25)">CLOSE ✕</span></div>
+        {{ zoomImg }}
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { playing: false, zoom: null };
+  shots = { no18: ['no18-card', 'EXHIBIT CARD · NO. 18'], badge: ['staff-badge', 'STAFF BADGE'], teamcard: ['team-card', 'TEAM CARD'], booth: ['yodex-booth', 'THE BOOTH · YODEX'], yteam: ['yodex-team', 'THE TEAM · YODEX'], campus: ['campus-team', 'ON-CAMPUS EXHIBITION'], visitors: ['visitors', 'VISITORS'] };
+  heroVid = React.createRef();
+  loop = React.createElement('video', { ref: this.heroVid, src: 'assets/emosphere/loop.mp4', autoPlay: true, muted: true, playsInline: true, preload: 'auto', style: { display: 'block', width: '100%', height: '100%', objectFit: 'cover' } });
+  renderVals() {
+    const emb = !!this.props.embedded; const z = this.state.zoom;
+    return {
+      standalone: !emb,
+      minH: emb ? '0' : '100vh',
+      rootBg: emb ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: emb ? '0' : '48px 22px 0',
+      loopVideo: this.loop,
+      playing: this.state.playing, notPlaying: !this.state.playing,
+      play: () => this.setState({ playing: true }),
+      ...Object.fromEntries(Object.keys(this.shots).map(k => ['open_' + k, () => this.setState({ zoom: k })])),
+      zoom: !!z, zoomCap: z ? this.shots[z][1] : '',
+      zoomImg: z ? React.createElement('img', { src: 'assets/emosphere/' + this.shots[z][0] + '.webp', alt: this.shots[z][1], style: { display: 'block', width: '100%', height: 'auto' } }) : null,
+      closeBrochure: () => this.setState({ zoom: null }),
+      trailerFrame: this.state.playing ? React.createElement('iframe', { src: 'https://www.youtube.com/embed/Dhg6BCcLVzA?autoplay=1&rel=0&playsinline=1&origin=' + encodeURIComponent(location.origin), title: 'Emosphere trailer', referrerPolicy: 'strict-origin-when-cross-origin', allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen', allowFullScreen: true, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 } }) : null
+    };
+  }
+}
+</script>
+</body>
+</html>
