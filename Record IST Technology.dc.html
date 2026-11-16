@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0b0c0f;}
+body{font-family:'Instrument Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#e8b671;text-decoration:none}
+a:hover{color:#ffd9a3}
+.ist-btn{all:unset;box-sizing:border-box;cursor:pointer}
+.ist-btn:focus-visible{outline:2px solid #e8b671;outline-offset:-2px}
+@keyframes obs-blink{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</helmet>
+<div style="min-height:{{ minH }};background:{{ rootBg }};color:#e9e6e1;position:relative">
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 22px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><a href="Observatory Home.dc.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:rgba(233,230,225,.4)">SAN’S OBSERVATORY</a><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:#e8b671"><span style="width:5px;height:5px;border-radius:50%;background:#e8b671;box-shadow:0 0 8px #e8b671;animation:obs-blink 2.4s ease-in-out infinite"></span>OPEN TO WORK</span></div>
+    <nav style="display:flex;gap:26px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em">
+      <a href="Observatory Home.dc.html" style="color:#e9e6e1;padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s">WORK</a>
+      <a href="Observatory About.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">ABOUT</a>
+      <a href="Observatory Contact.dc.html" style="color:rgba(233,230,225,.55);padding-bottom:4px;background:linear-gradient(#e8b671,#e8b671) left bottom/0% 1px no-repeat;transition:background-size .45s cubic-bezier(.3,.7,.2,1),color .3s" style-hover="color:#e9e6e1;background-size:100% 1px">CONTACT</a>
+    </nav>
+  </div>
+  </sc-if>
+
+  <main style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:64px">
+
+    <header style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:780px">
+        <h1 style="margin:0;font-weight:400;font-size:clamp(42px,7vw,96px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">IST Technology</h1>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">Website Design &amp; Development</div>
+        <p style="margin:0;max-width:52ch;font-weight:400;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">A fifteen-year-old website for an industrial parts supplier, redesigned twice: drafted in Figma, built by hand in 2025, then refined into the live site in 2026.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.85);line-height:1.5">WEB DESIGNER &amp; DEVELOPER · IN-HOUSE</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85);line-height:1.5">2025 – 2026</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">BUILT WITH</span><span style="color:rgba(233,230,225,.85);line-height:1.5">FIGMA · HTML · CSS · REACT</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671;line-height:1.5">LIVE · ISTC.CO.TH</span></div>
+      </div>
+    </header>
+
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+      <img src="assets/ist/cover.webp" alt="The live IST Technology homepage hero" loading="lazy" style="display:block;width:100%;height:auto;border-radius:6px;border:1px solid rgba(233,230,225,.12)">
+      <figcaption style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:rgba(233,230,225,.45)"><span>ISTC.CO.TH · LIVE HOMEPAGE</span><a href="http://www.istc.co.th" target="_blank" rel="noopener">VISIT SITE ↗</a></figcaption>
+    </figure>
+
+    <section style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4)">VERSION INDEX</div>
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em;color:rgba(233,230,225,.35)">SELECT A VERSION</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1)">
+        <sc-for list="{{ index }}" as="p" hint-placeholder-count="4">
+          <button type="button" class="ist-btn" onClick="{{ p.open }}" aria-pressed="{{ p.pressed }}" style="background:{{ p.bg }};padding:18px 18px 20px;display:flex;flex-direction:column;gap:12px;min-height:118px" style-hover="background:#15161b">
+            <span style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.2em">
+              <span style="color:{{ p.numColor }}">{{ p.n }}</span>
+              <span style="color:rgba(233,230,225,.4)">{{ p.type }}</span>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:4px;margin-top:auto">
+              <span style="font-size:19px;letter-spacing:-.01em;color:#f3efe9">{{ p.client }}</span>
+              <span style="font-size:13.5px;color:rgba(233,230,225,.5)">{{ p.label }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:56px;padding-top:8px;border-top:1px solid rgba(233,230,225,.1)">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-top:40px;max-width:780px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">VERSION {{ pj.n }} · {{ pj.type }}</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(32px,4.4vw,58px);line-height:1;letter-spacing:-.03em;color:#f3efe9">{{ pj.client }}</h2>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">{{ pj.label }}</div>
+        <p style="margin:0;max-width:56ch;font-weight:400;font-size:clamp(16px,1.5vw,18px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">{{ pj.desc }}</p>
+        <ul style="margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(233,230,225,.08);max-width:620px">
+          <sc-for list="{{ pj.points }}" as="pt" hint-placeholder-count="4">
+            <li style="display:grid;grid-template-columns:22px 1fr;gap:8px;padding:10px 0;border-bottom:1px solid rgba(233,230,225,.08);align-items:baseline"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;color:#e8b671">—</span><span style="font-size:15px;line-height:1.45;color:rgba(233,230,225,.82)">{{ pt }}</span></li>
+          </sc-for>
+        </ul>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid rgba(233,230,225,.1)">
+          <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="5">
+            <button type="button" class="ist-btn" onClick="{{ pg.open }}" aria-pressed="{{ pg.pressed }}" style="padding:14px 22px 15px 0;margin-right:26px;display:flex;flex-direction:column;gap:5px;border-bottom:1px solid {{ pg.line }};margin-bottom:-1px">
+              <span style="font-size:18px;color:{{ pg.color }}">{{ pg.name }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.5)">FIG {{ figN }} · DESKTOP · FULL PAGE</span>
+        </div>
+        <div style="border:1px solid rgba(233,230,225,.1);border-radius:8px;background:#101116;padding:clamp(16px,3.4vw,44px);display:flex;justify-content:center">
+          <div style="width:100%;max-width:1124px;display:flex;gap:16px">
+            <div style="width:100%;max-width:1100px;flex:1;min-width:0;aspect-ratio:16/10;display:flex;flex-direction:column;border:1px solid rgba(233,230,225,.16);border-radius:10px;overflow:hidden;background:#17181d;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)">
+              <div style="flex:1;min-height:0;position:relative">
+                <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" tabindex="0" aria-label="Scrollable full-page screenshot" style="position:absolute;inset:0;overflow-y:auto;background:#fff;scrollbar-width:none">
+                  {{ desktopImg }}
+                </div>
+              </div>
+            </div>
+            <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1);pointer-events:none"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
+          </div>
+        </div>
+        <p style="margin:6px 0 0;max-width:62ch;font-size:15px;line-height:1.6;color:rgba(233,230,225,.68);text-wrap:pretty">{{ pageNote }}</p>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.22em;color:rgba(233,230,225,.4);margin-right:8px">BUILT WITH</span>
+        <sc-for list="{{ tags }}" as="t" hint-placeholder-count="4">
+          <span style="padding:7px 12px;border:1px solid rgba(233,230,225,.18);border-radius:999px;font-size:13px;color:rgba(233,230,225,.72)">{{ t }}</span>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:28px;padding-top:48px;border-top:1px solid rgba(233,230,225,.1)">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">BRAND · LOGO</div>
+        <h2 style="margin:0;font-weight:400;font-size:clamp(32px,4.4vw,58px);line-height:1;letter-spacing:-.03em;color:#f3efe9">Three logos, one company</h2>
+        <p style="margin:0;max-width:56ch;font-weight:400;font-size:clamp(16px,1.5vw,18px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">Founded in 1993 as Inter Supply Technology, the company adopted the name IST Technology in 2001. The original boxed logo remained in use on the previous website and carried over into V1.</p>
+        <p style="margin:0;max-width:56ch;font-weight:400;font-size:clamp(16px,1.5vw,18px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">For V2, I reimagined the identity with a redesigned mark: a slanted IST wordmark paired with speed lines to convey movement and a more contemporary feel, with the T subtly shaped after the company’s core product. The slanted IST mark also works on its own as the site’s favicon.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1)">
+        <figure style="margin:0;background:#0c0d11;padding:18px;display:flex;flex-direction:column;gap:14px">
+          <div style="height:140px;border-radius:4px;background:#fff;display:flex;align-items:center;justify-content:center;padding:18px"><img src="assets/ist/logo-1993.png" alt="1993 Inter Supply Technology logo: striped IST letters" style="height:68px;width:auto"></div>
+          <figcaption style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.2em"><span style="color:rgba(233,230,225,.4)">1993</span><span style="color:rgba(233,230,225,.6)">INTER SUPPLY TECHNOLOGY</span></figcaption>
+        </figure>
+        <figure style="margin:0;background:#0c0d11;padding:18px;display:flex;flex-direction:column;gap:14px">
+          <div style="height:140px;border-radius:4px;background:#fff;display:flex;align-items:center;justify-content:center;padding:18px"><img src="assets/ist/logo-2001.svg" alt="2001 IST Technology lockup: boxed IST with Thai and English company name" style="width:100%;height:auto;max-height:80px"></div>
+          <figcaption style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.2em"><span style="color:rgba(233,230,225,.4)">2001</span><span style="color:rgba(233,230,225,.6)">ORIGINAL SITE · V1</span></figcaption>
+        </figure>
+        <figure style="margin:0;background:#0c0d11;padding:18px;display:flex;flex-direction:column;gap:14px">
+          <div style="height:140px;border-radius:4px;background:#1d3a12;display:flex;align-items:center;justify-content:center;gap:14px;padding:18px"><img src="assets/ist/logo-2026.svg" alt="2026 IST Technology logo: slanted IST mark with English and Thai company name" style="width:100%;height:auto;max-height:64px"></div>
+          <figcaption style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.2em"><span style="color:#e8b671">2026</span><span style="color:rgba(233,230,225,.6)">NEW MARK · V2</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 22px 22px;border-top:1px solid rgba(233,230,225,.09);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
+    <a href="Observatory Home.dc.html" style="color:rgba(233,230,225,.45)">← BACK</a>
+    <span>END OF RECORD</span>
+    <a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a>
+  </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sel: 'v2', page: 0, p: 0 };
+  frameRef = React.createRef();
+  versions = [
+    { id: 'orig', client: 'Original site', type: 'LEGACY', label: 'Before the redesign',
+      desc: 'The original site was about fifteen years old, inconsistent and not responsive, which made it hard for clients to browse products professionally. My role was to redesign it and build a modern replacement. Reviewing the old site turned up seven problems:',
+      points: ['Outdated, non-modern look', 'Inconsistent layout and spacing', 'Weak visual hierarchy', 'Not responsive on mobile', 'Stretched banners and uneven images', 'Generic, inconsistent typography', 'No clear brand identity'],
+      tags: ['HTML tables', 'Fixed width', 'Thai / English'],
+      pages: [
+        { name: 'Homepage', credit: 'ORIGINAL', src: 'assets/ist/orig-home.webp', note: 'A product-bubble banner, a sidebar category menu, an icon row, a photo grid and client logos, all inside a narrow fixed-width column.' },
+        { name: 'Catalogue', credit: 'ORIGINAL', src: 'assets/ist/orig-catalogue.webp', note: 'Overhead conveyor parts as a paginated table: part number, photo and description in small print.' }
+      ] },
+    { id: 'figma', client: 'Figma drafts', type: '2025 · DESIGN', label: 'Exploring directions before code',
+      desc: 'I started by sketching a simple homepage wireframe, then moved straight into high-fidelity design in Figma for the homepage, the products page and the catalogue template that every part page would follow.',
+      points: ['A clean, product-first layout', 'Modern, minimal styling', 'Visuals aligned with IST’s branding', 'One catalogue template: sub-categories, then parts by part number'],
+      tags: ['Figma', 'Web Design', 'Wireframing', 'Thai / English'],
+      pages: [
+        { name: 'Homepage', credit: 'DRAFT', src: 'assets/ist/figma-home-a.webp', note: 'The old site’s banner reworked into a wide hero, with product cards, a services carousel and a vision section.' },
+        { name: 'Products', credit: 'DRAFT', src: 'assets/ist/figma-home-b.webp', note: 'A green hero with an English headline and a Contact button, a fuller introduction to the range and the four category cards.' },
+        { name: 'Catalogue', credit: 'DRAFT', src: 'assets/ist/figma-product.webp', note: 'The catalogue template: sub-category headings and a card grid with the part number above each photo.' }
+      ] },
+    { id: 'v1', client: 'Version 1', type: '2025', label: 'Designed in Figma · built in React',
+      desc: 'After finalising the design, I built the site myself in HTML, CSS and React, turning the Figma drafts into a working, responsive website. It was my first time applying development skills to a real project, and it showed I could take one from concept to implementation.',
+      points: ['Sticky navigation bar', 'Responsive product grid that works on desktop and mobile', 'Hover feedback on product cards', 'Thai/English switch that remembers each visitor’s language', 'Old links redirect to the nearest page, so nothing breaks'],
+      tags: ['HTML', 'CSS', 'React', 'Responsive', 'Front-end', 'Thai / English'],
+      pages: [
+        { name: 'Homepage', credit: 'DESIGNED & BUILT', src: 'assets/ist/v1-home.webp', note: 'A full-width banner, four product cards, a services carousel, a client logo wall and a green contact band.' },
+        { name: 'Products', credit: 'DESIGNED & BUILT', src: 'assets/ist/v1-products.webp', note: 'New: an overview of the four product categories, each with a short description. The original site had none.' },
+        { name: 'Catalogue', credit: 'DESIGNED & BUILT', src: 'assets/ist/v1-catalogue.webp', note: 'The parts table became a card grid grouped by sub-category, with the part number above each photo.' },
+        { name: 'About', credit: 'DESIGNED & BUILT', src: 'assets/ist/v1-about.webp', note: 'Logo history from 1993 to 2001, the company story, and vision and mission.' },
+        { name: 'Contact', credit: 'DESIGNED & BUILT', src: 'assets/ist/v1-contact.webp', note: 'A contact bar, an enquiry form and a map.' }
+      ] },
+    { id: 'v2', client: 'Version 2', type: '2026 · LIVE', label: 'Live at istc.co.th',
+      desc: 'A year later, I redesigned the website once again, this time using an AI-assisted workflow to explore and iterate on ideas more efficiently. While V1 established the site’s structure, V2 gives it a more distinct identity. The result is a streamlined digital platform that brings IST’s products and services together, helping visitors explore product categories, understand the company’s offerings, and get in touch with ease.',
+      points: ['A dark green, brand-led visual identity built around the new logo', 'Clearer headlines and more purposeful calls to action', 'Accessible contact options placed throughout the browsing experience', 'Improved SEO foundations and social-sharing metadata'],
+      tags: ['React', 'Web Design', 'Front-end', 'Logo Refresh', 'SEO', 'Thai / English', 'AI-assisted build'],
+      pages: [
+        { name: 'Homepage', credit: 'LIVE', src: 'assets/ist/v2-home.webp', note: 'A dark green hero with a headline and two calls to action, a rotating product card, a scrolling client strip and numbered category cards.' },
+        { name: 'Products', credit: 'LIVE', src: 'assets/ist/v2-products.webp', note: 'A photo hero, intro copy for the whole range and numbered category cards.' },
+        { name: 'Catalogue', credit: 'LIVE', src: 'assets/ist/v2-catalogue.webp', note: 'Category tabs across the top, numbered sub-category headings, consistent part cards and pagination.' },
+        { name: 'About', credit: 'LIVE', src: 'assets/ist/v2-about.webp', note: 'A 1993 stat card, a three-step logo timeline up to the new 2026 mark, the story with photos, and vision and mission cards.' },
+        { name: 'Contact', credit: 'LIVE', src: 'assets/ist/v2-contact.webp', note: 'Contact chips under the hero, an enquiry form in a card and a map card.' }
+      ] }
+  ];
+  reset() { this.setState({ p: 0 }); if (this.frameRef.current) this.frameRef.current.scrollTop = 0; }
+  pick(id) {
+    const cur = this.versions.find(v => v.id === this.state.sel).pages[this.state.page];
+    const next = this.versions.find(v => v.id === id).pages;
+    const i = Math.max(0, next.findIndex(g => cur && g.name === cur.name));
+    this.setState({ sel: id, page: i }); this.reset();
+  }
+  setPage(i) { this.setState({ page: i }); this.reset(); }
+  renderVals() {
+    const pj = this.versions.find(v => v.id === this.state.sel);
+    const pg = pj.pages[Math.min(this.state.page, pj.pages.length - 1)];
+    return {
+      minH: this.props.embedded ? '0' : '100vh', rootBg: this.props.embedded ? 'transparent' : 'linear-gradient(180deg,#121319 0%,#0d0e12 42%,#0a0b0e 100%)',
+      mainPad: this.props.embedded ? '0' : '48px 22px 60px',
+      standalone: !this.props.embedded,
+      frameRef: this.frameRef,
+      index: this.versions.map((v, i) => {
+        const active = v.id === this.state.sel;
+        return { ...v, n: String(i + 1).padStart(2, '0'), pressed: active ? 'true' : 'false',
+          bg: active ? '#17181d' : '#0c0d11', numColor: active ? '#e8b671' : 'rgba(233,230,225,.4)',
+          open: () => this.pick(v.id) };
+      }),
+      pj: { ...pj, n: String(this.versions.indexOf(pj) + 1).padStart(2, '0') },
+      pages: pj.pages.map((g, i) => { const a = g === pg; return { ...g, pressed: a ? 'true' : 'false', color: a ? '#f3efe9' : 'rgba(233,230,225,.5)', line: a ? '#e8b671' : 'transparent', open: () => this.setPage(i) }; }),
+      figN: String(pj.pages.indexOf(pg) + 1).padStart(2, '0'),
+      progH: Math.round(this.state.p * 100) + '%',
+      onFrameScroll: (ev) => { const t = ev.currentTarget, m = t.scrollHeight - t.clientHeight; this.setState({ p: m > 0 ? t.scrollTop / m : 0 }); },
+      desktopImg: React.createElement('img', { key: pj.id + '-' + pg.name, src: pg.src, alt: 'IST Technology ' + pj.client + ' ' + pg.name.toLowerCase() + ', full page', style: { display: 'block', width: '100%', height: 'auto' } }),
+      pageNote: pg.note,
+      tags: pj.tags
+    };
+  }
+}
+</script>
+</body>
+</html>

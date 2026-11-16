@@ -38,7 +38,6 @@ a:hover{color:#ffd9a3}
 
     <sc-if value="{{ standalone }}" hint-placeholder-val="{{ true }}">
     <header style="display:flex;flex-direction:column;gap:18px;max-width:780px">
-      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-01 · INTERFACES</div>
       <h1 style="margin:0;font-weight:400;font-size:clamp(42px,7vw,96px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">Luckpim</h1>
       <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">Website &amp; Interaction States</div>
       <p style="margin:0;max-width:52ch;font-weight:400;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">Website for Luckpim Publishing, designed with every interaction state.</p>
@@ -67,11 +66,11 @@ a:hover{color:#ffd9a3}
         </div>
       </div>
 
-      <div style="border:1px solid rgba(233,230,225,.1);border-radius:8px;background:#101116;padding:clamp(16px,3.4vw,44px);display:flex;justify-content:center;align-items:center;gap:clamp(10px,2vw,28px)">
-        <sc-if value="{{ isClick }}" hint-placeholder-val="{{ false }}"><div onClick="{{ prev }}" style="flex:none;align-self:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">←</div></sc-if>
+      <div style="position:relative;border:1px solid rgba(233,230,225,.1);border-radius:8px;background:#101116;padding:clamp(16px,3.4vw,44px);display:flex;justify-content:center;align-items:center">
+        <sc-if value="{{ isClick }}" hint-placeholder-val="{{ false }}"><div onClick="{{ prev }}" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);z-index:3;background:rgba(11,12,15,.75);width:52px;height:52px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">←</div></sc-if>
         <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%;max-width:1124px;display:flex;gap:16px">
-            <div style="flex:1;min-width:0;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);position:relative">
+            <div style="width:100%;max-width:1100px;flex:1;min-width:0;aspect-ratio:16/10;border:1px solid rgba(233,230,225,.16);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);position:relative">
               <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" onMouseEnter="{{ enter }}" onMouseLeave="{{ leave }}" onClick="{{ clickScreen }}" style="position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none">{{ screen }}</div>
             </div>
             <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1)"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
@@ -79,13 +78,13 @@ a:hover{color:#ffd9a3}
         </sc-if>
         <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;gap:16px">
-            <div style="width:min(393px,78vw);padding:10px;border:1px solid rgba(233,230,225,.28);border-radius:56px;background:#0c0d11">
+            <div style="width:min(360px,78vw,calc(78vh * 393 / 852 + 22px));box-sizing:border-box;padding:10px;border:1px solid rgba(233,230,225,.28);border-radius:56px;background:#0c0d11">
               <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" onMouseEnter="{{ enter }}" onMouseLeave="{{ leave }}" onClick="{{ clickScreen }}" style="aspect-ratio:393/852;border-radius:46px;overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none">{{ screen }}</div>
             </div>
             <div style="flex:none;align-self:stretch;width:2px;border-radius:2px;background:rgba(233,230,225,.1)"><div style="width:100%;height:{{ progH }};border-radius:2px;background:#e8b671"></div></div>
           </div>
         </sc-if>
-        <sc-if value="{{ isClick }}" hint-placeholder-val="{{ false }}"><div onClick="{{ next }}" style="flex:none;align-self:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">→</div></sc-if>
+        <sc-if value="{{ isClick }}" hint-placeholder-val="{{ false }}"><div onClick="{{ next }}" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);z-index:3;background:rgba(11,12,15,.75);width:52px;height:52px;border-radius:50%;border:1px solid rgba(233,230,225,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;line-height:1;color:#e9e6e1;user-select:none" style-hover="background:rgba(233,230,225,.08);border-color:rgba(232,182,113,.6)">→</div></sc-if>
       </div>
       <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:rgba(233,230,225,.45)">{{ hint }}</div>
     </section>

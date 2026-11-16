@@ -287,14 +287,14 @@ a:hover{color:#ffd9a3}
           <div data-replay="obs-sweep 1100ms 260ms cubic-bezier(.3,.6,.2,1) both" style="margin-top:18px;height:1px;flex-shrink:0;background:#e8b671;transform-origin:left;animation:obs-sweep 1100ms 260ms cubic-bezier(.3,.6,.2,1) both"></div>
           <div data-replay="obs-reveal 520ms 180ms ease-out backwards" style="margin-top:14px;display:flex;flex-direction:column;flex-shrink:0;animation:obs-reveal 520ms 180ms ease-out backwards">
             <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em;color:rgba(233,230,225,.3);padding-bottom:5px">
-              <span>CATALOGUED OBJECTS</span><span>{{ selCount }}</span>
+              <span>CATALOGUED RECORDS</span><span>{{ selCount }}</span>
             </div>
             <sc-for list="{{ selEntries }}" as="entry" hint-placeholder-count="3">
               <div style="padding:6px 2px;border-top:1px solid rgba(233,230,225,.08)">
                 <span style="display:flex;align-items:baseline;gap:10px">
                   <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.16em;color:rgba(233,230,225,.35)">{{ entry.id }}</span>
                   <span style="flex:1;font-weight:400;font-size:13.5px;letter-spacing:-.005em;color:#e9e6e1">{{ entry.title }}</span>
-                  <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8.5px;letter-spacing:.16em;color:rgba(233,230,225,.4)">{{ entry.meta }}</span>
+                  <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8.5px;letter-spacing:.16em;color:#e8b671;white-space:nowrap">{{ entry.year }}</span>
                 </span>
               </div>
             </sc-for>
@@ -307,21 +307,21 @@ a:hover{color:#ffd9a3}
 
       <div data-hud style="position:absolute;left:22px;top:22px;z-index:4;display:flex;flex-direction:column;gap:1px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em">
         <div style="color:rgba(233,230,225,.3);padding-bottom:7px">WORK</div>
-        <div onMouseEnter="{{ enterA }}" onMouseLeave="{{ leave }}" onClick="{{ selectA }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">INTERFACES</span><span style="color:rgba(233,230,225,.35)">03</span></div>
-        <div onMouseEnter="{{ enterB }}" onMouseLeave="{{ leave }}" onClick="{{ selectB }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">IMMERSIVE</span><span style="color:rgba(233,230,225,.35)">04</span></div>
-        <div onMouseEnter="{{ enterD }}" onMouseLeave="{{ leave }}" onClick="{{ selectD }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">EXPLORATIONS</span><span style="color:rgba(233,230,225,.35)">03</span></div>
+        <div onMouseEnter="{{ enterA }}" onMouseLeave="{{ leave }}" onClick="{{ selectA }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">INTERFACES</span><span style="color:rgba(233,230,225,.35)">{{ countA }}</span></div>
+        <div onMouseEnter="{{ enterB }}" onMouseLeave="{{ leave }}" onClick="{{ selectB }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">IMMERSIVE</span><span style="color:rgba(233,230,225,.35)">{{ countB }}</span></div>
+        <div onMouseEnter="{{ enterD }}" onMouseLeave="{{ leave }}" onClick="{{ selectD }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">EXPLORATIONS</span><span style="color:rgba(233,230,225,.35)">{{ countD }}</span></div>
         <div onMouseEnter="{{ enterC }}" onMouseLeave="{{ leave }}" onClick="{{ selectC }}" style="display:flex;align-items:center;gap:12px;padding:5px 7px 5px 0;cursor:crosshair;color:rgba(233,230,225,.55)" style-hover="color:#e8b671"><span style="min-width:96px">UNDISCOVERED</span><span style="color:rgba(233,230,225,.35)">COMING SOON</span></div>
       </div>
 
       <div data-hud style="position:absolute;left:22px;bottom:22px;z-index:4;width:230px;max-width:46%;padding:14px 15px 13px;border:1px solid rgba(233,230,225,.12);background:rgba(8,10,13,.88);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;color:rgba(233,230,225,.6);pointer-events:none">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px;color:rgba(233,230,225,.35)"><span>SYSTEM STATUS</span><span style="width:4px;height:4px;border-radius:50%;background:#e8b671;box-shadow:0 0 7px #e8b671"></span></div>
         <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;justify-content:space-between;"><span style="color:rgba(233,230,225,.45)">OBJECTS</span><span style="color:rgba(233,230,225,.8)">04</span></div>
+          <div style="display:flex;justify-content:space-between;"><span style="color:rgba(233,230,225,.45)">PLANETS</span><span style="color:rgba(233,230,225,.8)">04</span></div>
           <div style="display:flex;justify-content:space-between"><span style="color:rgba(233,230,225,.45)">TARGET</span><span style="color:#e8b671">{{ targetLine }}</span></div>
         </div>
       </div>
 
-      <sc-if value="{{ noSelection }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;z-index:8;right:22px;bottom:22px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.45);pointer-events:none">OBJECTS 04 · RECORDS {{ recordCount }} · SIGNAL STRONG</div></sc-if>
+      <sc-if value="{{ noSelection }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;z-index:8;right:22px;bottom:22px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.45);pointer-events:none">HOVER TO IDENTIFY · SELECT TO EXAMINE</div></sc-if>
 
       <sc-if value="{{ inApproach }}" hint-placeholder-val="{{ false }}">
         <div style="position:absolute;inset:0;z-index:4;overflow:hidden;pointer-events:none">
@@ -351,8 +351,9 @@ a:hover{color:#ffd9a3}
                   <span style="display:flex;align-items:baseline;gap:10px">
                     <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.16em;color:rgba(233,230,225,.75)">{{ entry.id }}</span>
                     <span style="flex:1;font-weight:400;font-size:14px">{{ entry.title }}</span>
-                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.16em;color:rgba(233,230,225,.6)">{{ entry.meta }}</span>
+                    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.16em;color:#e8b671;white-space:nowrap">{{ entry.year }}</span>
                   </span>
+                  <span style="display:block;margin-top:3px;padding-left:19px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8.5px;letter-spacing:.16em;color:rgba(233,230,225,.5)">{{ entry.meta }}</span>
                   <span style="display:block;margin-top:3px;padding-left:19px;font-weight:400;font-size:11.5px;line-height:1.4;color:rgba(233,230,225,.78)">{{ entry.note }}</span>
                 </div>
               </sc-for>
@@ -361,15 +362,38 @@ a:hover{color:#ffd9a3}
         </div>
       </sc-if>
     </div>
+    <section ref="{{ quickRef }}" aria-label="Featured work" style="width:100%;max-width:1180px;margin:28px auto 0;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.22em">
+        <span style="display:flex;align-items:center;gap:9px;color:rgba(233,230,225,.6)"><span style="width:4px;height:4px;border-radius:50%;background:#e8b671;box-shadow:0 0 7px #e8b671"></span>FEATURED WORK · START HERE</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px">
+        <sc-for list="{{ featured }}" as="f" hint-placeholder-count="4">
+          <button type="button" onClick="{{ f.open }}" onMouseEnter="{{ f.enter }}" onMouseLeave="{{ f.leave }}" onFocus="{{ f.enter }}" onBlur="{{ f.leave }}" aria-label="{{ f.aria }}" style="all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;border:1px solid rgba(233,230,225,.12);border-radius:4px;overflow:hidden;background:#0c0d11;transition:border-color .25s,transform .25s" style-hover="border-color:rgba(232,182,113,.6);transform:translateY(-2px)">
+            <span style="position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#17181d">{{ f.media }}</span>
+            <span style="flex:1;display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px">
+              <span style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.18em"><span style="color:rgba(233,230,225,.55)">{{ f.world }}</span><span style="color:#e8b671">{{ f.year }}</span></span>
+              <span style="font-size:19px;letter-spacing:-.01em;color:#f3efe9">{{ f.title }}</span>
+              <span style="margin-top:auto;padding-top:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.45)">OPEN RECORD →</span>
+            </span>
+            <span aria-hidden="true" style="position:absolute;inset:0;z-index:2;overflow:hidden;background:#0c0d11;opacity:{{ f.prevOp }};transition:opacity .4s ease;pointer-events:none">{{ f.preview }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+    </section>
+
     <sc-if value="{{ hasCase }}" hint-placeholder-val="{{ false }}">
       {{ recBackdrop }}
-      <div style="position:absolute;left:22px;right:22px;top:0;bottom:0;z-index:6;width:auto;max-width:1320px;margin:0 auto;border:1px solid rgba(233,230,225,.1);border-radius:3px;background:#07080a;overflow:auto;scrollbar-width:thin">
+      <div style="position:absolute;left:22px;right:22px;top:0;height:min(100%,calc(100vh - 24px));z-index:6;width:auto;max-width:1320px;margin:0 auto;border:1px solid rgba(233,230,225,.1);border-radius:3px;background:#07080a;overflow:auto;scrollbar-width:thin">
         <div style="position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 22px;border-bottom:1px solid rgba(233,230,225,.1);background:rgba(8,10,13,.94);backdrop-filter:blur(3px);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.5)">
           <span style="display:flex;align-items:center;gap:9px"><span style="width:4px;height:4px;border-radius:50%;background:#e8b671;box-shadow:0 0 7px #e8b671"></span>{{ recIndex }}</span>
           <span onClick="{{ closeRecord }}" style="cursor:crosshair;padding:5px 10px;border:1px solid rgba(233,230,225,.22);color:rgba(233,230,225,.72)" style-hover="background:rgba(233,230,225,.08)">← BACK</span>
         </div>
 
         <div style="padding:clamp(28px,4vw,56px) clamp(22px,5vw,72px) clamp(48px,6vw,88px)">
+        <sc-if value="{{ isIst }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Record IST Technology" embedded="{{ true }}" hint-size="100%,1600px"></dc-import>
+        </sc-if>
         <sc-if value="{{ isSB }}" hint-placeholder-val="{{ false }}">
           <dc-import name="Record SB Chemical" embedded="{{ true }}" hint-size="100%,1400px"></dc-import>
         </sc-if>
@@ -457,29 +481,34 @@ a:hover{color:#ffd9a3}
   </div>
 
   <div style="position:relative;z-index:1;display:flex;justify-content:space-between;gap:20px;padding:16px 22px 18px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.2em;color:rgba(233,230,225,.3);flex-wrap:wrap">
-    <span>HOVER TO IDENTIFY · SELECT TO EXAMINE</span>
+    <span></span>
     <span style="display:flex;gap:22px;align-items:center"><a href="Vipatr Kuptasanti CV 2026.pdf" target="_blank" download style="color:rgba(233,230,225,.5)" style-hover="color:#e8b671">CV DOWNLOAD · PDF ↓</a></span>
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showOrbitPaths&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;statusReadout&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;3 OBJECTS CHARTED · 1 UNSURVEYED&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showOrbitPaths&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;statusReadout&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;3 PLANETS CHARTED · 1 UNSURVEYED&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { hover: null, selected: null, mode: 'system', record: null, peek: null, sgrPhase: null, sgrHover: false };
   worlds = {
     a: { id: 'OBJ-01', name: 'Interfaces', desc: 'Grid-lined world. Surface mapped with wireframes, systems and screen fragments.',
       alt: '412 KM', vel: '7.14 KM/S', period: '92 MIN',
       entries: [
-        { id: '01', title: 'Orisma Technology', meta: 'WEB · CLIENT', note: 'Designed websites for SC Asset, Silom Complex, Luckpim and SHERA.',
+        { id: '01', title: 'Orisma Technology', meta: 'WEB · INTERNSHIP', note: 'Designed websites for SC Asset, Silom Complex, Luckpim and SHERA.',
           role: 'DESIGN INTERN', status: 'DELIVERED', year: '2023', page: 'Record Orisma.dc.html',
           lede: 'Four client sites inside one internship, each with its own brand system to work within.',
           metrics: [{ k: 'CLIENTS', v: '04' }, { k: 'SCOPE', v: 'WEB' }],
           stills: ['SC ASSET — HOMEPAGE', 'SILOM COMPLEX — CONTACT'] },
-        { id: '02', title: 'SB Chemical', meta: 'UI · FREELANCE', note: 'Improved UI flow and streamlined B2B navigation.',
+        { id: '02', title: 'IST Technology', meta: 'WEB · LIVE', note: 'Designed and built a live bilingual site and parts catalogue for an industrial supplier, twice.',
+          role: 'WEB DESIGNER & DEVELOPER', status: 'LIVE', year: '2025 – 2026', page: 'Record IST Technology.dc.html',
+          lede: 'Two redesigns, both shipped, for a supplier to poultry and food-processing plants.',
+          metrics: [{ k: 'VERSIONS', v: '02' }, { k: 'STATE', v: 'LIVE' }],
+          stills: ['FIGMA → V1 → V2', 'PRODUCT CATALOGUE'] },
+        { id: '03', title: 'SB Chemical', meta: 'WEB · FREELANCE', note: 'Improved UI flow and streamlined B2B navigation.',
           role: 'FREELANCE DESIGNER', status: 'CONCEPT', year: '2025', page: 'Record SB Chemical.dc.html',
           lede: 'A B2B catalogue that buyers had to hunt through. The rebuild put the flow and the navigation back in order.',
           metrics: [{ k: 'FOCUS', v: 'B2B' }, { k: 'SCOPE', v: 'UI FLOW' }],
           stills: ['NAVIGATION — BEFORE / AFTER', 'PRODUCT FLOW'] },
-        { id: '03', title: 'ON-CLICK', meta: 'APP · CONCEPT', note: 'App for booking a nearby photographer by expertise level.',
+        { id: '04', title: 'ON-CLICK', meta: 'APP · CONCEPT', note: 'App for booking a nearby photographer by expertise level.',
           role: 'UI / UX DESIGN', status: 'CONCEPT', year: '2023', page: 'Record On-Click.dc.html',
           lede: 'An app for booking a photographer by expertise level, from Amateur to Cinematographer.',
           metrics: [{ k: 'FOCUS', v: 'CONNECTION' }, { k: 'STATE', v: 'CONCEPT' }],
@@ -487,7 +516,7 @@ class Component extends DCLogic {
     b: { id: 'OBJ-02', name: 'Immersive', desc: 'Ocean world. Slow swell, low visibility. VR, AR and installations made to be moved through.',
       alt: '308 KM', vel: '6.82 KM/S', period: '104 MIN',
       entries: [
-        { id: '01', title: 'SUNKEN FEELING', meta: 'VR · EXHIBITED', note: 'VR simulation exhibited at National Taipei University of Technology, built in Unity + Meta Quest 3.',
+        { id: '01', title: 'Sunken Feeling', meta: 'VR · EXHIBITED', note: 'VR simulation exhibited at National Taipei University of Technology, built in Unity + Meta Quest 3.',
           role: 'VR DESIGNER', status: 'EXHIBITED', year: '2024', page: 'Record Sunken Feeling.dc.html',
           lede: 'A VR simulation shown at National Taipei University of Technology.',
           metrics: [{ k: 'STACK', v: 'UNITY · QUEST 3' }, { k: 'VENUE', v: 'NTUT' }],
@@ -498,7 +527,7 @@ class Component extends DCLogic {
           metrics: [{ k: 'STACK', v: 'UNITY · VUFORIA' }, { k: 'MEDIUM', v: 'AR' }],
           stills: ['AR PROTOTYPE', 'APP SCREENS'] },
         { id: '03', title: 'Emosphere', meta: 'INSTALLATION · EXHIBITED', note: 'Interactive installation exhibited at YODEX (Taipei) and VGW (Kaohsiung), built with Arduino + Unity.',
-          role: 'INSTALLATION DESIGNER', status: 'EXHIBITED', year: '2025', page: 'Record Emosphere.dc.html',
+          role: 'INSTALLATION DESIGNER', status: 'EXHIBITED', year: '2024 – 2025', page: 'Record Emosphere.dc.html',
           lede: 'An interactive installation shown at YODEX in Taipei and VGW in Kaohsiung.',
           metrics: [{ k: 'STACK', v: 'ARDUINO · UNITY' }, { k: 'VENUES', v: '02' }],
           stills: ['YODEX — INSTALL', 'VGW — VISITOR VIEW'] },
@@ -529,6 +558,16 @@ class Component extends DCLogic {
           metrics: [{ k: 'LENGTH', v: '2 MIN' }, { k: 'STATE', v: 'CONCEPT' }],
           stills: ['ENTRY', 'THE BIGGER PICTURE'] }] }
   };
+  sortedByYear = (() => {
+    const yr = y => { const m = String(y || '').match(/\d{4}/g) || ['0']; return [Number(m[m.length - 1]), Number(m[0])]; };
+    Object.values(this.worlds).forEach(w => {
+      w.entries = w.entries.map((e, i) => ({ e, i })).sort((a, b) => {
+        const A = yr(a.e.year), B = yr(b.e.year);
+        return (B[0] - A[0]) || (B[1] - A[1]) || (a.i - b.i);
+      }).map((x, i) => Object.assign({}, x.e, { id: String(i + 1).padStart(2, '0') }));
+    });
+    return true;
+  })();
   componentDidMount() {
     this.onResize = () => { this.shot = null; this.forceSync = true; this.sync(); };
     requestAnimationFrame(() => requestAnimationFrame(this.onResize));
@@ -538,7 +577,7 @@ class Component extends DCLogic {
     }
     window.addEventListener('resize', this.onResize);
   }
-  componentWillUnmount() { clearTimeout(this.burn); clearTimeout(this.sgrTimer); window.removeEventListener('resize', this.onResize); if (this.ro) this.ro.disconnect(); }
+  componentWillUnmount() { clearInterval(this.fwT); clearTimeout(this.burn); clearTimeout(this.sgrTimer); window.removeEventListener('resize', this.onResize); if (this.ro) this.ro.disconnect(); }
   sgrDraw() {
     if (this.sgrBusy) return;
     this.sgrBusy = true;
@@ -704,10 +743,33 @@ class Component extends DCLogic {
       metrics: [{ k: 'BUILDS', v: '7' }, { k: 'SHIPPED', v: 'NO' }],
       stills: ['PROTOTYPE STILL', 'WORKING NOTES'] }
   };
+  fwStart(i, el) {
+    clearInterval(this.fwT);
+    this.setState({ fwHover: i, fwTick: 0 });
+    this.fwT = setInterval(() => this.setState({ fwTick: (this.state.fwTick || 0) + 1 }), 1200);
+    const v = el && el.querySelector && el.querySelector('[data-preview]');
+    if (v) { try { v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {} }
+  }
+  fwStop(el) {
+    clearInterval(this.fwT);
+    this.setState({ fwHover: null, fwTick: 0 });
+    const v = el && el.querySelector && el.querySelector('[data-preview]');
+    if (v) { try { v.pause(); v.currentTime = 0; } catch (e) {} }
+  }
+  openWork(k, title) {
+    const i = this.worlds[k].entries.findIndex(x => x.title === title);
+    if (i < 0) return;
+    clearTimeout(this.burn); clearTimeout(this.closeT);
+    if (this.snap) this.snap();
+    this.setState({ selected: k, mode: 'orbit', record: i, peek: null, closing: false });
+    const top = this.stageEl && this.stageEl.parentElement;
+    if (top && top.scrollIntoView) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
   renderVals() {
     const h = this.state.hover;
     const names = { a: 'INTERFACES', b: 'IMMERSIVE', c: 'UNDISCOVERED', d: 'EXPLORATIONS' };
-    const counts = { a: '03', b: '04', c: '00', d: '03' };
+    const cnt = k => String(this.worlds[k].entries.length).padStart(2, '0');
+    const counts = { a: cnt('a'), b: cnt('b'), c: cnt('c'), d: cnt('d') };
     const set = k => () => this.setState({ hover: k });
     const pick = k => () => {
       clearTimeout(this.closeT);
@@ -750,7 +812,7 @@ class Component extends DCLogic {
         this.burn = setTimeout(() => this.setState({ mode: 'orbit' }), 1800);
       },
       leaveOrbit: () => { clearTimeout(this.burn); this.setState({ mode: 'system', record: null }); },
-      selIndex: sel ? sel.id + ' · CLASS ' + sel.name.slice(0, 3).toUpperCase() : '',
+      selIndex: sel ? 'CLASS ' + sel.name.slice(0, 3).toUpperCase() : '',
       selName: sel ? sel.name : '',
       selDesc: sel ? sel.desc : '',
       selShort: sel ? sel.desc.split('. ')[0] + '.' : '',
@@ -763,9 +825,36 @@ class Component extends DCLogic {
         roleLine: (e.role || base.role),
         statusLine: (e.status || base.status)
       })) : [],
+      quickRef: el => { if (el) this.quickEl = el; },
+      featured: [
+        ['a', 'IST Technology', ['assets/ist/cover.webp', 'assets/ist/v2-products.webp', 'assets/ist/v2-catalogue.webp', 'assets/ist/v2-about.webp', 'assets/ist/orig-home.webp'], 'Designed and built a live bilingual site and parts catalogue, twice.'],
+        ['b', 'Emosphere', ['assets/emosphere/loop.mp4', 'assets/emosphere/yodex-booth.webp', 'assets/emosphere/visitors.webp', 'assets/emosphere/yodex-team.webp', 'assets/emosphere/campus-team.webp', 'assets/emosphere/team-card.webp', 'assets/emosphere/staff-badge.webp', 'assets/emosphere/no18-card.webp'], 'Interactive installation exhibited at YODEX and VGW.'],
+        ['b', 'Sunken Feeling', ['assets/sunken/deep-bg.webp', 'assets/sunken/exh-team.webp', 'assets/sunken/exh-player.webp', 'assets/sunken/exh-booth.webp', 'assets/sunken/exh-table.webp', 'assets/sunken/brochure-mockup.webp'], 'VR simulation exhibited at NTUT, Taipei.'],
+        ['a', 'Orisma Technology', ['assets/orisma/team.webp', 'assets/sca/hero.webp', 'assets/silom/home.webp', 'assets/shera/solar-desktop.webp', 'assets/luckpim/buy-1-list.webp'], 'Client websites for SC Asset, Silom Complex, Luckpim and SHERA.']
+      ].map(([k, title, frames, line], fi) => {
+        const e = this.worlds[k].entries.find(x => x.title === title) || {};
+        const live = this.state.fwHover === fi;
+        const isVid = /\.mp4/.test(frames[0]);
+        const prev = frames.length > 1 ? frames.slice(1) : frames;
+        const cur = live ? (this.state.fwTick || 0) % prev.length : 0;
+        const fill = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' };
+        const media = isVid
+          ? React.createElement('video', { src: frames[0] + '#t=5.6', muted: true, playsInline: true, preload: 'metadata', 'aria-hidden': 'true', style: fill })
+          : React.createElement('img', { src: frames[0], alt: '', style: fill });
+        const preview = isVid && frames.length === 1
+          ? React.createElement('video', { 'data-preview': '1', src: frames[0], muted: true, loop: true, playsInline: true, preload: 'none', 'aria-hidden': 'true', style: fill })
+          : prev.map((src, j) => React.createElement('img', { key: src, src, alt: '', loading: 'lazy', style: Object.assign({}, fill, { objectPosition: /assets\/(ist|sca|silom|shera|luckpim)\//.test(src) ? 'top' : 'center', opacity: j === cur ? 1 : 0, transition: 'opacity .6s ease' }) }));
+        const start = ev => { this.fwStart(fi, ev.currentTarget); };
+        const stop = ev => { this.fwStop(ev.currentTarget); };
+        return { title: e.title || title, media, preview, prevOp: live ? 1 : 0, enter: start, leave: stop, line, year: e.year || '', world: this.worlds[k].name.toUpperCase(), aria: 'Open ' + title + ' case study', open: () => this.openWork(k, title) };
+      }),
+      allWork: Object.keys(this.worlds).flatMap(k => this.worlds[k].entries.map(e => ({ k, e })))
+        .map(x => { const m = String(x.e.year || '').match(/\d{4}/g) || ['0']; return Object.assign(x, { y1: +m[m.length - 1], y0: +m[0] }); })
+        .sort((a, b) => (b.y1 - a.y1) || (a.y0 - b.y0))
+        .map(x => ({ title: x.e.title, year: x.e.year, note: x.e.note, world: this.worlds[x.k].name.toUpperCase(), open: () => this.openWork(x.k, x.e.title) })),
       hasCase: !!rec,
       recBackdrop: rec ? React.createElement('div', { style: { position: 'absolute', inset: 0, zIndex: 6, background: 'rgba(4,5,7,.82)', cursor: 'pointer' }, onClick: () => this.setState({ record: null }) }) : null,
-      recIndex: rec ? sel.id + ' · RECORD ' + rec.id : '',
+      recIndex: rec ? sel.name.toUpperCase() + ' · RECORD ' + rec.id : '',
       recTitle: rec ? rec.title : '',
       recMeta: rec ? rec.meta : '',
       recRole: rec ? rec.role : '',
@@ -775,6 +864,7 @@ class Component extends DCLogic {
       hasPage: !!(rec && rec.page),
       noPage: !(rec && rec.page),
       isSB: !!(rec && rec.page === 'Record SB Chemical.dc.html'),
+      isIst: !!(rec && rec.page === 'Record IST Technology.dc.html'),
       isOrisma: !!(rec && rec.page === 'Record Orisma.dc.html'),
       isSunken: !!(rec && rec.page === 'Record Sunken Feeling.dc.html'),
       isEmo: !!(rec && rec.page === 'Record Emosphere.dc.html'),
@@ -802,9 +892,10 @@ class Component extends DCLogic {
       },
       root: el => { if (el) { this.rootEl = el; this.sync(); } },
       stage: el => { if (el) { this.stageEl = el; this.sync(); } },
-      statusReadout: this.props.statusReadout ?? '3 OBJECTS CHARTED · 1 UNSURVEYED',
+      statusReadout: this.props.statusReadout ?? '3 PLANETS CHARTED · 1 UNSURVEYED',
       showOrbitPaths: this.props.showOrbitPaths ?? true,
-      targetLine: this.state.sgrHover ? 'SGR · 2002.12.07' : this.state.selected ? names[this.state.selected] + (this.state.mode === 'orbit' ? ' · ORBIT' : this.state.mode === 'approach' ? ' · APPROACH' : ' · LOCKED') : (h ? names[h] : 'NONE'),
+      targetLine: this.state.sgrHover ? 'SGR · 2002.12.07' : this.state.selected ? names[this.state.selected] + (this.state.mode === 'orbit' ? ' · ORBIT' : this.state.mode === 'approach' ? ' · APPROACH' : '') : (h ? names[h] : 'NONE'),
+      countA: counts.a, countB: counts.b, countD: counts.d,
       catalogueLine: this.state.sgrHover ? 'ASTERISM · NOT CATALOGUED' : h ? counts[h] + ' RECORDS · SEALED' : 'CATALOGUE 2019—2026',
       sgrIn: this.state.sgrPhase === 'in',
       sgrOut: this.state.sgrPhase === 'out',

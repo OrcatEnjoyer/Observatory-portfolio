@@ -35,17 +35,17 @@ a:hover{color:#ffd9a3}
   <main ref="{{ topRef }}" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:64px">
 
     <header style="display:flex;flex-direction:column;gap:28px">
-      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-01 · INTERFACES · RECORD 01</div>
       <div style="display:flex;flex-direction:column;gap:18px;max-width:780px">
         <h1 style="margin:0;font-weight:400;font-size:clamp(42px,7vw,96px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">Orisma Technology</h1>
         <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8b671">UX/UI Design Internship</div>
         <p style="margin:0;max-width:52ch;font-weight:400;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:rgba(233,230,225,.72);text-wrap:pretty">Four client sites inside one internship, each with its own brand system to work within.</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
-        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.85)">DESIGN INTERN</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.85);line-height:1.5">DESIGN INTERN</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85);line-height:1.5">2023</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">BUILT WITH</span><span style="color:rgba(233,230,225,.85);line-height:1.5">FIGMA</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671;line-height:1.5">DELIVERED</span></div>
         <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">CLIENTS</span><span style="color:rgba(233,230,225,.85);line-height:1.5">SC ASSET · SILOM COMPLEX · LUCKPIM · SHERA</span></div>
-        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">SCOPE</span><span style="color:rgba(233,230,225,.85)">WEB · APP</span></div>
-        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">PERIOD</span><span style="color:rgba(233,230,225,.85)">2023</span></div>
       </div>
     </header>
 
@@ -129,7 +129,7 @@ a:hover{color:#ffd9a3}
           </sc-if>
           <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex;gap:16px">
-            <div style="width:min(393px,78vw);padding:10px;border:1px solid rgba(233,230,225,.28);border-radius:56px;background:#0c0d11;position:relative">
+            <div style="width:min(360px,78vw,calc(78vh * 393 / 852 + 22px));box-sizing:border-box;padding:10px;border:1px solid rgba(233,230,225,.28);border-radius:56px;background:#0c0d11;position:relative">
               <div ref="{{ frameRef }}" onScroll="{{ onFrameScroll }}" style="aspect-ratio:393/852;border-radius:46px;overflow-y:auto;background:#fff;scrollbar-width:none">
                 {{ mobileImg }}
               </div>

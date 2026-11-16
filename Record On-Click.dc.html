@@ -35,15 +35,14 @@ a:hover{color:#ffd9a3}
   <main style="max-width:1240px;margin:0 auto;padding:{{ mainPad }};display:flex;flex-direction:column;gap:80px">
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px clamp(32px,6vw,96px);align-items:end">
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-01 · INTERFACES · RECORD 03</div>
         <h1 style="margin:0;font-weight:400;font-size:clamp(40px,5.6vw,80px);line-height:.96;letter-spacing:-.035em;color:#f3efe9">ON-CLICK</h1>
         <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:#e8b671">APP DESIGN</div>
         <p style="margin:6px 0 0;max-width:40ch;font-weight:400;font-size:clamp(15px,1.4vw,18px);line-height:1.55;color:rgba(233,230,225,.78);text-wrap:pretty">An app for booking a nearby photographer by expertise level, from Amateur to Cinematographer.</p>
         <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:18px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
-          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">MY ROLE</span><span style="color:rgba(233,230,225,.85)">UI / UX DESIGN · SOLO</span></div>
-          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85)">2023</span></div>
-          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">TOOL</span><span style="color:rgba(233,230,225,.85)">FIGMA</span></div>
-          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671">CONCEPT</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.85);line-height:1.5">UI / UX DESIGN</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85);line-height:1.5">2023</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">BUILT WITH</span><span style="color:rgba(233,230,225,.85);line-height:1.5">FIGMA</span></div>
+          <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671;line-height:1.5">CONCEPT</span></div>
         </div>
       </div>
     </section>
@@ -65,8 +64,8 @@ a:hover{color:#ffd9a3}
         </div>
       </div>
       <div ref="{{ stageRef }}" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;padding:clamp(24px,4vw,48px) clamp(16px,3vw,40px) clamp(20px,3vw,32px);border:1px solid rgba(233,230,225,.1);border-radius:10px;background:radial-gradient(60% 45% at 50% 88%,rgba(232,182,113,.16) 0%,rgba(232,182,113,0) 70%),#101116">
-        <div style="position:relative;width:min({{ phoneMax }},360px,calc(80vh * 786 / 1704))">
-        <div style="position:relative;width:100%;aspect-ratio:786/1704;border-radius:44px;overflow:hidden;border:1px solid rgba(233,230,225,.14);box-shadow:0 50px 100px -40px rgba(0,0,0,.8);background:#262626">
+        <div style="position:relative;width:min({{ phoneMax }},360px,78vw,calc(78vh * 393 / 852 + 22px));box-sizing:border-box;padding:10px;border:1px solid rgba(233,230,225,.28);border-radius:56px;background:#0c0d11">
+        <div style="position:relative;width:100%;aspect-ratio:786/1704;border-radius:46px;overflow:hidden;box-shadow:0 50px 100px -40px rgba(0,0,0,.8);background:#262626">
           <div ref="{{ scrollRef }}" onScroll="{{ onScroll }}" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none">
             <div style="position:relative">
               <img src="{{ screenSrc }}" alt="{{ screenAlt }}" style="display:block;width:100%;height:auto">

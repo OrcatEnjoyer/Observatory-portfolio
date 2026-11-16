@@ -35,16 +35,15 @@ a:hover{color:#ffd9a3}
 
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px clamp(32px,6vw,96px);align-items:end">
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.24em;color:rgba(233,230,225,.42)">OBJ-04 · EXPLORATIONS · RECORD 03</div>
         <h1 style="margin:0;font-weight:400;font-size:clamp(40px,5.6vw,80px);line-height:.96;letter-spacing:-.035em;color:#f3efe9;text-wrap:balance">The Thought Deconstruct</h1>
         <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:#e8b671">2-MINUTE MENTAL HEALTH EXPERIENCE</div>
         <p style="margin:6px 0 0;max-width:42ch;font-weight:400;font-size:clamp(15px,1.4vw,18px);line-height:1.55;color:rgba(233,230,225,.78);text-wrap:pretty">A short guided exercise that helps you step back from a heavy thought, built as a working web app.</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(233,230,225,.1);border:1px solid rgba(233,230,225,.1);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.18em">
-        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">MY ROLE</span><span style="color:rgba(233,230,225,.85)">DESIGN &amp; DEVELOPMENT · SOLO</span></div>
-        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85)">2026</span></div>
-        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">BUILT WITH</span><span style="color:rgba(233,230,225,.85)">REACT · VITE</span></div>
-        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671">SELF-INITIATED CONCEPT</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">ROLE</span><span style="color:rgba(233,230,225,.85);line-height:1.5">DESIGN &amp; DEVELOPMENT</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">YEAR</span><span style="color:rgba(233,230,225,.85);line-height:1.5">2026</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">BUILT WITH</span><span style="color:rgba(233,230,225,.85);line-height:1.5">REACT · VITE</span></div>
+        <div style="background:#0c0d11;padding:14px 16px;display:flex;flex-direction:column;gap:7px"><span style="color:rgba(233,230,225,.35)">STATUS</span><span style="color:#e8b671;line-height:1.5">SELF-INITIATED CONCEPT</span></div>
       </div>
     </section>
 
@@ -154,9 +153,9 @@ class Component extends DCLogic {
       mainPad: emb ? '0' : '48px 22px 80px',
       playing: s.playing, notPlaying: !s.playing,
       play: () => this.setState({ playing: true }), stop: () => this.setState({ playing: false }),
-      frameW: s.phone ? 'min(100%,390px)' : '100%',
-      frameRatio: s.phone ? '390/780' : '16/10',
-      frameRadius: s.phone ? '36px' : '8px',
+      frameW: s.phone ? 'min(360px,78vw,calc(78vh * 393 / 852 + 22px))' : 'min(100%,1100px)',
+      frameRatio: s.phone ? '393/852' : '16/10',
+      frameRadius: s.phone ? '46px' : '10px',
       frameCaption: s.playing ? 'ABOUT TWO MINUTES · BREATHE WITH THE RINGS' : (s.phone ? 'MOBILE VERSION · ABOUT TWO MINUTES' : 'DESKTOP VERSION · ABOUT TWO MINUTES'),
       moments: this.moments.map(([k, name, t], i) => ({ src: 'assets/ooca/' + k + '.webp', name, t, n: String(i + 1).padStart(2, '0'), open: () => this.setState({ zoom: [k, name] }) })),
       hasZoom: !!z, zoomName: z ? z[1].toUpperCase() : '',
